@@ -1,0 +1,25 @@
+# Development/prototype-only Compose overlay.
+#
+# This file deliberately does not change deploy/compose.yaml.  It replaces the
+# empty production model volume with a read-only bind mount of the locally
+# verified research checkpoints.  The models remain prototype-only and must
+# never be treated as a production release.
+
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.api.prototype
+    environment:
+      KISANSATHI_ENV: development
+      KISANSATHI_DEV_MODE: "true"
+      KISANSATHI_AUTH_MODE: test
+      KISANSATHI_PROTOTYPE_MODE: "true"
+      CROP_DISEASE_RESEARCH_MODE: "true"
+      CROP_MODEL_DIR: /app/models/prototype
+      CROP_MODEL_REGISTRY_PATH: /app/models/crop_disease/registry.prototype.json
+    volumes:
+      - type: bind
+        source: ../models/candidates/mesabo-agri-plant-disease-resnet50-61aa6c3
+        target: /app/models/prototype/mesabo-agri-plant-disease-resnet50-61aa6c3
+        read_only: true

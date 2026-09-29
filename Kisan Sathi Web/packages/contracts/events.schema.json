@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kisansathi.local/contracts/events/v1",
+  "title": "KisanSathi resumable event envelope v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "event_id", "session_id", "turn_id", "sequence", "occurred_at", "kind", "payload", "delivery"],
+  "properties": {
+    "version": {"const": "1.0"},
+    "event_id": {"type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"},
+    "session_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "turn_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "sequence": {"type": "integer", "minimum": 1},
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "kind": {"type": "string", "enum": ["ready", "unavailable", "diagnostic", "agentMessageDelta", "agentMessageCompleted", "tool", "approval", "clarification", "turnCompleted", "threadStatus", "reconnect", "cancelled"]},
+    "payload": {"type": "object"},
+    "delivery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cursor", "replay", "duplicate"],
+      "properties": {
+        "cursor": {"type": "string", "minLength": 1, "maxLength": 128},
+        "replay": {"type": "boolean"},
+        "duplicate": {"type": "boolean"}
+      }
+    }
+  },
+  "examples": [
+    {"version":"1.0","event_id":"evt-ready-001","session_id":"sess-001","turn_id":"turn-001","sequence":1,"occurred_at":"2026-09-17T10:00:00Z","kind":"ready","payload":{"resumed":false},"delivery":{"cursor":"1","replay":false,"duplicate":false}},
+    {"version":"1.0","event_id":"evt-approval-004","session_id":"sess-001","turn_id":"turn-001","sequence":4,"occurred_at":"2026-09-17T10:00:03Z","kind":"approval","payload":{"request_id":"approval-1","tool":"record_irrigation_event"},"delivery":{"cursor":"4","replay":false,"duplicate":false}}
+  ]
+}

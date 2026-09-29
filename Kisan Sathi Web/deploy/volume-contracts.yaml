@@ -1,0 +1,30 @@
+schema_version: 1
+description: Runtime mount contracts; no model artifacts are distributed here.
+volumes:
+  farm_state:
+    name: kisansathi_farm_state
+    mount: /app/data/farm_state
+    access: read-write
+    owner: api
+    backup: required
+  farm_uploads:
+    name: kisansathi_farm_uploads
+    mount: /app/data/farm_uploads
+    access: read-write
+    owner: api
+    backup: policy-dependent
+  model_releases:
+    name: kisansathi_model_releases
+    mount: /app/models/releases
+    access: read-only
+    owner: release-process
+    content: approved release manifests and runtime-injected model bytes only
+    git_policy: metadata-only; no model bytes in this repository
+  crop_disease_models:
+    name: kisansathi_crop_disease_models
+    mount: /app/models/crop_disease/downloaded
+    access: read-only
+    owner: release-process
+    backup: required
+    content: approved crop-specialist artifacts only; candidate and placeholder bytes prohibited
+    git_policy: metadata-only; no model bytes in this repository

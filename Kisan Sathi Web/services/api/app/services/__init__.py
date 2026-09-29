@@ -1,0 +1,1 @@
+"""Standalone API domain services."""

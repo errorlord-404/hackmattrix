@@ -1,0 +1,2184 @@
+{
+  "counts": {
+    "read": 56,
+    "write": 22
+  },
+  "schema_version": 1,
+  "source_hashes": {
+    "agent/src/kisansathi_agent/server.py": "dc3bcfa624e980c0cc07a98fc541237536a6d7b47d4cccdb817cca471b2544d9",
+    "agent/src/kisansathi_agent/tools.py": "cc0037f42a0e713214e23c0107f21a14817eaae3c2a9e1597c5da3543a3a1a12"
+  },
+  "tools": [
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Send a farmer question to the configured advisor provider and preserve unavailable states.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "field_id": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "session_id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "ask_farm_advisor"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Calculate an all-in logistics cost from one supplier-provided quote.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "quote": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "calculate_logistics_cost"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Calculate profit from explicit user-provided assumptions without persisting financial data.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "expenses": {
+            "type": "string"
+          },
+          "quantity_quintals": {
+            "type": "string"
+          },
+          "revenue": {
+            "type": "string"
+          },
+          "sale_price_per_quintal": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "calculate_profit"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Check government-scheme eligibility using explicit state and criteria inputs.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "eligibility_criteria": {
+            "type": "string"
+          },
+          "farmer_state": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "check_scheme_eligibility"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Compare farmer-provided logistics quotes by their disclosed all-in costs.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "quotes": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "compare_logistics_options"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Compare farmer-provided machinery quotes by their disclosed all-in costs.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "quotes": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "compare_machinery_costs"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Compare net mandi realisation using explicit farmer location and quantity assumptions.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "crop_name": {
+            "type": "string"
+          },
+          "farmer_district": {
+            "type": "string"
+          },
+          "farmer_state": {
+            "type": "string"
+          },
+          "quantity_quintals": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "compare_mandis"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Rank explicit supplier quotes by disclosed cost components. It never estimates hidden costs or converts currencies.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "quotes": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "compare_marketplace_quotes"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Compare official MSP records with the newest sourced price per mandi. It does not guarantee procurement.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "crop_name": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "compare_msp_with_market"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Create a farmer-scoped advisor session after confirmation.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "field_id": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "create_advisor_session"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Create a farmer field from a confirmed name, area, and GeoJSON boundary.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "area_acres": {
+            "type": "string"
+          },
+          "boundary_geojson": {
+            "type": "string"
+          },
+          "current_crop": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "create_field"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Create a farmer-confirmed actionable task for a field; it does not order inputs or control equipment.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "due_at": {
+            "type": "string"
+          },
+          "field_id": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "create_field_task"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Create a farmer-confirmed reminder for a field or the whole farm.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "field_id": {
+            "type": "string"
+          },
+          "reminder_type": {
+            "type": "string"
+          },
+          "scheduled_for": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "create_reminder"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Create a farmer-confirmed farm report snapshot.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "from_date": {
+            "type": "string"
+          },
+          "report_type": {
+            "type": "string"
+          },
+          "to_date": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "create_report"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Submit a crop image with farmer-confirmed crop when known; preserve review/provider-unavailable states.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "confirmed_crop": {
+            "type": "string"
+          },
+          "field_id": {
+            "type": "string"
+          },
+          "image_base64": {
+            "type": "string"
+          },
+          "mime_type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "diagnose_crop"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Find source-attributed crop buyers. This does not submit a sale or guarantee buyer acceptance.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "district": {
+            "type": "string"
+          },
+          "query": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "find_crop_buyers"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Find source-attributed exporters. This does not determine export eligibility or submit export paperwork.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "district": {
+            "type": "string"
+          },
+          "query": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "find_exporters"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Find source-attributed fertilizer suppliers. Listings are discovery-only and never guarantee stock or price.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "district": {
+            "type": "string"
+          },
+          "query": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "find_fertilizer_suppliers"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load government schemes applicable to a state.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "find_government_schemes"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Find source-attributed logistics providers. This does not book transport or estimate an unpublished quote.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "district": {
+            "type": "string"
+          },
+          "query": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "find_logistics_providers"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Find nearby machinery-rental records with optional category and location filters.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "district": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "find_machinery"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Find source-attributed machinery near a farmer-owned field. The field coordinates are read from backend state and cannot be supplied by the model.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "field_id": {
+            "type": "string"
+          },
+          "radius_km": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "find_nearby_machinery"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Find source-attributed directory records near a farmer-owned field. This only discovers contacts; it cannot transact.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "field_id": {
+            "type": "string"
+          },
+          "listing_type": {
+            "type": "string"
+          },
+          "radius_km": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "find_nearby_marketplace_listings"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Find source-attributed seed suppliers. Listings are discovery-only and never guarantee stock or price.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "district": {
+            "type": "string"
+          },
+          "query": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "find_seed_suppliers"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load safe farm-service, reference-catalog, provider, and demo-data health without exposing paths or credentials.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "name": "get_component_health"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load one crop reference record by its exact ID.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "crop_id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "get_crop"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Compare sourced crop catalog options using farmer-confirmed season, prior crop, and soil type. It is not a yield or profit prediction.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "field_id": {
+            "type": "string"
+          },
+          "previous_crop": {
+            "type": "string"
+          },
+          "season": {
+            "type": "string"
+          },
+          "soil_type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "get_crop_options"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load stage-aware suggested tasks for a field. They never create a task or execute work without farmer confirmation.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "field_id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "get_crop_stage_action_proposals"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load field boundaries and current map metrics for the farmer's active fields.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "name": "get_farm_map"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load the current farmer-scoped dashboard, fields, open alerts, and data warnings.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "name": "get_farm_overview"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load one farmer-scoped field by its exact field ID.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "field_id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "get_field"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load crop-cycle and stage history for one field.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "field_id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "get_field_timeline"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load deterministic irrigation screening advice; this never activates equipment.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "field_id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "get_irrigation_advice"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load the latest sensor observations grouped by measurement for a field.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "field_id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "get_latest_field_observations"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load the active farmer-entered INR income, expense, and balance summary; it is not a forecast or credit decision.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "name": "get_ledger_summary"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load bounded historical market prices for a crop and optional mandi.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "crop": {
+            "type": "string"
+          },
+          "days": {
+            "type": "string"
+          },
+          "mandi": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "get_market_history"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load latest market prices for a crop, optionally scoped to district and state.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "crop_name": {
+            "type": "string"
+          },
+          "district": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "get_market_price"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load latest market prices with source and freshness metadata.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "crop": {
+            "type": "string"
+          },
+          "district": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "get_market_summary"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load a bounded market-price trend for a crop and optional mandi.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "crop": {
+            "type": "string"
+          },
+          "days": {
+            "type": "string"
+          },
+          "mandi": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "get_market_trend"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Report whether approved public directory sources are configured; it never claims stock or provider availability.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "name": "get_marketplace_status"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load minimum support price records for a crop.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "crop_name": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "get_msp"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load latest comparable mandi prices scoped to a farmer-supplied district and state.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "crop_name": {
+            "type": "string"
+          },
+          "district": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "get_nearby_mandi_prices"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load the current farmer profile and preferred language/location settings.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "name": "get_profile"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load one farmer-scoped report by its exact report ID.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "report_id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "get_report"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load one government scheme reference record by its exact ID.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "scheme_id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "get_scheme_details"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load the latest soil test, observations, screening status, recommendations, and provenance for a field.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "field_id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "get_soil_health"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load weather alerts for a field, including forecast provenance.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "field_id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "get_weather_alerts_for_field"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load weather for a field using coordinates stored on that field; never provide coordinates from memory.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "field_id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "get_weather_for_field"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "List farmer-scoped alerts, optionally filtered by status.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "status": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "list_alerts"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load the crop reference catalog used by the frontend.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "name": "list_crops"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load field device freshness and telemetry status. It cannot provision devices or control equipment.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "field_id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "list_device_health"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "List farmer-confirmed field tasks, optionally scoped to a field and status.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "field_id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "list_field_tasks"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "List the farmer's active fields, optionally including inactive fields.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "include_inactive": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "list_fields"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load the government scheme reference catalog.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "name": "list_government_schemes"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load farmer-recorded irrigation history. It does not infer water volume or control equipment.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "field_id": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "list_irrigation_events"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "List farmer-entered INR ledger records. This cannot execute payments, transfers, or credit actions.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "entry_type": {
+            "type": "string"
+          },
+          "field_id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "list_ledger_entries"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load machinery rental listings with optional category and location filters.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "district": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "list_machinery_rentals"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "List farmer-scoped scheduled reminders.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "name": "list_reminders"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "List farmer-scoped generated reports.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "name": "list_reports"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Answer one farmer support prompt with bounded, source-attributed government schemes, machinery rentals, and marketplace directory records. This is read-only discovery; it never books, buys, sells, or guarantees eligibility, stock, price, or availability.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "district": {
+            "type": "string"
+          },
+          "include_machinery": {
+            "type": "string"
+          },
+          "include_marketplace": {
+            "type": "string"
+          },
+          "include_schemes": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "string"
+          },
+          "query": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "query_support_catalog"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load fertilizer recommendations from the reference backend; do not invent products.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "crop_name": {
+            "type": "string"
+          },
+          "fertilizer_type": {
+            "type": "string"
+          },
+          "max_budget_per_bag": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "recommend_fertilizers"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Load seed recommendations from the reference backend; do not invent varieties.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "crop": {
+            "type": "string"
+          },
+          "disease_risk": {
+            "type": "string"
+          },
+          "preferred_zone": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "recommend_seeds"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Record a farmer-confirmed irrigation event. This only records history and never controls equipment.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "duration_minutes": {
+            "type": "string"
+          },
+          "field_id": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          },
+          "occurred_at": {
+            "type": "string"
+          },
+          "volume_liters": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "record_irrigation_event"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Record a farmer-confirmed INR income or expense. This is record-keeping only and never moves money.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "amount_inr": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "crop_name": {
+            "type": "string"
+          },
+          "entry_type": {
+            "type": "string"
+          },
+          "field_id": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          },
+          "occurred_at": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "record_ledger_entry"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Record a confirmed field sensor reading; this does not control hardware.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "confidence": {
+            "type": "string"
+          },
+          "device_id": {
+            "type": "string"
+          },
+          "field_id": {
+            "type": "string"
+          },
+          "measurement": {
+            "type": "string"
+          },
+          "observed_at": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "record_sensor_reading"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Record a confirmed soil test with its source and observation time.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "confidence": {
+            "type": "string"
+          },
+          "ec": {
+            "type": "string"
+          },
+          "field_id": {
+            "type": "string"
+          },
+          "moisture_percent": {
+            "type": "string"
+          },
+          "nitrogen": {
+            "type": "string"
+          },
+          "observed_at": {
+            "type": "string"
+          },
+          "organic_carbon": {
+            "type": "string"
+          },
+          "ph": {
+            "type": "string"
+          },
+          "phosphorus": {
+            "type": "string"
+          },
+          "potassium": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "record_soil_test"
+    },
+    {
+      "access": "read",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Search source-attributed machinery, input, logistics, buyer, and exporter directory records. This only discovers contacts; it cannot transact.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "district": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "string"
+          },
+          "listing_type": {
+            "type": "string"
+          },
+          "query": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "search_marketplace_listings"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Send recorded audio to the configured voice provider and preserve unavailable states.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "audio_base64": {
+            "type": "string"
+          },
+          "mime_type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "send_voice_turn"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Start a crop cycle on a confirmed field.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "crop_name": {
+            "type": "string"
+          },
+          "expected_harvest_date": {
+            "type": "string"
+          },
+          "field_id": {
+            "type": "string"
+          },
+          "initial_stage": {
+            "type": "string"
+          },
+          "planted_at": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "start_crop_cycle"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Synthesize speech through the configured text-to-speech provider.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "language_code": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "pace": {
+            "type": "string"
+          },
+          "speaker": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "synthesize_speech"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Transcribe farmer audio through the configured speech-to-text provider.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "audio_base64": {
+            "type": "string"
+          },
+          "language_code": {
+            "type": "string"
+          },
+          "mime_type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "transcribe_audio"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Translate farmer text through the configured language provider.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "mode": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "source_language_code": {
+            "type": "string"
+          },
+          "target_language_code": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "translate_text"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Acknowledge or dismiss a farmer-scoped alert after confirmation.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "alert_id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "update_alert_status"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Record a confirmed crop-stage update.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "cycle_id": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          },
+          "occurred_at": {
+            "type": "string"
+          },
+          "stage": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "update_crop_stage"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Update a farmer field after explicit confirmation.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "active": {
+            "type": "string"
+          },
+          "area_acres": {
+            "type": "string"
+          },
+          "boundary_geojson": {
+            "type": "string"
+          },
+          "current_crop": {
+            "type": "string"
+          },
+          "field_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "update_field"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Complete or cancel a farmer-confirmed field task.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "task_id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "update_field_task_status"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Void or reactivate a farmer-confirmed ledger record while retaining its audit history.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "entry_id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "update_ledger_entry_status"
+    },
+    {
+      "access": "write",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "capabilities": [
+        "text"
+      ],
+      "description": "Update farmer profile fields after explicit confirmation.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "latitude": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "longitude": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "notification_channels": {
+            "type": "string"
+          },
+          "notifications_enabled": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "preferred_language": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "update_profile"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kisansathi.local/contracts/crop-health-result/v1",
+  "title": "KisanSathi crop health result v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status","result_role","model_id","model_version","inference_location","captured_at","evidence_quality","candidates","limitations","review_required","release_evidence"],
+  "properties": {
+    "status":{"type":"string","enum":["completed","unknown","unsupported_crop","needs_expert_review","provider_unavailable","failed"]},
+    "result_role":{"type":"string","enum":["candidate","authoritative"]},
+    "model_id":{"type":"string","minLength":1},"model_version":{"type":"string","minLength":1},
+    "inference_location":{"type":"string","enum":["android_local","server","hosted_api","browser_wasm","browser_webgpu"]},
+    "captured_at":{"type":"string","format":"date-time"},"field_id":{"type":["string","null"]},"crop":{"type":["string","null"]},"crop_stage":{"type":["string","null"]},
+    "evidence_quality":{"type":"object","additionalProperties":false,"required":["status","reasons"],"properties":{"status":{"type":"string","enum":["acceptable","poor","unknown"]},"reasons":{"type":"array","items":{"type":"string"}}}},
+    "candidates":{"type":"array","maxItems":3,"items":{"type":"object","additionalProperties":false,"required":["label_id","display_name","rank"],"properties":{"label_id":{"type":"string"},"display_name":{"type":"string"},"rank":{"type":"integer","minimum":1,"maximum":3},"score":{"type":["number","null"],"minimum":0,"maximum":1},"evidence":{"type":"array","items":{"type":"object"}}}}},
+    "limitations":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}},"review_required":{"type":"boolean"},"content_pack_version":{"type":["string","null"]},"artifact_sha256":{"type":["string","null"],"pattern":"^[a-fA-F0-9]{64}$"},
+    "release_evidence":{"type":"object","additionalProperties":false,"required":["release_id","release_version","artifact_sha256","labels_sha256","preprocessing_sha256","quality_gate","confidence_gate","margin_gate","ood_gate","field_gate","agronomist_gate"],"properties":{"release_id":{"type":"string","minLength":1},"release_version":{"type":"string","minLength":1},"artifact_sha256":{"type":"string","pattern":"^[a-fA-F0-9]{64}$"},"labels_sha256":{"type":"string","pattern":"^[a-fA-F0-9]{64}$"},"preprocessing_sha256":{"type":"string","pattern":"^[a-fA-F0-9]{64}$"},"quality_gate":{"type":"string","enum":["passed","failed","unknown"]},"confidence_gate":{"type":"string","enum":["passed","failed","unknown"]},"margin_gate":{"type":"string","enum":["passed","failed","unknown"]},"ood_gate":{"type":"string","enum":["passed","failed","unknown"]},"field_gate":{"type":"string","enum":["passed","failed","unknown"]},"agronomist_gate":{"type":"string","enum":["passed","failed","unknown"]}}}
+  },
+  "examples": [{"status":"completed","result_role":"candidate","model_id":"crop-health","model_version":"1.0.0","inference_location":"browser_wasm","captured_at":"2026-09-17T10:00:00Z","field_id":"field-1","crop":"tomato","crop_stage":"flowering","evidence_quality":{"status":"acceptable","reasons":[]},"candidates":[{"label_id":"healthy","display_name":"Healthy","rank":1,"score":0.91}],"limitations":["screening only"],"review_required":true,"content_pack_version":"1","artifact_sha256":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","release_evidence":{"release_id":"crop-health-v1","release_version":"1.0.0","artifact_sha256":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","labels_sha256":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","preprocessing_sha256":"cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc","quality_gate":"passed","confidence_gate":"passed","margin_gate":"passed","ood_gate":"passed","field_gate":"passed","agronomist_gate":"passed"}}]
+}

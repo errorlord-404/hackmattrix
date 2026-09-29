@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "model_id": "stub-disease-potato",
+  "taxonomy_status": "draft_requires_agronomist_review",
+  "classes": [
+    {
+      "index": 0,
+      "label": "healthy",
+      "crop_id": "potato",
+      "disease_id": "healthy",
+      "catalog_crop_id": "potato"
+    },
+    {
+      "index": 1,
+      "label": "late blight",
+      "crop_id": "potato",
+      "disease_id": "late_blight",
+      "catalog_crop_id": "potato"
+    },
+    {
+      "index": 2,
+      "label": "early blight",
+      "crop_id": "potato",
+      "disease_id": "early_blight",
+      "catalog_crop_id": "potato"
+    },
+    {
+      "index": 3,
+      "label": "black scurf",
+      "crop_id": "potato",
+      "disease_id": "black_scurf",
+      "catalog_crop_id": "potato"
+    },
+    {
+      "index": 4,
+      "label": "bacterial wilt",
+      "crop_id": "potato",
+      "disease_id": "bacterial_wilt",
+      "catalog_crop_id": "potato"
+    },
+    {
+      "index": 5,
+      "label": "leaf roll virus",
+      "crop_id": "potato",
+      "disease_id": "leaf_roll_virus",
+      "catalog_crop_id": "potato"
+    },
+    {
+      "index": 6,
+      "label": "mosaic virus",
+      "crop_id": "potato",
+      "disease_id": "mosaic_virus",
+      "catalog_crop_id": "potato"
+    }
+  ]
+}

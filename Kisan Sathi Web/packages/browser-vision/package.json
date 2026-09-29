@@ -1,0 +1,12 @@
+{
+  "name": "@kisansathi/browser-vision",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/modelRouter.test.js tests/manifest.test.js"
+  },
+  "dependencies": {
+    "onnxruntime-web": "1.30.0"
+  }
+}

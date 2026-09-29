@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  /* Backgrounds */
+  --color-background: #F9FAFB;
+  --color-surface: #FFFFFF;
+  --color-surface-muted: #F3F4F6;
+
+  /* Brand greens */
+  --color-primary: #2E7D32;
+  --color-primary-dark: #2D5A27;
+  --color-primary-light: #81C784;
+  --color-primary-50: #E8F5E9;
+
+  /* Semantic */
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-danger: #EF4444;
+  --color-info: #3B82F6;
+
+  /* Text */
+  --color-text-primary: #1F2937;
+  --color-text-secondary: #6B7280;
+  --color-text-muted: #9CA3AF;
+  --color-text-inverse: #FFFFFF;
+
+  /* Borders */
+  --color-border: #E5E7EB;
+  --color-border-light: #F3F4F6;
+
+  /* Typography */
+  --font-sans: "Inter", "Noto Sans Devanagari", system-ui, sans-serif;
+
+  /* Radius */
+  --radius-card: 12px;
+
+  /* Shadow */
+  --shadow-card: 0 1px 3px rgb(0 0 0 / 0.08);
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+  }
+
+  .kisansathi-map-pin {
+    border: 0;
+    background: transparent;
+  }
+
+  .kisansathi-map-pin span {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: 4px solid #ffffff;
+    border-radius: 50% 50% 50% 0;
+    background: #2e7d32;
+    box-shadow: 0 3px 10px rgb(31 41 55 / 0.3);
+    transform: rotate(-45deg);
+  }
+
+  .kisansathi-map-pin span::after {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    margin: 7px auto;
+    border-radius: 50%;
+    background: #ffffff;
+  }
+
+  #root {
+    min-height: 100svh;
+  }
+
+  /* Keep wide tables and timelines contained inside mobile cards. */
+  @media (max-width: 1023px) {
+    main .grid > * { min-width: 0; }
+  }
+
+  /* The market insight is an advisory note, not a second full-height panel. */
+  main aside.rounded-card.border-amber-200 {
+    align-self: start;
+    border-left-width: 4px;
+    border-left-color: #E6A920;
+    background: #FFFBF1;
+    box-shadow: 0 1px 3px rgb(120 84 14 / 0.08);
+  }
+
+  /* Voice remains in the Advisor input; the separate mobile banner is hidden. */
+  @media (max-width: 1023px) {
+    main a.lg\:hidden.mt-5.flex.items-center.justify-center.gap-2 { display: none; }
+  }
+
+}

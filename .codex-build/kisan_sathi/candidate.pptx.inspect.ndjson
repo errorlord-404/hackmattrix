@@ -1,0 +1,161 @@
+{"kind":"deck","id":"pr/vvl5km","name":"Deck"}
+{"kind":"layout","layoutId":"d00c4873-80c0-4baf-a2c9-f1f2e036cf6e","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"84e5e762-3965-4f2b-affd-d7760a6e9f5c","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/p511ca","slide":1,"title":"Project objective","textShapes":15}
+{"kind":"shape","id":"sh/x8rutc76","slide":1,"bbox":[0,0,1280,12]}
+{"kind":"textbox","id":"sh/a5gvixof","slide":1,"text":"Project objective","textPreview":"Project objective","textChars":17,"textLines":1,"bbox":[80,42,900,46]}
+{"kind":"textbox","id":"sh/v6pcr2p0","slide":1,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[1134,44,74,36]}
+{"kind":"shape","id":"sh/kvido76x","slide":1,"bbox":[70,649,1140,1]}
+{"kind":"textbox","id":"sh/5wruxc72","slide":1,"text":"KISAN SATHI","textPreview":"KISAN SATHI","textChars":11,"textLines":1,"bbox":[70,664,180,22]}
+{"kind":"textbox","id":"sh/i90vmhor","slide":1,"text":"SMART INDIA HACKATHON 2026","textPreview":"SMART INDIA HACKATHON 2026","textChars":26,"textLines":1,"bbox":[940,664,270,22]}
+{"kind":"shape","id":"sh/ja9cvmpc","slide":1,"bbox":[70,108,270,28]}
+{"kind":"textbox","id":"sh/0zetcn6d","slide":1,"text":"FIELD-DEPLOYABLE FARM COPILOT","textPreview":"FIELD-DEPLOYABLE FARM COPILOT","textChars":29,"textLines":1,"bbox":[80,113,250,18]}
+{"kind":"textbox","id":"sh/l0nuls7y","slide":1,"text":"Turn field evidence into\nclear, safe action","textPreview":"Turn field evidence into | clear, safe action","textChars":43,"textLines":2,"bbox":[70,158,540,125]}
+{"kind":"textbox","id":"sh/50zuxsbi","slide":1,"text":"KisanSathi helps farmers detect crop and soil stress early, understand irrigation needs and act despite weak connectivity.","textPreview":"KisanSathi helps farmers detect crop and soil stress early, understand irrigation needs and act despite weak connectivity.","textChars":122,"textLines":1,"bbox":[70,306,500,80]}
+{"kind":"shape","id":"sh/4zqt4nux","slide":1,"bbox":[70,430,510,145]}
+{"kind":"textbox","id":"sh/jyxcvitc","slide":1,"text":"Design principle","textPreview":"Design principle","textChars":16,"textLines":1,"bbox":[95,456,170,24]}
+{"kind":"textbox","id":"sh/idob2dcr","slide":1,"text":"AI recommends. The farmer confirms. The edge device enforces safety limits.","textPreview":"AI recommends. The farmer confirms. The edge device enforces safety limits.","textChars":75,"textLines":1,"bbox":[95,494,435,53]}
+{"kind":"textbox","id":"sh/t4zu1sbe","slide":1,"text":"FIELD EVIDENCE","textPreview":"FIELD EVIDENCE","textChars":14,"textLines":1,"bbox":[660,120,210,20]}
+{"kind":"shape","id":"sh/s3qt8nu9","slide":1,"bbox":[660,180,220,96]}
+{"kind":"textbox","id":"sh/r2hczito","slide":1,"text":"Sense\nsoil, crop, weather","textPreview":"Sense | soil, crop, weather","textChars":25,"textLines":2,"bbox":[680,202,180,55]}
+{"kind":"shape","id":"sh/618b6xc3","slide":1,"bbox":[920,180,220,96]}
+{"kind":"textbox","id":"sh/18ju5cbq","slide":1,"text":"Diagnose\nlocally","textPreview":"Diagnose | locally","textChars":16,"textLines":2,"bbox":[940,202,180,55]}
+{"kind":"shape","id":"sh/g7adc7u5","slide":1,"bbox":[660,352,220,96]}
+{"kind":"textbox","id":"sh/kni5of6d","slide":1,"text":"Recommend\nwith context","textPreview":"Recommend | with context","textChars":22,"textLines":2,"bbox":[680,374,180,55]}
+{"kind":"shape","id":"sh/lobmx0ny","slide":1,"bbox":[920,352,220,96]}
+{"kind":"textbox","id":"sh/yl0nm5on","slide":1,"text":"Act safely\nand record","textPreview":"Act safely | and record","textChars":21,"textLines":2,"bbox":[940,374,180,55]}
+{"kind":"shape","id":"sh/zm94va58","slide":1,"bbox":[880,228,40,0]}
+{"kind":"shape","id":"sh/8r25sf6p","slide":1,"bbox":[1030,276,0,76]}
+{"kind":"shape","id":"sh/9cb61kna","slide":1,"bbox":[880,400,40,0]}
+{"kind":"shape","id":"sh/mpknq5oj","slide":1,"bbox":[770,276,0,76]}
+{"kind":"textbox","id":"sh/7qtoza54","slide":1,"text":"A practical loop for disease, pests, nutrient stress and irrigation decisions","textPreview":"A practical loop for disease, pests, nutrient stress and irrigation decisions","textChars":77,"textLines":1,"bbox":[660,500,480,40]}
+{"kind":"notes","id":"nt/p511ca","slide":1,"text":"Source: SIH_Kisan_Sathi_PS-180.pptx supplied by the user."}
+{"kind":"slide","id":"sl/99p1gf","slide":2,"title":"Problem statement and need","textShapes":13}
+{"kind":"shape","id":"sh/ut4rexkr","slide":2,"bbox":[0,0,1280,12]}
+{"kind":"textbox","id":"sh/hwva9c3i","slide":2,"text":"Problem statement and need","textPreview":"Problem statement and need","textChars":26,"textLines":1,"bbox":[80,42,900,46]}
+{"kind":"textbox","id":"sh/gvm9g72x","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1134,44,74,36]}
+{"kind":"shape","id":"sh/7qts32lg","slide":2,"bbox":[70,649,1140,1]}
+{"kind":"textbox","id":"sh/65kraxkv","slide":2,"text":"KISAN SATHI","textPreview":"KISAN SATHI","textChars":11,"textLines":1,"bbox":[70,664,180,22]}
+{"kind":"textbox","id":"sh/tsva5s36","slide":2,"text":"SMART INDIA HACKATHON 2026","textPreview":"SMART INDIA HACKATHON 2026","textChars":26,"textLines":1,"bbox":[940,664,270,22]}
+{"kind":"shape","id":"sh/8rm9c72l","slide":2,"bbox":[70,108,170,28]}
+{"kind":"textbox","id":"sh/rmxsfmlk","slide":2,"text":"THE FIELD REALITY","textPreview":"THE FIELD REALITY","textChars":17,"textLines":1,"bbox":[80,113,150,18]}
+{"kind":"textbox","id":"sh/qlobmhkz","slide":2,"text":"Farmers make high-stakes decisions with fragmented, delayed evidence","textPreview":"Farmers make high-stakes decisions with fragmented, delayed evidence","textChars":68,"textLines":1,"bbox":[70,158,720,55]}
+{"kind":"shape","id":"sh/kra50nid","slide":2,"bbox":[70,260,325,250]}
+{"kind":"shape","id":"sh/lsjm9szy","slide":2,"bbox":[70,260,7,250]}
+{"kind":"textbox","id":"sh/yps3yx0n","slide":2,"text":"Disconnected signals","textPreview":"Disconnected signals","textChars":20,"textLines":1,"bbox":[93,280,281,27]}
+{"kind":"textbox","id":"sh/zq1472hs","slide":2,"text":"Images, soil readings, field notes and weather data sit in separate tools. The farmer must interpret them under time pressure.","textPreview":"Images, soil readings, field notes and weather data sit in separate tools. The farmer must interpret them under time pressure.","textChars":126,"textLines":1,"bbox":[93,315,281,182]}
+{"kind":"shape","id":"sh/cnqlwnih","slide":2,"bbox":[430,260,325,250]}
+{"kind":"shape","id":"sh/xozm5sz2","slide":2,"bbox":[430,260,7,250]}
+{"kind":"textbox","id":"sh/al83ud0b","slide":2,"text":"Connectivity gaps","textPreview":"Connectivity gaps","textChars":17,"textLines":1,"bbox":[453,280,281,27]}
+{"kind":"textbox","id":"sh/bmh43ihw","slide":2,"text":"Cloud-only applications lose value when the network is unreliable, especially where timely advice matters most.","textPreview":"Cloud-only applications lose value when the network is unreliable, especially where timely advice matters most.","textChars":111,"textLines":1,"bbox":[453,315,281,182]}
+{"kind":"shape","id":"sh/ojqls3i5","slide":2,"bbox":[790,260,350,250]}
+{"kind":"shape","id":"sh/pkzm18zq","slide":2,"bbox":[790,260,7,250]}
+{"kind":"textbox","id":"sh/pgr254bu","slide":2,"text":"Unsafe automation risk","textPreview":"Unsafe automation risk","textChars":22,"textLines":1,"bbox":[813,280,306,27]}
+{"kind":"textbox","id":"sh/4fi1wza9","slide":2,"text":"A generic AI response must not directly control pumps or turn uncertain sensor data into costly decisions.","textPreview":"A generic AI response must not directly control pumps or turn uncertain sensor data into costly decisions.","textChars":106,"textLines":1,"bbox":[813,315,306,182]}
+{"kind":"textbox","id":"sh/3e9k3uto","slide":2,"text":"The solution needs local intelligence, understandable advice and a safety boundary around every action.","textPreview":"The solution needs local intelligence, understandable advice and a safety boundary around every action.","textChars":103,"textLines":1,"bbox":[70,560,1050,31]}
+{"kind":"notes","id":"nt/99p1gf","slide":2,"text":"Source: SIH_Kisan_Sathi_PS-180.pptx supplied by the user."}
+{"kind":"slide","id":"sl/caur38","slide":3,"title":"Key features","textShapes":18}
+{"kind":"shape","id":"sh/yxsfa14n","slide":3,"bbox":[0,0,1280,12]}
+{"kind":"textbox","id":"sh/lkjelw3e","slide":3,"text":"Key features","textPreview":"Key features","textChars":12,"textLines":1,"bbox":[80,42,900,46]}
+{"kind":"textbox","id":"sh/0jaxcbmt","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1134,44,74,36]}
+{"kind":"shape","id":"sh/buhwfm5c","slide":3,"bbox":[70,649,1140,1]}
+{"kind":"textbox","id":"sh/qt8f6h4r","slide":3,"text":"KISAN SATHI","textPreview":"KISAN SATHI","textChars":11,"textLines":1,"bbox":[70,664,180,22]}
+{"kind":"textbox","id":"sh/dwzehwn2","slide":3,"text":"SMART INDIA HACKATHON 2026","textPreview":"SMART INDIA HACKATHON 2026","textChars":26,"textLines":1,"bbox":[940,664,270,22]}
+{"kind":"textbox","id":"sh/cvqx8rmh","slide":3,"text":"A field-first assistant built around the farmer’s decisions","textPreview":"A field-first assistant built around the farmer’s decisions","textChars":59,"textLines":1,"bbox":[70,108,900,34]}
+{"kind":"shape","id":"sh/3qhwbm50","slide":3,"bbox":[70,190,335,145]}
+{"kind":"shape","id":"sh/2p8f2h4f","slide":3,"bbox":[70,190,7,145]}
+{"kind":"textbox","id":"sh/43atk3ix","slide":3,"text":"Offline-first operation","textPreview":"Offline-first operation","textChars":23,"textLines":1,"bbox":[93,210,291,27]}
+{"kind":"textbox","id":"sh/p4jutozi","slide":3,"text":"SQLite storage, local inference and queued sync keep core workflows available during outages.","textPreview":"SQLite storage, local inference and queued sync keep core workflows available during outages.","textChars":93,"textLines":1,"bbox":[93,245,291,77]}
+{"kind":"shape","id":"sh/218bit07","slide":3,"bbox":[450,190,335,145]}
+{"kind":"shape","id":"sh/32hcryhs","slide":3,"bbox":[450,190,7,145]}
+{"kind":"textbox","id":"sh/gzqtgji1","slide":3,"text":"Multilingual guidance","textPreview":"Multilingual guidance","textChars":21,"textLines":1,"bbox":[473,210,291,27]}
+{"kind":"textbox","id":"sh/h0zupozm","slide":3,"text":"Hindi and Marathi voice interactions make advice accessible without complex screens.","textPreview":"Hindi and Marathi voice interactions make advice accessible without complex screens.","textChars":84,"textLines":1,"bbox":[473,245,291,77]}
+{"kind":"shape","id":"sh/ux8be90v","slide":3,"bbox":[830,190,335,145]}
+{"kind":"shape","id":"sh/fyhsnehg","slide":3,"bbox":[830,190,7,145]}
+{"kind":"textbox","id":"sh/0vutsni5","slide":3,"text":"Early stress detection","textPreview":"Early stress detection","textChars":22,"textLines":1,"bbox":[853,210,291,27]}
+{"kind":"textbox","id":"sh/1w3u18zq","slide":3,"text":"On-device vision and sensor readings identify disease, pests, nutrient stress and irrigation needs.","textPreview":"On-device vision and sensor readings identify disease, pests, nutrient stress and irrigation needs.","textChars":99,"textLines":1,"bbox":[853,245,291,77]}
+{"kind":"shape","id":"sh/9czu58ru","slide":3,"bbox":[70,380,335,145]}
+{"kind":"shape","id":"sh/8bqtc3q9","slide":3,"bbox":[70,380,7,145]}
+{"kind":"textbox","id":"sh/nqhc3i94","slide":3,"text":"Explainable recommendations","textPreview":"Explainable recommendations","textChars":27,"textLines":1,"bbox":[93,400,291,27]}
+{"kind":"textbox","id":"sh/mpobadsj","slide":3,"text":"Advice includes priority, confidence, evidence and data freshness so farmers can judge it.","textPreview":"Advice includes priority, confidence, evidence and data freshness so farmers can judge it.","textChars":90,"textLines":1,"bbox":[93,435,291,77]}
+{"kind":"shape","id":"sh/lofah8ry","slide":3,"bbox":[450,380,335,145]}
+{"kind":"shape","id":"sh/0n6t83ad","slide":3,"bbox":[450,380,7,145]}
+{"kind":"textbox","id":"sh/zmxsfy9s","slide":3,"text":"Farmer-scoped digital twin","textPreview":"Farmer-scoped digital twin","textChars":26,"textLines":1,"bbox":[473,400,291,27]}
+{"kind":"textbox","id":"sh/ylob6ts7","slide":3,"text":"Observations, tasks and interventions remain traceable at the individual farm level.","textPreview":"Observations, tasks and interventions remain traceable at the individual farm level.","textChars":84,"textLines":1,"bbox":[473,435,291,77]}
+{"kind":"shape","id":"sh/dkfadorm","slide":3,"bbox":[830,380,335,145]}
+{"kind":"shape","id":"sh/cj6t4jah","slide":3,"bbox":[830,380,7,145]}
+{"kind":"textbox","id":"sh/idkzy5k3","slide":3,"text":"Safe escalation","textPreview":"Safe escalation","textChars":15,"textLines":1,"bbox":[853,400,291,27]}
+{"kind":"textbox","id":"sh/3et0ral8","slide":3,"text":"Low confidence or unsupported crops route evidence to KVKs and human experts.","textPreview":"Low confidence or unsupported crops route evidence to KVKs and human experts.","textChars":77,"textLines":1,"bbox":[853,435,291,77]}
+{"kind":"shape","id":"sh/4f2h0v2t","slide":3,"bbox":[70,575,1070,1]}
+{"kind":"textbox","id":"sh/pgbit03e","slide":3,"text":"The system combines fast local detection with accountable, tool-driven reasoning.","textPreview":"The system combines fast local detection with accountable, tool-driven reasoning.","textChars":81,"textLines":1,"bbox":[70,594,860,28]}
+{"kind":"notes","id":"nt/caur38","slide":3,"text":"Source: SIH_Kisan_Sathi_PS-180.pptx supplied by the user."}
+{"kind":"slide","id":"sl/zxck1i","slide":4,"title":"Technical approach","textShapes":23}
+{"kind":"shape","id":"sh/87e54f6h","slide":4,"bbox":[0,0,1280,12]}
+{"kind":"textbox","id":"sh/7654ba5w","slide":4,"text":"Technical approach","textPreview":"Technical approach","textChars":18,"textLines":1,"bbox":[80,42,900,46]}
+{"kind":"textbox","id":"sh/65wn2pob","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1134,44,74,36]}
+{"kind":"shape","id":"sh/hw76h4ny","slide":4,"bbox":[70,649,1140,1]}
+{"kind":"textbox","id":"sh/gve58zmt","slide":4,"text":"KISAN SATHI","textPreview":"KISAN SATHI","textChars":11,"textLines":1,"bbox":[70,664,180,22]}
+{"kind":"textbox","id":"sh/vu54fu58","slide":4,"text":"SMART INDIA HACKATHON 2026","textPreview":"SMART INDIA HACKATHON 2026","textChars":26,"textLines":1,"bbox":[940,664,270,22]}
+{"kind":"shape","id":"sh/u9wn6pon","slide":4,"bbox":[70,108,280,28]}
+{"kind":"textbox","id":"sh/x03m50nu","slide":4,"text":"SENSE · DIAGNOSE · REASON · DELIVER","textPreview":"SENSE · DIAGNOSE · REASON · DELIVER","textChars":35,"textLines":1,"bbox":[80,113,260,18]}
+{"kind":"textbox","id":"sh/czu5wv69","slide":4,"text":"A local decision loop with connected support when available","textPreview":"A local decision loop with connected support when available","textChars":59,"textLines":1,"bbox":[70,156,900,42]}
+{"kind":"shape","id":"sh/2hozupwb","slide":4,"bbox":[70,255,230,210]}
+{"kind":"textbox","id":"sh/3ixg3uxw","slide":4,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[92,276,45,22]}
+{"kind":"textbox","id":"sh/oj6hwzeh","slide":4,"text":"Sense","textPreview":"Sense","textChars":5,"textLines":1,"bbox":[92,314,180,26]}
+{"kind":"textbox","id":"sh/pkfi54f2","slide":4,"text":"ESP32 probes, crop images, field records and weather capture relevant field evidence.","textPreview":"ESP32 probes, crop images, field records and weather capture relevant field evidence.","textChars":85,"textLines":1,"bbox":[92,359,185,76]}
+{"kind":"shape","id":"sh/qlozypwn","slide":4,"bbox":[172,500,28,28]}
+{"kind":"shape","id":"sh/bmx07ux8","slide":4,"bbox":[350,255,230,210]}
+{"kind":"textbox","id":"sh/cnqh0zed","slide":4,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[372,276,45,22]}
+{"kind":"textbox","id":"sh/dozi94fy","slide":4,"text":"Diagnose","textPreview":"Diagnose","textChars":8,"textLines":1,"bbox":[372,314,180,26]}
+{"kind":"textbox","id":"sh/yp8z29wj","slide":4,"text":"On-device vision and deterministic agronomy APIs identify stress and irrigation needs.","textPreview":"On-device vision and deterministic agronomy APIs identify stress and irrigation needs.","textChars":86,"textLines":1,"bbox":[372,359,185,76]}
+{"kind":"shape","id":"sh/zqh0bex4","slide":4,"bbox":[452,500,28,28]}
+{"kind":"shape","id":"sh/ve1gjetc","slide":4,"bbox":[630,255,230,210]}
+{"kind":"textbox","id":"sh/ad8zq9cr","slide":4,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[652,276,45,22]}
+{"kind":"textbox","id":"sh/xgjylob2","slide":4,"text":"Reason","textPreview":"Reason","textChars":6,"textLines":1,"bbox":[652,314,180,26]}
+{"kind":"textbox","id":"sh/wfahsjux","slide":4,"text":"A Codex agent uses farmer-scoped MCP tools, local state and verified data services.","textPreview":"A Codex agent uses farmer-scoped MCP tools, local state and verified data services.","textChars":83,"textLines":1,"bbox":[652,359,185,76]}
+{"kind":"shape","id":"sh/nqhgfut0","slide":4,"bbox":[732,500,28,28]}
+{"kind":"shape","id":"sh/mp8fm9cf","slide":4,"bbox":[910,255,230,210]}
+{"kind":"textbox","id":"sh/9szyh4b6","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[932,276,45,22]}
+{"kind":"textbox","id":"sh/8rqxozul","slide":4,"text":"Deliver & record","textPreview":"Deliver & record","textChars":16,"textLines":1,"bbox":[932,314,180,26]}
+{"kind":"textbox","id":"sh/zmxgbut4","slide":4,"text":"Voice and simple screens return prioritized advice, create confirmed tasks and sync later.","textPreview":"Voice and simple screens return prioritized advice, create confirmed tasks and sync later.","textChars":90,"textLines":1,"bbox":[932,359,185,76]}
+{"kind":"shape","id":"sh/ylofipcj","slide":4,"bbox":[1012,500,28,28]}
+{"kind":"shape","id":"sh/4f25wr65","slide":4,"bbox":[200,514,252,0]}
+{"kind":"shape","id":"sh/5gbm5wnq","slide":4,"bbox":[480,514,252,0]}
+{"kind":"shape","id":"sh/idk3u1oz","slide":4,"bbox":[760,514,252,0]}
+{"kind":"textbox","id":"sh/3et43m5k","slide":4,"text":"Local runtime","textPreview":"Local runtime","textChars":13,"textLines":1,"bbox":[142,536,180,22]}
+{"kind":"textbox","id":"sh/sjm50b61","slide":4,"text":"Agent orchestration","textPreview":"Agent orchestration","textChars":19,"textLines":1,"bbox":[412,536,200,22]}
+{"kind":"textbox","id":"sh/dkvm9gnm","slide":4,"text":"Farmer confirmation","textPreview":"Farmer confirmation","textChars":19,"textLines":1,"bbox":[690,536,220,22]}
+{"kind":"textbox","id":"sh/qh4ny1ob","slide":4,"text":"Record & sync","textPreview":"Record & sync","textChars":13,"textLines":1,"bbox":[960,536,165,22]}
+{"kind":"textbox","id":"sh/rid4765w","slide":4,"text":"The edge device and human remain the final safety controls.","textPreview":"The edge device and human remain the final safety controls.","textChars":59,"textLines":1,"bbox":[70,585,860,24]}
+{"kind":"notes","id":"nt/zxck1i","slide":4,"text":"Source: SIH_Kisan_Sathi_PS-180.pptx supplied by the user."}
+{"kind":"slide","id":"sl/1wluo8","slide":5,"title":"System architecture","textShapes":19}
+{"kind":"shape","id":"sh/ipsb65g3","slide":5,"bbox":[0,0,1280,12]}
+{"kind":"textbox","id":"sh/5sju1kze","slide":5,"text":"System architecture","textPreview":"System architecture","textChars":19,"textLines":1,"bbox":[80,42,900,46]}
+{"kind":"textbox","id":"sh/krat8fyt","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1134,44,74,36]}
+{"kind":"shape","id":"sh/7u1c3ahk","slide":5,"bbox":[70,649,1140,1]}
+{"kind":"textbox","id":"sh/6tsbapgz","slide":5,"text":"KISAN SATHI","textPreview":"KISAN SATHI","textChars":11,"textLines":1,"bbox":[70,664,180,22]}
+{"kind":"textbox","id":"sh/tg3u5kzq","slide":5,"text":"SMART INDIA HACKATHON 2026","textPreview":"SMART INDIA HACKATHON 2026","textChars":26,"textLines":1,"bbox":[940,664,270,22]}
+{"kind":"textbox","id":"sh/sfutcfy5","slide":5,"text":"Architecture retained from the source design","textPreview":"Architecture retained from the source design","textChars":44,"textLines":1,"bbox":[70,108,720,28]}
+{"kind":"shape","id":"sh/filc7uhg","slide":5,"bbox":[70,245,230,250]}
+{"kind":"shape","id":"sh/uhcbepgv","slide":5,"bbox":[365,245,215,250]}
+{"kind":"shape","id":"sh/g721kbqt","slide":5,"bbox":[645,215,245,310]}
+{"kind":"shape","id":"sh/18bitgre","slide":5,"bbox":[955,245,255,250]}
+{"kind":"shape","id":"sh/e5kji1sn","slide":5,"bbox":[300,370,65,0]}
+{"kind":"shape","id":"sh/f6t0r698","slide":5,"bbox":[580,370,65,0]}
+{"kind":"shape","id":"sh/ov21obq5","slide":5,"bbox":[890,370,65,0]}
+{"kind":"textbox","id":"sh/pwvixgrq","slide":5,"text":"FIELD / EDGE","textPreview":"FIELD / EDGE","textChars":12,"textLines":1,"bbox":[92,270,184,18]}
+{"kind":"textbox","id":"sh/29kjml8z","slide":5,"text":"ESP32-S3","textPreview":"ESP32-S3","textChars":8,"textLines":1,"bbox":[92,306,184,26]}
+{"kind":"textbox","id":"sh/3at0vq9k","slide":5,"text":"WiFi / MQTT buffering\nSoil moisture, temperature, EC, pH and NPK probes\nOn-device TFLite / QNN vision","textPreview":"WiFi / MQTT buffering | Soil moisture, temperature, EC, pH and NPK probes | On-device TFLite / QNN vision","textChars":101,"textLines":3,"bbox":[92,350,184,105]}
+{"kind":"textbox","id":"sh/czm1svq1","slide":5,"text":"BACKEND & DATA","textPreview":"BACKEND & DATA","textChars":14,"textLines":1,"bbox":[385,270,175,18]}
+{"kind":"textbox","id":"sh/x0v210rm","slide":5,"text":"FastAPI","textPreview":"FastAPI","textChars":7,"textLines":1,"bbox":[385,306,175,26]}
+{"kind":"textbox","id":"sh/lgri50jq","slide":5,"text":"Python 3.11+ with Pydantic\nSQLite for local state\nMongoDB catalogues via Beanie\nDeterministic agronomy endpoints","textPreview":"Python 3.11+ with Pydantic | SQLite for local state | MongoDB catalogues via Beanie | Deterministic agronomy endpoints","textChars":112,"textLines":4,"bbox":[385,350,175,105]}
+{"kind":"textbox","id":"sh/kvi1cvi5","slide":5,"text":"AI ORCHESTRATION","textPreview":"AI ORCHESTRATION","textChars":16,"textLines":1,"bbox":[667,242,200,18]}
+{"kind":"textbox","id":"sh/ju903q1k","slide":5,"text":"Codex App-Server","textPreview":"Codex App-Server","textChars":16,"textLines":1,"bbox":[667,280,200,26]}
+{"kind":"textbox","id":"sh/yt0jal0z","slide":5,"text":"Agent loop via MCP\n47 deterministic tools\nFarmer-scoped context\nNo direct hardware authority","textPreview":"Agent loop via MCP | 47 deterministic tools | Farmer-scoped context | No direct hardware authority","textChars":92,"textLines":4,"bbox":[667,328,200,105]}
+{"kind":"shape","id":"sh/tkbi90j2","slide":5,"bbox":[681,454,174,38]}
+{"kind":"textbox","id":"sh/8j21gvih","slide":5,"text":"SAFETY GATE","textPreview":"SAFETY GATE","textChars":11,"textLines":1,"bbox":[691,466,154,15]}
+{"kind":"textbox","id":"sh/7it07q1w","slide":5,"text":"EXTERNAL SERVICES","textPreview":"EXTERNAL SERVICES","textChars":17,"textLines":1,"bbox":[976,270,212,18]}
+{"kind":"textbox","id":"sh/6h0je50b","slide":5,"text":"Farmer interface","textPreview":"Farmer interface","textChars":16,"textLines":1,"bbox":[976,306,212,26]}
+{"kind":"textbox","id":"sh/9o7ixgji","slide":5,"text":"React 19 / Vite / Tailwind\nSarvam AI for speech and translation\nOpen-Meteo, data.gov.in, FARMS and MahaDBT","textPreview":"React 19 / Vite / Tailwind | Sarvam AI for speech and translation | Open-Meteo, data.gov.in, FARMS and MahaDBT","textChars":106,"textLines":3,"bbox":[976,350,212,105]}
+{"kind":"textbox","id":"sh/onyh4bix","slide":5,"text":"Cloud services enrich the decision. Core field functions remain available locally.","textPreview":"Cloud services enrich the decision. Core field functions remain available locally.","textChars":82,"textLines":1,"bbox":[70,565,1140,28]}
+{"kind":"notes","id":"nt/1wluo8","slide":5,"text":"Source: SIH_Kisan_Sathi_PS-180.pptx supplied by the user."}

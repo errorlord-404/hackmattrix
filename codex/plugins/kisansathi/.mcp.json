@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "kisansathi": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["run_server.py"],
+      "cwd": "."
+    }
+  }
+}

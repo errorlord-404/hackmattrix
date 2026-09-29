@@ -1,0 +1,267 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kisansathi.local/models/release-bundle/v1",
+  "title": "KisanSathi immutable model release candidate bundle",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "candidate_id",
+    "status",
+    "immutable",
+    "created_at",
+    "model",
+    "provenance",
+    "dataset",
+    "quantization",
+    "artifacts",
+    "governance",
+    "rollback",
+    "gates",
+    "approval",
+    "integrity"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "candidate_id": {"$ref": "#/$defs/id"},
+    "status": {"const": "candidate"},
+    "immutable": {"const": true},
+    "created_at": {"type": "string", "format": "date-time"},
+    "model": {
+      "type": "object",
+      "required": ["model_id", "task", "role", "training_status"],
+      "properties": {
+        "model_id": {"$ref": "#/$defs/id"},
+        "task": {"enum": ["crop_identification", "crop_disease_screening"]},
+        "role": {"enum": ["crop_identifier", "crop_specialist"]},
+        "crop_id": {"type": ["string", "null"]},
+        "training_status": {"const": "trained"}
+      },
+      "additionalProperties": true
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["run_id", "source_revision", "training_code_revision", "trained_at"],
+      "properties": {
+        "run_id": {"$ref": "#/$defs/id"},
+        "source_revision": {"type": "string", "minLength": 7},
+        "training_code_revision": {"type": "string", "minLength": 7},
+        "trained_at": {"type": "string", "format": "date-time"},
+        "framework": {"type": "string", "minLength": 1},
+        "framework_version": {"type": "string", "minLength": 1},
+        "recipe_id": {"type": "string", "minLength": 1},
+        "seed": {"type": "integer"}
+      },
+      "additionalProperties": true
+    },
+    "dataset": {
+      "type": "object",
+      "required": ["manifest_id", "manifest_sha256", "split_strategy", "group_keys"],
+      "properties": {
+        "manifest_id": {"$ref": "#/$defs/id"},
+        "manifest_sha256": {"$ref": "#/$defs/hash"},
+        "split_strategy": {"const": "grouped"},
+        "group_keys": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
+      },
+      "additionalProperties": true
+    },
+    "quantization": {
+      "type": "object",
+      "required": ["mode", "calibration"],
+      "properties": {
+        "mode": {"const": "static-int8"},
+        "calibration": {
+          "type": "object",
+          "required": ["dataset_manifest_id", "dataset_manifest_sha256", "sample_count", "disjoint_from_test"],
+          "properties": {
+            "dataset_manifest_id": {"$ref": "#/$defs/id"},
+            "dataset_manifest_sha256": {"$ref": "#/$defs/hash"},
+            "sample_count": {"type": "integer", "minimum": 1},
+            "disjoint_from_test": {"const": true}
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "artifacts": {
+      "type": "object",
+      "required": ["onnx", "labels", "preprocess", "evaluation", "model_card", "license", "golden"],
+      "properties": {
+        "onnx": {"$ref": "#/$defs/artifact"},
+        "labels": {"$ref": "#/$defs/artifact"},
+        "preprocess": {"$ref": "#/$defs/artifact"},
+        "evaluation": {"$ref": "#/$defs/artifact"},
+        "model_card": {"$ref": "#/$defs/artifact"},
+        "license": {"$ref": "#/$defs/artifact"},
+        "golden": {"$ref": "#/$defs/artifact"}
+      },
+      "additionalProperties": false
+    },
+    "governance": {
+      "type": "object",
+      "required": ["dataset_license", "consent", "agronomist_review", "redistribution"],
+      "properties": {
+        "dataset_license": {
+          "type": "object",
+          "required": ["identifier", "rights_holder", "training_allowed", "evaluation_allowed"],
+          "properties": {
+            "identifier": {"type": "string", "minLength": 1},
+            "rights_holder": {"type": "string", "minLength": 1},
+            "uri": {"type": ["string", "null"]},
+            "training_allowed": {"type": "boolean"},
+            "evaluation_allowed": {"type": "boolean"}
+          },
+          "additionalProperties": true
+        },
+        "consent": {
+          "type": "object",
+          "required": ["required", "lawful_basis", "scope_verified", "retention_policy"],
+          "properties": {
+            "required": {"type": "boolean"},
+            "lawful_basis": {"type": "string", "minLength": 1},
+            "scope_verified": {"type": "boolean"},
+            "retention_policy": {"type": "string", "minLength": 1}
+          },
+          "additionalProperties": true
+        },
+        "agronomist_review": {"$ref": "#/$defs/humanReview"},
+        "redistribution": {
+          "type": "object",
+          "required": ["status", "scope"],
+          "properties": {
+            "status": {"enum": ["pending", "permitted", "prohibited"]},
+            "scope": {"type": "string", "minLength": 1},
+            "reviewer_id": {"type": ["string", "null"]},
+            "reviewed_at": {"type": ["string", "null"], "format": "date-time"}
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "rollback": {
+      "type": "object",
+      "required": ["previous_approved_release_id", "reason", "validated"],
+      "properties": {
+        "previous_approved_release_id": {"type": ["string", "null"]},
+        "reason": {"type": "string", "minLength": 1},
+        "validated": {"type": "boolean"}
+      },
+      "additionalProperties": true
+    },
+    "gates": {
+      "type": "object",
+      "required": ["automated", "human"],
+      "properties": {
+        "automated": {"$ref": "#/$defs/automatedGates"},
+        "human": {"$ref": "#/$defs/humanGates"}
+      },
+      "additionalProperties": false
+    },
+    "approval": {
+      "type": "object",
+      "required": ["approved", "activation_allowed", "authority"],
+      "properties": {
+        "approved": {"const": false},
+        "activation_allowed": {"const": false},
+        "authority": {"const": "docs/APPROVED_RELEASES.json"}
+      },
+      "additionalProperties": false
+    },
+    "integrity": {
+      "type": "object",
+      "required": ["algorithm", "manifest_payload_sha256"],
+      "properties": {
+        "algorithm": {"const": "sha256"},
+        "manifest_payload_sha256": {"$ref": "#/$defs/hash"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"},
+    "hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "safePath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?![A-Za-z]:)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+    },
+    "artifact": {
+      "type": "object",
+      "required": ["path", "sha256", "size_bytes", "media_type"],
+      "properties": {
+        "path": {"$ref": "#/$defs/safePath"},
+        "sha256": {"$ref": "#/$defs/hash"},
+        "size_bytes": {"type": "integer", "minimum": 1},
+        "media_type": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "automatedGate": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["missing", "passed", "failed"]},
+        "evidence": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "humanGate": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["pending", "complete", "rejected"]},
+        "reviewer_id": {"type": "string", "minLength": 1},
+        "reviewed_at": {"type": "string", "format": "date-time"},
+        "evidence": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "humanReview": {
+      "type": "object",
+      "required": ["status", "crop_scope"],
+      "properties": {
+        "status": {"enum": ["pending", "complete", "rejected"]},
+        "crop_scope": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "reviewer_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "adjudicator_id": {"type": ["string", "null"]},
+        "reviewed_at": {"type": ["string", "null"], "format": "date-time"}
+      },
+      "additionalProperties": true
+    },
+    "automatedGates": {
+      "type": "object",
+      "required": ["artifact_integrity", "dataset_contract", "static_int8_calibration", "evaluation_thresholds", "quantization_regression", "runtime_parity", "rollback_validation"],
+      "properties": {
+        "artifact_integrity": {"$ref": "#/$defs/automatedGate"},
+        "dataset_contract": {"$ref": "#/$defs/automatedGate"},
+        "static_int8_calibration": {"$ref": "#/$defs/automatedGate"},
+        "evaluation_thresholds": {"$ref": "#/$defs/automatedGate"},
+        "quantization_regression": {"$ref": "#/$defs/automatedGate"},
+        "runtime_parity": {"$ref": "#/$defs/automatedGate"},
+        "rollback_validation": {"$ref": "#/$defs/automatedGate"}
+      },
+      "additionalProperties": false
+    },
+    "humanGates": {
+      "type": "object",
+      "required": ["agronomist_review", "field_representativeness_review", "data_rights_and_consent_review", "redistribution_review", "crop_protection_claim_review", "independent_model_validation", "accountable_release_owner_approval"],
+      "properties": {
+        "agronomist_review": {"$ref": "#/$defs/humanGate"},
+        "field_representativeness_review": {"$ref": "#/$defs/humanGate"},
+        "data_rights_and_consent_review": {"$ref": "#/$defs/humanGate"},
+        "redistribution_review": {"$ref": "#/$defs/humanGate"},
+        "crop_protection_claim_review": {"$ref": "#/$defs/humanGate"},
+        "independent_model_validation": {"$ref": "#/$defs/humanGate"},
+        "accountable_release_owner_approval": {"$ref": "#/$defs/humanGate"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

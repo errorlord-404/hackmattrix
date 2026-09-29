@@ -1,0 +1,84 @@
+{
+  "id": "KisanSathiUniversalDataSync",
+  "name": "KisanSathi - Official universal data sync",
+  "active": true,
+  "settings": {
+    "timezone": "Asia/Kolkata",
+    "executionOrder": "v1"
+  },
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Manual trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [260, 180]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "30 6 * * *"
+            }
+          ]
+        }
+      },
+      "id": "daily-schedule",
+      "name": "Daily at 06:30 IST",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [260, 340]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.BACKEND_INTERNAL_URL }}/internal/universal-data/sync",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Ingestion-Token",
+              "value": "={{ $env.SCRAPER_WEBHOOK_TOKEN }}"
+            }
+          ]
+        },
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "sources",
+              "value": "market_prices,msp,crops,gov_schemes,machinery,marketplace"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 900000
+        }
+      },
+      "id": "sync-request",
+      "name": "Sync official universal data",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [560, 260],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 60000
+    }
+  ],
+  "connections": {
+    "Manual trigger": {
+      "main": [[{"node": "Sync official universal data", "type": "main", "index": 0}]]
+    },
+    "Daily at 06:30 IST": {
+      "main": [[{"node": "Sync official universal data", "type": "main", "index": 0}]]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": []
+}

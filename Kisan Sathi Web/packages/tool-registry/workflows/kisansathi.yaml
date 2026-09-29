@@ -1,0 +1,207 @@
+version: "1.0"
+default:
+  deny_unknown_workflow: true
+  deny_unknown_tool: true
+  expose_full_inventory: false
+  prohibited_categories:
+    - machinery_control
+    - payments
+    - purchases
+    - sales
+    - subsidy_submission
+    - chemical_action
+  prohibited_tools:
+    - control_pump
+    - control_valve
+    - book_machinery
+    - make_payment
+    - purchase_inputs
+    - submit_sale
+    - submit_subsidy
+    - apply_chemical
+workflows:
+  farm_context:
+    allowlist:
+      - get_farm_overview
+      - get_component_health
+      - get_profile
+      - list_fields
+      - get_farm_map
+      - list_alerts
+      - list_reminders
+      - list_field_tasks
+      - get_ledger_summary
+  field_context:
+    allowlist:
+      - get_profile
+      - list_fields
+      - get_field
+      - get_field_timeline
+      - get_crop_stage_action_proposals
+      - get_soil_health
+      - get_latest_field_observations
+      - get_tomato_demo
+      - list_device_health
+      - get_weather_for_field
+      - get_weather_alerts_for_field
+      - get_irrigation_advice
+      - list_irrigation_events
+  crop_planning:
+    allowlist:
+      - get_profile
+      - list_fields
+      - get_field
+      - get_field_timeline
+      - get_soil_health
+      - get_latest_field_observations
+      - get_tomato_demo
+      - list_device_health
+      - get_weather_for_field
+      - get_weather_alerts_for_field
+      - get_crop_options
+      - list_crops
+      - get_crop
+      - recommend_seeds
+      - recommend_fertilizers
+      - get_market_summary
+      - get_market_price
+      - get_nearby_mandi_prices
+      - get_market_trend
+      - get_market_history
+      - compare_mandis
+      - get_msp
+      - compare_msp_with_market
+      - calculate_profit
+  crop_health:
+    allowlist:
+      - get_profile
+      - list_fields
+      - get_field
+      - get_field_timeline
+      - get_soil_health
+      - get_latest_field_observations
+      - get_tomato_demo
+      - list_device_health
+      - get_weather_for_field
+      - get_weather_alerts_for_field
+      - diagnose_crop
+  support_market:
+    allowlist:
+      - get_profile
+      - list_fields
+      - find_government_schemes
+      - list_government_schemes
+      - get_scheme_details
+      - check_scheme_eligibility
+      - query_support_catalog
+      - list_machinery_rentals
+      - find_machinery
+      - find_nearby_machinery
+      - search_marketplace_listings
+      - find_nearby_marketplace_listings
+      - get_marketplace_status
+      - find_seed_suppliers
+      - find_fertilizer_suppliers
+      - find_logistics_providers
+      - find_crop_buyers
+      - find_exporters
+      - compare_marketplace_quotes
+      - compare_machinery_costs
+      - compare_logistics_options
+      - calculate_logistics_cost
+  advisor:
+    allowlist:
+      - get_profile
+      - list_fields
+      - get_field
+      - get_field_timeline
+      - get_soil_health
+      - get_latest_field_observations
+      - get_weather_for_field
+      - get_weather_alerts_for_field
+      - create_advisor_session
+      - ask_farm_advisor
+  voice:
+    allowlist:
+      - send_voice_turn
+      - transcribe_audio
+      - synthesize_speech
+      - translate_text
+  record_update:
+    allowlist:
+      - create_advisor_session
+      - create_field
+      - create_field_task
+      - create_reminder
+      - create_report
+      - diagnose_crop
+      - record_irrigation_event
+      - record_ledger_entry
+      - record_sensor_reading
+      - record_soil_test
+      - start_crop_cycle
+      - update_alert_status
+      - update_crop_stage
+      - update_field
+      - update_field_task_status
+      - update_ledger_entry_status
+      - update_profile
+  whole_cycle:
+    allowlist:
+      - get_farm_overview
+      - get_component_health
+      - get_profile
+      - list_fields
+      - get_farm_map
+      - get_field
+      - get_field_timeline
+      - get_crop_stage_action_proposals
+      - get_soil_health
+      - get_crop_options
+      - get_latest_field_observations
+      - get_tomato_demo
+      - list_device_health
+      - get_weather_for_field
+      - get_weather_alerts_for_field
+      - get_irrigation_advice
+      - list_irrigation_events
+      - list_alerts
+      - list_reminders
+      - list_field_tasks
+      - list_ledger_entries
+      - get_ledger_summary
+      - list_reports
+      - get_report
+      - get_market_summary
+      - get_market_price
+      - get_nearby_mandi_prices
+      - get_market_trend
+      - get_market_history
+      - compare_mandis
+      - get_msp
+      - compare_msp_with_market
+      - find_government_schemes
+      - list_government_schemes
+      - list_crops
+      - get_crop
+      - recommend_seeds
+      - recommend_fertilizers
+      - check_scheme_eligibility
+      - get_scheme_details
+      - query_support_catalog
+      - list_machinery_rentals
+      - find_machinery
+      - find_nearby_machinery
+      - search_marketplace_listings
+      - find_nearby_marketplace_listings
+      - get_marketplace_status
+      - find_seed_suppliers
+      - find_fertilizer_suppliers
+      - find_logistics_providers
+      - find_crop_buyers
+      - find_exporters
+      - compare_marketplace_quotes
+      - compare_machinery_costs
+      - compare_logistics_options
+      - calculate_logistics_cost
+      - calculate_profit

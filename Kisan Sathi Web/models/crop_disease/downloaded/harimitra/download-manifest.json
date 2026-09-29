@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0",
+  "model_id": "harimitra",
+  "remote_id": "sudhir75/Harimitra",
+  "revision": "e004bd0c3f83f3bdf129831103bf0802144b188e",
+  "source_url": "https://huggingface.co/sudhir75/Harimitra",
+  "license": "MIT",
+  "downloaded_at": "2026-09-19T04:33:36.672231+00:00",
+  "files": [
+    {
+      "path": ".cache/huggingface/.gitignore",
+      "size_bytes": 1,
+      "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+    },
+    {
+      "path": ".cache/huggingface/download/.gitattributes.metadata",
+      "size_bytes": 104,
+      "sha256": "d725358bc8b45a1139177001d130440f83ad82012f998efe3a3767ab770124c0"
+    },
+    {
+      "path": ".cache/huggingface/download/home_page.jpeg.metadata",
+      "size_bytes": 104,
+      "sha256": "3de178351df3b42ca69f4fd7aea6ab14f43a6af888b59bd0c31696223d8a3c75"
+    },
+    {
+      "path": ".cache/huggingface/download/main.py.metadata",
+      "size_bytes": 104,
+      "sha256": "5dca133c265ed95a7517a7d3923adb1c952c6fcba5b777713fe39e80dfc28639"
+    },
+    {
+      "path": ".cache/huggingface/download/README.md.metadata",
+      "size_bytes": 104,
+      "sha256": "e9383d1c10c7dcebcea6dcae5d907b0df5eebda92389903d0367bd3511f4138e"
+    },
+    {
+      "path": ".cache/huggingface/download/requirement.txt.metadata",
+      "size_bytes": 104,
+      "sha256": "28c7c34c06294fb9565982b3a1bd750826be7fcba13687582bf7a7fa48736def"
+    },
+    {
+      "path": ".cache/huggingface/download/Test_Plant_Disease.ipynb.metadata",
+      "size_bytes": 104,
+      "sha256": "660abd4d360ce80c897c010a06642aaa7deedece839d88f90917c041a322feb7"
+    },
+    {
+      "path": ".cache/huggingface/download/Train_plant_disease.ipynb.metadata",
+      "size_bytes": 104,
+      "sha256": "f658d54fb76f6868d48b879c6cd64a599ff912f1dabd926b4cca6f72994752c6"
+    },
+    {
+      "path": ".cache/huggingface/download/trained_model.h5.metadata",
+      "size_bytes": 128,
+      "sha256": "a647601d1c893e44e0ca62c0b89099e282a7dfac38e3883e9b22bd7f0514f44c"
+    },
+    {
+      "path": ".cache/huggingface/download/trained_model.keras.metadata",
+      "size_bytes": 128,
+      "sha256": "56855253477b56e272a1a82834daaaa3599d52706cedfda9bfbf1b01d3fe58ee"
+    },
+    {
+      "path": ".cache/huggingface/download/training_hist.json.metadata",
+      "size_bytes": 104,
+      "sha256": "b659cb56aeff58f0d480643d87acd60863d942c22d8ddd53cab954615c758956"
+    },
+    {
+      "path": ".gitattributes",
+      "size_bytes": 1575,
+      "sha256": "e492b4c5acdd7d2b0b0aa35660a91474286812ae8f45135f348dab9bb3756b80"
+    },
+    {
+      "path": "home_page.jpeg",
+      "size_bytes": 75864,
+      "sha256": "a582bffd366cef277fb49c4017ae1360e9dafb1ba054a076257ff16e7ae876c0"
+    },
+    {
+      "path": "labels.json",
+      "size_bytes": 1177,
+      "sha256": "e0a6dff6ec1d8d83bdd96750b14076ee57479d6ff169189d4cdff7bb92b1c57d"
+    },
+    {
+      "path": "main.py",
+      "size_bytes": 4527,
+      "sha256": "9e9ab0a1e7521bbf3a1cb25a7b1defa9664da184bb3e83ce9350a3197f3a581a"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 6645,
+      "sha256": "926abda6f133b8f8226edebafd041df780c2d09f74057bf62d8e65ff117af2c5"
+    },
+    {
+      "path": "requirement.txt",
+      "size_bytes": 126,
+      "sha256": "5ede38a4142c5ea5a8b13034e5f5e5ab02cd69fb38ea7c0aec6f150900a1c09e"
+    },
+    {
+      "path": "Test_Plant_Disease.ipynb",
+      "size_bytes": 600335,
+      "sha256": "b037e1085f1e9f0706a88b4bd8625ea642b67710716ccef9d8aa12761635cf50"
+    },
+    {
+      "path": "Train_plant_disease.ipynb",
+      "size_bytes": 551560,
+      "sha256": "a8a64f039d6221e5db1ed2d0bad308a3be4ae58f26ddeb5ca195c316aa5b158e"
+    },
+    {
+      "path": "trained_model.h5",
+      "size_bytes": 94233168,
+      "sha256": "a1cc5c8f918b6b2b1190f04e71bd049a5e3295e59d2f78f8756e9ad152516c87"
+    },
+    {
+      "path": "trained_model.keras",
+      "size_bytes": 31439245,
+      "sha256": "62d7c46bc3eb4660846a905fa1bf3eb2e0da7283df2b493bf9f8e85442d7c062"
+    },
+    {
+      "path": "training_hist.json",
+      "size_bytes": 862,
+      "sha256": "3fd2a3cbe9dfd88c601b9a4294b99eb4e92abe0fad488d9bdf4f587e67496477"
+    }
+  ]
+}

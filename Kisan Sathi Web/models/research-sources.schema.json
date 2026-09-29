@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kisansathi.local/models/research-sources/v1",
+  "type": "object",
+  "required": ["schema_version", "sources"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["source_id", "kind", "publisher", "url", "license_status", "deployable_artifact", "assessment"],
+        "properties": {
+          "source_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"},
+          "kind": {"enum": ["backbone", "dataset", "research_checkpoint", "runtime"]},
+          "publisher": {"type": "string", "minLength": 1},
+          "url": {"type": "string", "format": "uri"},
+          "license_status": {"enum": ["permissive_verified", "attribution_required", "review_required"]},
+          "license": {"type": ["string", "null"]},
+          "deployable_artifact": {"type": "boolean"},
+          "assessment": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

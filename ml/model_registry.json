@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "version": "prototype-research-bundle-2026-09-19",
+  "purpose": "Codex desktop crop-health research signals; not a production release",
+  "models": [
+    {
+      "model_id": "harimitra",
+      "framework": "keras_legacy",
+      "model_path": "models/harimitra/trained_model.h5",
+      "labels_path": "models/harimitra/labels.json",
+      "input_size": 128,
+      "preprocessing": "raw_0_255",
+      "crops": ["apple", "corn", "grape", "orange", "peach", "pepper", "potato", "soybean", "tomato"],
+      "source": "https://huggingface.co/sudhir75/Harimitra",
+      "revision": "e004bd0c3f83f3bdf129831103bf0802144b188e",
+      "license": "MIT",
+      "research_only": true
+    },
+    {
+      "model_id": "mesabo_resnet50",
+      "framework": "transformers",
+      "model_path": "models/mesabo_resnet50",
+      "labels_path": null,
+      "input_size": 224,
+      "preprocessing": "imagenet",
+      "crops": ["apple", "corn", "grape", "orange", "peach", "pepper", "potato", "soybean", "tomato"],
+      "source": "https://huggingface.co/mesabo/agri-plant-disease-resnet50",
+      "revision": "61aa6c309c8e023f1cef5761254039254fddebed",
+      "license": "Apache-2.0",
+      "research_only": true
+    },
+    {
+      "model_id": "plantvillage_efficientnet",
+      "framework": "keras",
+      "model_path": "models/plantvillage_efficientnet/plant_disease_efficientnet.keras",
+      "labels_path": "models/plantvillage_efficientnet/labels.json",
+      "input_size": 224,
+      "preprocessing": "efficientnet",
+      "crops": ["apple", "corn", "grape", "orange", "peach", "pepper", "potato", "soybean", "tomato"],
+      "source": "https://huggingface.co/Nefflymicn/PlantVillage-plant-disease-detection",
+      "revision": "8308d6251f602e561edc45606299de90599d9ca4",
+      "license": "Apache-2.0",
+      "research_only": true
+    },
+    {
+      "model_id": "mesabo_resnet50_onnx",
+      "framework": "onnx",
+      "model_path": "models/mesabo_resnet50_onnx/model-fp32.onnx",
+      "labels_path": "models/mesabo_resnet50_onnx/labels.json",
+      "input_size": 224,
+      "preprocessing": "imagenet",
+      "crops": ["apple", "corn", "grape", "orange", "peach", "pepper", "potato", "soybean", "tomato"],
+      "source": "https://huggingface.co/mesabo/agri-plant-disease-resnet50",
+      "revision": "61aa6c309c8e023f1cef5761254039254fddebed",
+      "license": "Apache-2.0",
+      "research_only": true
+    }
+  ]
+}

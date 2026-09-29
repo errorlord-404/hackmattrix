@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "model_id": "stub-disease-sugarcane",
+  "taxonomy_status": "draft_requires_agronomist_review",
+  "classes": [
+    {
+      "index": 0,
+      "label": "healthy",
+      "crop_id": "sugarcane",
+      "disease_id": "healthy",
+      "catalog_crop_id": "sugarcane"
+    },
+    {
+      "index": 1,
+      "label": "red rot",
+      "crop_id": "sugarcane",
+      "disease_id": "red_rot",
+      "catalog_crop_id": "sugarcane"
+    },
+    {
+      "index": 2,
+      "label": "smut",
+      "crop_id": "sugarcane",
+      "disease_id": "smut",
+      "catalog_crop_id": "sugarcane"
+    },
+    {
+      "index": 3,
+      "label": "wilt",
+      "crop_id": "sugarcane",
+      "disease_id": "wilt",
+      "catalog_crop_id": "sugarcane"
+    },
+    {
+      "index": 4,
+      "label": "grassy shoot disease",
+      "crop_id": "sugarcane",
+      "disease_id": "grassy_shoot_disease",
+      "catalog_crop_id": "sugarcane"
+    },
+    {
+      "index": 5,
+      "label": "pokkah boeng",
+      "crop_id": "sugarcane",
+      "disease_id": "pokkah_boeng",
+      "catalog_crop_id": "sugarcane"
+    },
+    {
+      "index": 6,
+      "label": "mosaic",
+      "crop_id": "sugarcane",
+      "disease_id": "mosaic",
+      "catalog_crop_id": "sugarcane"
+    }
+  ]
+}

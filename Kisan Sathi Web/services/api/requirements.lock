@@ -1,0 +1,23 @@
+# Generated from the audited parent backend baseline on 2026-09-17.
+# Versions are pinned to the audited parent backend baseline. PyJWT is pinned
+# below with the exact hashes approved by the 07-02 development-dependency
+# record. ONNX Runtime Web and Playwright belong to their JavaScript/browser
+# locks and remain uninstalled until the separate release-CV gate passes.
+annotated-types==0.8.0
+anyio==4.14.2
+beanie==2.0.0
+fastapi==0.141.1
+httpx==0.28.1
+motor==3.7.1
+PyJWT==2.14.0 \
+    --hash=sha256:ad0cef71c756a56e74863c2919cf0985f72decbcfcb550ee2f422e7c62b5eedc \
+    --hash=sha256:77283c83fb56ecf566a886c757a714bc83668e38156de2cce8263302f42e0b86
+pydantic==2.13.4
+pydantic-core==2.46.4
+pydantic-settings==2.15.0
+pymongo==4.17.0
+python-dotenv==1.2.2
+PyYAML==6.0.3
+starlette==1.6.0
+typing-extensions==4.16.0
+uvicorn==0.52.3

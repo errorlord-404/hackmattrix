@@ -1,0 +1,9 @@
+# Install explicitly on an inference image/worker only after selecting a model.
+# The API remains operational without these optional framework runtimes.
+pillow==12.1.1
+huggingface_hub>=0.30,<1
+transformers>=4.50,<5
+torch>=2.6,<3
+# Keras source adapters are optional and require exactly one compatible backend:
+# tensorflow>=2.16,<3
+# keras>=3.0,<4

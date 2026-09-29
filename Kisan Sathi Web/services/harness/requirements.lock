@@ -1,0 +1,7 @@
+# Development-scoped lock; package identities are governed by docs/APPROVED_RELEASES.json.
+fastapi==0.141.1
+httpx==0.28.1
+PyJWT==2.14.0
+PyYAML==6.0.3
+pytest==8.3.5
+uvicorn==0.52.3

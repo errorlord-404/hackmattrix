@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "model_id": "stub-disease-cotton",
+  "taxonomy_status": "draft_requires_agronomist_review",
+  "classes": [
+    {
+      "index": 0,
+      "label": "healthy",
+      "crop_id": "cotton",
+      "disease_id": "healthy",
+      "catalog_crop_id": "cotton"
+    },
+    {
+      "index": 1,
+      "label": "bacterial blight",
+      "crop_id": "cotton",
+      "disease_id": "bacterial_blight",
+      "catalog_crop_id": "cotton"
+    },
+    {
+      "index": 2,
+      "label": "alternaria leaf spot",
+      "crop_id": "cotton",
+      "disease_id": "alternaria_leaf_spot",
+      "catalog_crop_id": "cotton"
+    },
+    {
+      "index": 3,
+      "label": "gray mildew",
+      "crop_id": "cotton",
+      "disease_id": "gray_mildew",
+      "catalog_crop_id": "cotton"
+    },
+    {
+      "index": 4,
+      "label": "cotton leaf curl disease",
+      "crop_id": "cotton",
+      "disease_id": "cotton_leaf_curl_disease",
+      "catalog_crop_id": "cotton"
+    },
+    {
+      "index": 5,
+      "label": "fusarium wilt",
+      "crop_id": "cotton",
+      "disease_id": "fusarium_wilt",
+      "catalog_crop_id": "cotton"
+    },
+    {
+      "index": 6,
+      "label": "verticillium wilt",
+      "crop_id": "cotton",
+      "disease_id": "verticillium_wilt",
+      "catalog_crop_id": "cotton"
+    }
+  ]
+}

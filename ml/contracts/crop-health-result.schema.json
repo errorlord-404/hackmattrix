@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kisansathi.local/contracts/crop-health-result/v1",
+  "title": "KisanSathi Crop Health Result v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status", "model_id", "model_version", "inference_location",
+    "captured_at", "evidence_quality", "candidates", "limitations"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["completed", "unknown", "unsupported_crop", "needs_expert_review", "provider_unavailable", "failed"]
+    },
+    "model_id": {"type": "string", "minLength": 1},
+    "model_version": {"type": "string", "minLength": 1},
+    "inference_location": {"type": "string", "enum": ["android_local", "server", "hosted_api"]},
+    "captured_at": {"type": "string", "format": "date-time"},
+    "field_id": {"type": ["string", "null"]},
+    "crop": {"type": ["string", "null"]},
+    "crop_stage": {"type": ["string", "null"]},
+    "evidence_quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "reasons"],
+      "properties": {
+        "status": {"type": "string", "enum": ["acceptable", "poor", "unknown"]},
+        "reasons": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "candidates": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label_id", "display_name", "rank"],
+        "properties": {
+          "label_id": {"type": "string"},
+          "display_name": {"type": "string"},
+          "rank": {"type": "integer", "minimum": 1},
+          "score": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+          "evidence": {"type": "array", "items": {"type": "object"}}
+        }
+      }
+    },
+    "limitations": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "review_required": {"type": "boolean", "default": false},
+    "content_pack_version": {"type": ["string", "null"]},
+    "artifact_sha256": {"type": ["string", "null"]}
+  }
+}

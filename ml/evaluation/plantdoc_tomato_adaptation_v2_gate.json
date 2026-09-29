@@ -1,0 +1,78 @@
+{
+  "samples": 24,
+  "accepted_samples": 0,
+  "rejected_supported_samples": 24,
+  "accepted_accuracy": 0.0,
+  "coverage": 0.0,
+  "macro_f1": 0.0,
+  "per_class": {
+    "early_blight": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 6
+    },
+    "healthy": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 6
+    },
+    "late_blight": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 6
+    },
+    "leaf_mold": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 6
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "early_blight",
+      "healthy",
+      "late_blight",
+      "leaf_mold"
+    ],
+    "rows_expected_columns_predicted": [
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "acceptance_policy": {
+    "minimum_score": 0.7,
+    "minimum_margin": 0.15
+  },
+  "model": "ml\\private-artifacts\\plantdoc-tomato-efficientnetv2-b0-v2-tflite\\model-dynamic.tflite",
+  "labels": "ml\\private-artifacts\\plantdoc-tomato-efficientnetv2-b0-v2-tflite\\labels.json",
+  "dataset": "C:\\Users\\prana\\AppData\\Local\\Temp\\kisansathi-plantdoc-tomato-specialist-v3\\external_test",
+  "unknown_ood": {
+    "status": "not_evaluated"
+  }
+}

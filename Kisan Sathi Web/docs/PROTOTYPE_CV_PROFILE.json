@@ -1,0 +1,231 @@
+{
+  "schema_version": "1.0",
+  "profile_id": "crop-disease-research-prototype",
+  "status": "prototype_available",
+  "prototype_only": true,
+  "production_approved": false,
+  "activation_allowed": false,
+  "diagnostic_use_allowed": false,
+  "models": [
+    {
+      "id": "harimitra",
+      "name": "Harimitra",
+      "provider": "huggingface",
+      "framework": "keras",
+      "architecture": "cnn",
+      "source_url": "https://huggingface.co/sudhir75/Harimitra",
+      "revision": "e004bd0c3f83f3bdf129831103bf0802144b188e",
+      "license": "MIT",
+      "crops": [
+        "maize",
+        "potato",
+        "tomato",
+        "citrus",
+        "grape",
+        "soybean",
+        "chilli"
+      ],
+      "training_domain": "controlled",
+      "status": "prototype_available",
+      "loadable": true,
+      "manifest": {
+        "path": "models/crop_disease/downloaded/harimitra/download-manifest.json",
+        "sha256": "ec6db8a039e674a28a509e93a2f053c3bfc4eff1ab510c6cfdadc2b6f5185213",
+        "file_count": 22,
+        "model_artifacts": [
+          {
+            "path": "trained_model.h5",
+            "size_bytes": 94233168,
+            "sha256": "a1cc5c8f918b6b2b1190f04e71bd049a5e3295e59d2f78f8756e9ad152516c87"
+          },
+          {
+            "path": "trained_model.keras",
+            "size_bytes": 31439245,
+            "sha256": "62d7c46bc3eb4660846a905fa1bf3eb2e0da7283df2b493bf9f8e85442d7c062"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mesabo_resnet50",
+      "name": "Mesabo Plant Disease ResNet50",
+      "provider": "huggingface",
+      "framework": "transformers_pytorch",
+      "architecture": "resnet50",
+      "source_url": "https://huggingface.co/mesabo/agri-plant-disease-resnet50",
+      "revision": "61aa6c309c8e023f1cef5761254039254fddebed",
+      "license": "Apache-2.0",
+      "crops": [
+        "maize",
+        "potato",
+        "tomato",
+        "citrus",
+        "grape",
+        "soybean",
+        "chilli"
+      ],
+      "training_domain": "controlled",
+      "status": "prototype_available",
+      "loadable": true,
+      "manifest": {
+        "path": "models/crop_disease/downloaded/mesabo_resnet50/download-manifest.json",
+        "sha256": "48e017fadc5a94a99b5cb8dc440daad55bfacbeaa3f61ce741ef6be7239ee7a6",
+        "file_count": 11,
+        "model_artifacts": [
+          {
+            "path": "model.safetensors",
+            "size_bytes": 94598072,
+            "sha256": "dae1b37f3095cf6446bbaaaee58e524ab755944ffa22da9954e90d0b7af3be33"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plantvillage_efficientnet",
+      "name": "PlantVillage EfficientNet",
+      "provider": "huggingface",
+      "framework": "keras",
+      "architecture": "efficientnet",
+      "source_url": "https://huggingface.co/Nefflymicn/PlantVillage-plant-disease-detection",
+      "revision": "8308d6251f602e561edc45606299de90599d9ca4",
+      "license": "Apache-2.0",
+      "crops": [
+        "maize",
+        "potato",
+        "tomato",
+        "citrus",
+        "grape",
+        "soybean",
+        "chilli"
+      ],
+      "training_domain": "controlled",
+      "status": "prototype_available",
+      "loadable": true,
+      "manifest": {
+        "path": "models/crop_disease/downloaded/plantvillage_efficientnet/download-manifest.json",
+        "sha256": "8a128a684828baf2cb9d610e1d160a2a5bdc7a4822b6366fb0d26d555fb3cc2a",
+        "file_count": 12,
+        "model_artifacts": [
+          {
+            "path": "plant_disease_efficientnet.keras",
+            "size_bytes": 38655526,
+            "sha256": "24573478ea38cfbc1aa2e0d5495f746062a9c94e49adc4677d1a8a3d52d88f49"
+          }
+        ]
+      }
+    }
+  ],
+  "model_count": 3,
+  "supported_crops": [
+    {
+      "id": "chilli",
+      "name": "Chilli"
+    },
+    {
+      "id": "citrus",
+      "name": "Citrus"
+    },
+    {
+      "id": "grape",
+      "name": "Grape"
+    },
+    {
+      "id": "maize",
+      "name": "Maize"
+    },
+    {
+      "id": "potato",
+      "name": "Potato"
+    },
+    {
+      "id": "soybean",
+      "name": "Soybean"
+    },
+    {
+      "id": "tomato",
+      "name": "Tomato"
+    }
+  ],
+  "unsupported_crops": [
+    {
+      "id": "banana",
+      "name": "Banana"
+    },
+    {
+      "id": "black_gram",
+      "name": "Black Gram"
+    },
+    {
+      "id": "chickpea",
+      "name": "Chickpea"
+    },
+    {
+      "id": "coconut",
+      "name": "Coconut"
+    },
+    {
+      "id": "cotton",
+      "name": "Cotton"
+    },
+    {
+      "id": "finger_millet",
+      "name": "Finger Millet"
+    },
+    {
+      "id": "groundnut",
+      "name": "Groundnut"
+    },
+    {
+      "id": "jute",
+      "name": "Jute"
+    },
+    {
+      "id": "mango",
+      "name": "Mango"
+    },
+    {
+      "id": "mung_bean",
+      "name": "Mung Bean"
+    },
+    {
+      "id": "onion",
+      "name": "Onion"
+    },
+    {
+      "id": "pearl_millet",
+      "name": "Pearl Millet"
+    },
+    {
+      "id": "pigeon_pea",
+      "name": "Pigeon Pea"
+    },
+    {
+      "id": "rapeseed_mustard",
+      "name": "Rapeseed Mustard"
+    },
+    {
+      "id": "rice",
+      "name": "Rice"
+    },
+    {
+      "id": "sorghum",
+      "name": "Sorghum"
+    },
+    {
+      "id": "sugarcane",
+      "name": "Sugarcane"
+    },
+    {
+      "id": "tea",
+      "name": "Tea"
+    },
+    {
+      "id": "wheat",
+      "name": "Wheat"
+    }
+  ],
+  "warnings": [
+    "This model was trained on controlled PlantVillage-style imagery and is not validated for Indian field conditions. Treat this result as decision support, not a diagnosis.",
+    "Prototype only: these research checkpoints are not validated for Indian field conditions and must not be used as a diagnosis or treatment order."
+  ]
+}

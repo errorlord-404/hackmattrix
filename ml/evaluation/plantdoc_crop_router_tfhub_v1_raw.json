@@ -1,0 +1,77 @@
+{
+  "samples": 64,
+  "accepted_samples": 64,
+  "rejected_supported_samples": 0,
+  "accepted_accuracy": 0.640625,
+  "coverage": 1.0,
+  "macro_f1": 0.6017955009334615,
+  "per_class": {
+    "bell_pepper": {
+      "precision": 0.6,
+      "recall": 0.5625,
+      "f1": 0.5806451612903225,
+      "support": 16
+    },
+    "maize": {
+      "precision": 0.9411764705882353,
+      "recall": 1.0,
+      "f1": 0.9696969696969697,
+      "support": 16
+    },
+    "potato": {
+      "precision": 0.56,
+      "recall": 0.875,
+      "f1": 0.6829268292682927,
+      "support": 16
+    },
+    "tomato": {
+      "precision": 0.2857142857142857,
+      "recall": 0.125,
+      "f1": 0.17391304347826086,
+      "support": 16
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "bell_pepper",
+      "maize",
+      "potato",
+      "tomato"
+    ],
+    "rows_expected_columns_predicted": [
+      [
+        9,
+        0,
+        3,
+        4
+      ],
+      [
+        0,
+        16,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        14,
+        1
+      ],
+      [
+        5,
+        1,
+        8,
+        2
+      ]
+    ]
+  },
+  "acceptance_policy": {
+    "minimum_score": 0.0,
+    "minimum_margin": 0.0
+  },
+  "model": "ml\\private-artifacts\\plantdoc-crop-router-tfhub-v1-tflite\\model-dynamic.tflite",
+  "labels": "ml\\private-artifacts\\plantdoc-crop-router-tfhub-v1-tflite\\labels.json",
+  "unknown_ood": {
+    "status": "not_evaluated"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "policy": {
+    "activation_allowed": false,
+    "diagnostic_use_allowed": false,
+    "approval_authority": "docs/APPROVED_RELEASES.json"
+  },
+  "candidates": [
+    {
+      "candidate_id": "mesabo-agri-plant-disease-resnet50-61aa6c3",
+      "status": "research_candidate_not_approved",
+      "framework": "transformers-pytorch-and-onnx",
+      "source_manifest": "mesabo-agri-plant-disease-resnet50-61aa6c3/source-manifest.json",
+      "supported_source_crops": ["maize", "tomato", "potato", "citrus", "grape", "soybean", "chilli"],
+      "onnx_artifact": "mesabo-agri-plant-disease-resnet50-61aa6c3/model-fp32.onnx",
+      "labels_artifact": "mesabo-agri-plant-disease-resnet50-61aa6c3/labels.json",
+      "activation_allowed": false,
+      "diagnostic_use_allowed": false
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1920 1080">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#0070C0"/></marker>
+    <style>
+      .title{font:700 44px 'Arial';fill:#17324D}.sub{font:400 21px 'Arial';fill:#4B6072}.stage{font:700 18px 'Arial';fill:#fff}.problem{font:400 15px 'Arial';fill:#F7FBFF}.solution{font:700 16px 'Arial';fill:#12372A}.small{font:400 14px 'Arial';fill:#4B6072}.chev{font:700 21px 'Arial';fill:#fff}.chev2{font:400 15px 'Arial';fill:#EAF6FF}.center{font:700 25px 'Arial';fill:#fff}.center2{font:400 17px 'Arial';fill:#DCEFE6}
+    </style>
+  </defs>
+  <rect width="1920" height="1080" fill="#F7F6F0"/>
+  <rect x="0" y="0" width="1920" height="14" fill="#0070C0"/>
+  <text x="74" y="78" class="title">Farmer problems and the KisanSathi response</text>
+  <text x="74" y="112" class="sub">One persistent farm record connects every decision from field reset to the next crop cycle</text>
+
+  <text x="74" y="162" class="small" font-weight="700">OUTER RING: FARMER STAGE AND PROBLEM</text>
+  <text x="565" y="162" class="small" font-weight="700">INNER RING: SYSTEM RESPONSE</text>
+  <circle cx="620" cy="570" r="350" fill="none" stroke="#B7C7D4" stroke-width="3" stroke-dasharray="9 10"/>
+  <circle cx="620" cy="570" r="245" fill="#E7F1EB" stroke="#6DA58A" stroke-width="3"/>
+
+  <!-- outer problem nodes -->
+  <g>
+    <rect x="480" y="180" width="280" height="86" rx="16" fill="#315A74"/><text x="620" y="210" text-anchor="middle" class="stage">1  FIELD RESET</text><text x="620" y="235" text-anchor="middle" class="problem">Residue, rotation and soil history</text><text x="620" y="255" text-anchor="middle" class="problem">are scattered or forgotten</text>
+    <rect x="780" y="282" width="300" height="86" rx="16" fill="#315A74"/><text x="930" y="312" text-anchor="middle" class="stage">2  CROP CHOICE</text><text x="930" y="337" text-anchor="middle" class="problem">Weather, soil, seed price and</text><text x="930" y="357" text-anchor="middle" class="problem">market trade-offs conflict</text>
+    <rect x="930" y="515" width="270" height="86" rx="16" fill="#315A74"/><text x="1065" y="545" text-anchor="middle" class="stage">3  INPUTS + PREPARATION</text><text x="1065" y="570" text-anchor="middle" class="problem">Unknown total cost, quality</text><text x="1065" y="590" text-anchor="middle" class="problem">and local availability</text>
+    <rect x="780" y="748" width="300" height="86" rx="16" fill="#315A74"/><text x="930" y="778" text-anchor="middle" class="stage">4  CROP GROWTH</text><text x="930" y="803" text-anchor="middle" class="problem">Irrigation, pests and nutrition</text><text x="930" y="823" text-anchor="middle" class="problem">change with crop stage</text>
+    <rect x="480" y="872" width="280" height="86" rx="16" fill="#315A74"/><text x="620" y="902" text-anchor="middle" class="stage">5  CLIMATE SHOCK</text><text x="620" y="927" text-anchor="middle" class="problem">Drought, flood or heat creates</text><text x="620" y="947" text-anchor="middle" class="problem">urgent, high-stakes decisions</text>
+    <rect x="160" y="748" width="300" height="86" rx="16" fill="#315A74"/><text x="310" y="778" text-anchor="middle" class="stage">6  HARVEST</text><text x="310" y="803" text-anchor="middle" class="problem">Readiness, machinery and labour</text><text x="310" y="823" text-anchor="middle" class="problem">must align with weather</text>
+    <rect x="20" y="515" width="260" height="86" rx="16" fill="#315A74"/><text x="150" y="545" text-anchor="middle" class="stage">7  SELL OR STORE</text><text x="150" y="570" text-anchor="middle" class="problem">Mandi price hides freight, quality,</text><text x="150" y="590" text-anchor="middle" class="problem">storage and spoilage</text>
+    <rect x="160" y="282" width="300" height="86" rx="16" fill="#315A74"/><text x="310" y="312" text-anchor="middle" class="stage">8  FINANCE AND RECOVERY</text><text x="310" y="337" text-anchor="middle" class="problem">Expenses, schemes, insurance</text><text x="310" y="357" text-anchor="middle" class="problem">and evidence live apart</text>
+  </g>
+
+  <!-- inner solution nodes -->
+  <g>
+    <rect x="520" y="300" width="200" height="58" rx="29" fill="#D2EBDD" stroke="#3E8D66" stroke-width="2"/><text x="620" y="326" text-anchor="middle" class="solution">Farm history + soil</text><text x="620" y="347" text-anchor="middle" class="solution">baseline</text>
+    <rect x="697" y="370" width="230" height="58" rx="29" fill="#D2EBDD" stroke="#3E8D66" stroke-width="2"/><text x="812" y="396" text-anchor="middle" class="solution">Evidence-ranked crop</text><text x="812" y="417" text-anchor="middle" class="solution">options</text>
+    <rect x="745" y="510" width="205" height="58" rx="29" fill="#D2EBDD" stroke="#3E8D66" stroke-width="2"/><text x="847" y="536" text-anchor="middle" class="solution">Verified suppliers +</text><text x="847" y="557" text-anchor="middle" class="solution">landed-cost comparison</text>
+    <rect x="688" y="665" width="250" height="58" rx="29" fill="#D2EBDD" stroke="#3E8D66" stroke-width="2"/><text x="813" y="691" text-anchor="middle" class="solution">Stage-aware health and</text><text x="813" y="712" text-anchor="middle" class="solution">irrigation advice</text>
+    <rect x="502" y="770" width="236" height="58" rx="29" fill="#D2EBDD" stroke="#3E8D66" stroke-width="2"/><text x="620" y="796" text-anchor="middle" class="solution">Warn, prepare and</text><text x="620" y="817" text-anchor="middle" class="solution">document loss</text>
+    <rect x="292" y="665" width="250" height="58" rx="29" fill="#D2EBDD" stroke="#3E8D66" stroke-width="2"/><text x="417" y="691" text-anchor="middle" class="solution">Harvest readiness +</text><text x="417" y="712" text-anchor="middle" class="solution">rental coordination</text>
+    <rect x="285" y="510" width="210" height="58" rx="29" fill="#D2EBDD" stroke="#3E8D66" stroke-width="2"/><text x="390" y="536" text-anchor="middle" class="solution">Net mandi, MSP and</text><text x="390" y="557" text-anchor="middle" class="solution">storage decision</text>
+    <rect x="300" y="370" width="230" height="58" rx="29" fill="#D2EBDD" stroke="#3E8D66" stroke-width="2"/><text x="415" y="396" text-anchor="middle" class="solution">Ledger, schemes and</text><text x="415" y="417" text-anchor="middle" class="solution">recovery checklist</text>
+  </g>
+
+  <circle cx="620" cy="570" r="120" fill="#12372A"/>
+  <text x="620" y="538" text-anchor="middle" class="center">KisanSathi</text>
+  <text x="620" y="570" text-anchor="middle" class="center">decision loop</text>
+  <text x="620" y="603" text-anchor="middle" class="center2">farm memory + evidence</text>
+  <text x="620" y="628" text-anchor="middle" class="center2">+ farmer confirmation</text>
+
+  <!-- right uniqueness chevrons -->
+  <text x="1235" y="180" style="font:700 30px Arial;fill:#17324D">What makes the system distinct</text>
+  <path d="M1235 220 H1730 L1810 278 L1730 336 H1235 L1315 278 Z" fill="#0070C0"/><text x="1518" y="267" text-anchor="middle" class="chev">One agent, every farm service</text><text x="1518" y="294" text-anchor="middle" class="chev2">Codex/MCP harness invokes the same verified APIs as the app</text>
+  <path d="M1235 350 H1730 L1810 408 L1730 466 H1235 L1315 408 Z" fill="#166B4B"/><text x="1518" y="397" text-anchor="middle" class="chev">Native-language voice control</text><text x="1518" y="424" text-anchor="middle" class="chev2">Speech, translation and spoken response reduce interface burden</text>
+  <path d="M1235 480 H1730 L1810 538 L1730 596 H1235 L1315 538 Z" fill="#3E8D66"/><text x="1518" y="527" text-anchor="middle" class="chev">Field evidence, not chat memory</text><text x="1518" y="554" text-anchor="middle" class="chev2">GPS field, crop stage, sensors, weather, images and ledger persist</text>
+  <path d="M1235 610 H1730 L1810 668 L1730 726 H1235 L1315 668 Z" fill="#B7791F"/><text x="1518" y="657" text-anchor="middle" class="chev">On-device vision with abstention</text><text x="1518" y="684" text-anchor="middle" class="chev2">Lightweight crop-health models return unknown when evidence fails</text>
+  <path d="M1235 740 H1730 L1810 798 L1730 856 H1235 L1315 798 Z" fill="#8B4E2F"/><text x="1518" y="787" text-anchor="middle" class="chev">Sensor-to-action, safety gated</text><text x="1518" y="814" text-anchor="middle" class="chev2">Predictive irrigation creates advice and tasks before pump control</text>
+  <path d="M1235 870 H1730 L1810 928 L1730 986 H1235 L1315 928 Z" fill="#315A74"/><text x="1518" y="917" text-anchor="middle" class="chev">Offline-first farm continuity</text><text x="1518" y="944" text-anchor="middle" class="chev2">Per-farmer SQLite preserves history when connectivity fails</text>
+
+  <line x1="1080" y1="1012" x2="1808" y2="1012" stroke="#C5D2DB"/>
+  <circle cx="1090" cy="1040" r="7" fill="#3E8D66"/><text x="1107" y="1046" class="small">Implemented prototype</text>
+  <circle cx="1320" cy="1040" r="7" fill="#B7791F"/><text x="1337" y="1046" class="small">Validation required</text>
+  <circle cx="1530" cy="1040" r="7" fill="#8B4E2F"/><text x="1547" y="1046" class="small">Physical action remains safety gated</text>
+</svg>

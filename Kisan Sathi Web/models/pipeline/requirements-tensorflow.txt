@@ -1,0 +1,7 @@
+# Optional TensorFlow/Keras/Hub training and export environment.
+# Keep this dependency group out of registry inspection and service runtimes.
+tensorflow>=2.16,<2.22
+tensorflow-hub>=0.16,<0.17
+tf-keras>=2.16,<2.22
+tf2onnx>=1.16,<2
+Pillow>=12,<13

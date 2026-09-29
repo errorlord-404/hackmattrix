@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "model_id": "mesabo_resnet50_onnx",
+  "remote_id": "mesabo/agri-plant-disease-resnet50",
+  "revision": "61aa6c309c8e023f1cef5761254039254fddebed",
+  "source_url": "https://huggingface.co/mesabo/agri-plant-disease-resnet50",
+  "license": "Apache-2.0",
+  "prototype_only": true,
+  "production_approved": false,
+  "files": [
+    {
+      "path": "model-fp32.onnx",
+      "size_bytes": 94273366,
+      "sha256": "0d6b37214498e91bdf48dc829f91545886a6eb50969f042e34697774332be088"
+    },
+    {
+      "path": "labels.json",
+      "size_bytes": 1334,
+      "sha256": "7d5c480fe9d2f74f536799da78356d9c0ee1ad6006a1c84a82582b56d766db6b"
+    },
+    {
+      "path": "preprocess.json",
+      "size_bytes": 430,
+      "sha256": "b97e40b93dd69f4f976b71cdc35d8eb0fd4ff2061bbaeb49ba860edf5d842940"
+    },
+    {
+      "path": "golden-zero-input.json",
+      "size_bytes": 778,
+      "sha256": "eb3ba6bf9b65572902dbf7436f40260516191d0c45c92abd2490d09dca2fc189"
+    }
+  ]
+}

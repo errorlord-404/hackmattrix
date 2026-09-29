@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kisansathi.local/contracts/provider-capabilities/v1",
+  "title": "KisanSathi provider capabilities v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "provider", "capabilities", "limits", "unsupported_behavior"],
+  "properties": {
+    "version": {"const":"1.0"},
+    "provider": {"type":"string","minLength":1,"maxLength":128,"pattern":"^[A-Za-z0-9._-]+$"},
+    "capabilities": {"type":"object","additionalProperties":false,"required":["text_input","image_input","tools","structured_output","streaming","cancellation"],"properties":{"text_input":{"type":"boolean"},"image_input":{"type":"boolean"},"tools":{"type":"boolean"},"structured_output":{"type":"boolean"},"streaming":{"type":"boolean"},"cancellation":{"type":"boolean"}}},
+    "limits": {"type":"object","additionalProperties":false,"required":["max_input_bytes","max_output_tokens","max_tools","max_image_bytes"],"properties":{"max_input_bytes":{"type":"integer","minimum":1},"max_output_tokens":{"type":"integer","minimum":1},"max_tools":{"type":"integer","minimum":0,"maximum":78},"max_image_bytes":{"type":"integer","minimum":0}}},
+    "unsupported_behavior": {"type":"string","enum":["explicit_error","declared_fallback"]}
+  },
+  "examples": [{"version":"1.0","provider":"fake","capabilities":{"text_input":true,"image_input":false,"tools":true,"structured_output":true,"streaming":true,"cancellation":true},"limits":{"max_input_bytes":1048576,"max_output_tokens":2048,"max_tools":8,"max_image_bytes":0},"unsupported_behavior":"explicit_error"}]
+}

@@ -1,0 +1,43 @@
+services:
+  mongodb:
+    image: mongo:8.0
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  n8n:
+    image: n8nio/n8n:1.123.72
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5678:5678"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      TZ: Asia/Kolkata
+      GENERIC_TIMEZONE: Asia/Kolkata
+      N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY:?Set N8N_ENCRYPTION_KEY in backend/.env}
+      N8N_BLOCK_ENV_ACCESS_IN_NODE: "false"
+      N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: "true"
+      BACKEND_INTERNAL_URL: ${BACKEND_INTERNAL_URL:-http://host.docker.internal:8000}
+      SCRAPER_WEBHOOK_TOKEN: ${SCRAPER_WEBHOOK_TOKEN:?Set SCRAPER_WEBHOOK_TOKEN in backend/.env}
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ./n8n:/workflows:ro
+    # The pinned n8n image is shell-less.  Pass its documented CLI command
+    # directly so the service can start instead of repeatedly failing on
+    # `/bin/sh`; workflow import/activation remains an explicit deployment job.
+    command: start
+    depends_on:
+      mongodb:
+        condition: service_healthy
+
+volumes:
+  mongodb_data:
+  n8n_data:

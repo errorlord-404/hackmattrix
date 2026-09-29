@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "split": {
+      "type": "object",
+      "required": ["strategy", "group_keys", "partitions"],
+      "properties": {
+        "strategy": {"const": "explicit_group_disjoint"},
+        "group_keys": {"type": "array", "minItems": 2, "items": {"enum": ["farm_id", "farmer_id", "capture_date", "season", "cultivar", "device_id", "region"]}},
+        "partitions": {"type": "array", "const": ["train", "validation", "test", "field", "ood", "calibration"]}
+      },
+      "additionalProperties": false
+    },
+    "preprocessing": {
+      "type": "object",
+      "required": ["height", "width", "channels", "color_space", "layout", "resize", "interpolation", "normalization"],
+      "properties": {
+        "height": {"type": "integer", "minimum": 32},
+        "width": {"type": "integer", "minimum": 32},
+        "channels": {"const": 3},
+        "color_space": {"const": "RGB"},
+        "layout": {"enum": ["NCHW", "NHWC"]},
+        "resize": {"enum": ["resize-shorter-center-crop", "squash"]},
+        "interpolation": {"const": "bilinear"},
+        "normalization": {"enum": ["imagenet", "zero_one", "minus_one_one"]}
+      },
+      "additionalProperties": false
+    },
+    "training": {
+      "type": "object",
+      "required": ["epochs_frozen", "epochs_finetune", "learning_rate_head", "learning_rate_finetune", "batch_size", "optimizer", "class_weighting", "augmentation", "deterministic"],
+      "properties": {
+        "epochs_frozen": {"type": "integer", "minimum": 0},
+        "epochs_finetune": {"type": "integer", "minimum": 1},
+        "learning_rate_head": {"type": "number", "exclusiveMinimum": 0},
+        "learning_rate_finetune": {"type": "number", "exclusiveMinimum": 0},
+        "batch_size": {"type": "integer", "minimum": 1},
+        "optimizer": {"enum": ["adamw", "adam", "sgd"]},
+        "class_weighting": {"enum": ["none", "balanced"]},
+        "augmentation": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["random_resized_crop", "horizontal_flip", "color_jitter", "random_rotation", "random_erasing"]}},
+        "deterministic": {"const": true}
+      },
+      "additionalProperties": false
+    },
+    "export": {
+      "type": "object",
+      "required": ["canonical", "opset", "input_name", "output_name", "dynamic_batch_only", "optional"],
+      "properties": {
+        "canonical": {"const": "onnx"},
+        "opset": {"type": "integer", "minimum": 17},
+        "input_name": {"const": "input"},
+        "output_name": {"const": "logits"},
+        "dynamic_batch_only": {"const": true},
+        "optional": {"type": "array", "items": {"enum": ["tflite-fp32", "tflite-float16", "tflite-int8"]}}
+      },
+      "additionalProperties": false
+    },
+    "quantization": {
+      "type": "object",
+      "required": ["default", "calibration_partition", "allow_dynamic_for_cnn_release"],
+      "properties": {
+        "default": {"const": "static-int8"},
+        "calibration_partition": {"const": "calibration"},
+        "allow_dynamic_for_cnn_release": {"const": false}
+      },
+      "additionalProperties": false
+    },
+    "evaluation": {
+      "type": "object",
+      "required": ["require_per_class", "require_field", "require_ood", "require_calibration", "threshold_profile", "thresholds"],
+      "properties": {
+        "require_per_class": {"const": true},
+        "require_field": {"const": true},
+        "require_ood": {"const": true},
+        "require_calibration": {"const": true},
+        "threshold_profile": {"const": "candidate-template-needs-agronomist-approval"},
+        "thresholds": {
+          "type": "object",
+          "required": ["min_macro_f1", "min_per_class_recall", "min_ood_auroc", "max_expected_calibration_error", "max_unknown_false_acceptance", "max_quantized_macro_f1_drop", "max_runtime_parity_abs_error"],
+          "properties": {
+            "min_macro_f1": {"type": "number", "minimum": 0, "maximum": 1},
+            "min_per_class_recall": {"type": "number", "minimum": 0, "maximum": 1},
+            "min_ood_auroc": {"type": "number", "minimum": 0, "maximum": 1},
+            "max_expected_calibration_error": {"type": "number", "minimum": 0, "maximum": 1},
+            "max_unknown_false_acceptance": {"type": "number", "minimum": 0, "maximum": 1},
+            "max_quantized_macro_f1_drop": {"type": "number", "minimum": 0, "maximum": 1},
+            "max_runtime_parity_abs_error": {"type": "number", "minimum": 0}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "required": ["schema_version", "status", "coverage", "defaults", "recipes"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "status": {"enum": ["template", "candidate"]},
+    "coverage": {
+      "type": "object",
+      "required": ["coverage_id", "crop_ids"],
+      "properties": {
+        "coverage_id": {"const": "india-top-15-integration-v1"},
+        "crop_ids": {"type": "array", "minItems": 15, "maxItems": 15, "uniqueItems": true, "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "defaults": {
+      "type": "object",
+      "required": ["status", "backbone_id", "split", "seed", "preprocessing", "training", "export", "quantization", "evaluation"],
+      "properties": {
+        "status": {"const": "template"},
+        "backbone_id": {"type": "string"},
+        "split": {"$ref": "#/$defs/split"},
+        "seed": {"type": "integer", "minimum": 0},
+        "preprocessing": {"$ref": "#/$defs/preprocessing"},
+        "training": {"$ref": "#/$defs/training"},
+        "export": {"$ref": "#/$defs/export"},
+        "quantization": {"$ref": "#/$defs/quantization"},
+        "evaluation": {"$ref": "#/$defs/evaluation"}
+      },
+      "additionalProperties": false
+    },
+    "recipes": {
+      "type": "array",
+      "minItems": 16,
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "required": ["recipe_id", "role", "crop_id", "task", "dataset_manifest", "labels"],
+        "properties": {
+          "recipe_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$"},
+          "role": {"enum": ["crop_identifier", "disease_specialist"]},
+          "crop_id": {"type": "string"},
+          "task": {"enum": ["crop_identification", "crop_disease_screening"]},
+          "dataset_manifest": {"type": "string", "pattern": "^datasets/manifests/[a-z0-9_-]+\\.json$"},
+          "labels": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"type": "string", "pattern": "^[a-z0-9_]+$"}},
+          "backbone_id": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

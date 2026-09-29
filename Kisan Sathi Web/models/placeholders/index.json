@@ -1,0 +1,107 @@
+{
+  "schema_version": "2.0",
+  "coverage_id": "india-top-15-integration-v1",
+  "policy": {
+    "activation_allowed": false,
+    "catalog_registration_allowed": false,
+    "diagnostic_use_allowed": false,
+    "purpose": "research_and_compatibility_only"
+  },
+  "packages": [
+    {
+      "model_id": "placeholder-ktt-mobilenetv3-int8",
+      "kind": "research_checkpoint",
+      "manifest": "ktt-mobilenetv3-int8/manifest.json"
+    },
+    {
+      "model_id": "stub-disease-rice",
+      "kind": "structural_stub",
+      "crop_id": "rice",
+      "manifest": "stub-disease-rice/manifest.json"
+    },
+    {
+      "model_id": "stub-disease-wheat",
+      "kind": "structural_stub",
+      "crop_id": "wheat",
+      "manifest": "stub-disease-wheat/manifest.json"
+    },
+    {
+      "model_id": "stub-disease-maize",
+      "kind": "structural_stub",
+      "crop_id": "maize",
+      "manifest": "stub-disease-maize/manifest.json"
+    },
+    {
+      "model_id": "stub-disease-sorghum",
+      "kind": "structural_stub",
+      "crop_id": "sorghum",
+      "manifest": "stub-disease-sorghum/manifest.json"
+    },
+    {
+      "model_id": "stub-disease-pearl_millet",
+      "kind": "structural_stub",
+      "crop_id": "pearl_millet",
+      "manifest": "stub-disease-pearl_millet/manifest.json"
+    },
+    {
+      "model_id": "stub-disease-chickpea",
+      "kind": "structural_stub",
+      "crop_id": "chickpea",
+      "manifest": "stub-disease-chickpea/manifest.json"
+    },
+    {
+      "model_id": "stub-disease-pigeon_pea",
+      "kind": "structural_stub",
+      "crop_id": "pigeon_pea",
+      "manifest": "stub-disease-pigeon_pea/manifest.json"
+    },
+    {
+      "model_id": "stub-disease-groundnut",
+      "kind": "structural_stub",
+      "crop_id": "groundnut",
+      "manifest": "stub-disease-groundnut/manifest.json"
+    },
+    {
+      "model_id": "stub-disease-soybean",
+      "kind": "structural_stub",
+      "crop_id": "soybean",
+      "manifest": "stub-disease-soybean/manifest.json"
+    },
+    {
+      "model_id": "stub-disease-rapeseed_mustard",
+      "kind": "structural_stub",
+      "crop_id": "rapeseed_mustard",
+      "manifest": "stub-disease-rapeseed_mustard/manifest.json"
+    },
+    {
+      "model_id": "stub-disease-cotton",
+      "kind": "structural_stub",
+      "crop_id": "cotton",
+      "manifest": "stub-disease-cotton/manifest.json"
+    },
+    {
+      "model_id": "stub-disease-sugarcane",
+      "kind": "structural_stub",
+      "crop_id": "sugarcane",
+      "manifest": "stub-disease-sugarcane/manifest.json"
+    },
+    {
+      "model_id": "stub-disease-potato",
+      "kind": "structural_stub",
+      "crop_id": "potato",
+      "manifest": "stub-disease-potato/manifest.json"
+    },
+    {
+      "model_id": "stub-disease-tomato",
+      "kind": "structural_stub",
+      "crop_id": "tomato",
+      "manifest": "stub-disease-tomato/manifest.json"
+    },
+    {
+      "model_id": "stub-disease-onion",
+      "kind": "structural_stub",
+      "crop_id": "onion",
+      "manifest": "stub-disease-onion/manifest.json"
+    }
+  ]
+}

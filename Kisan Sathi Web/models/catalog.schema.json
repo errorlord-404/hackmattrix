@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kisansathi.local/models/catalog/v2",
+  "title": "KisanSathi hierarchical crop model catalog",
+  "type": "object",
+  "required": ["schema_version", "catalog_id", "status", "coverage", "models", "upload_contract"],
+  "properties": {
+    "schema_version": {"const": "2.0"},
+    "catalog_id": {"type": "string", "minLength": 1},
+    "status": {"enum": ["scaffold", "release"]},
+    "coverage": {
+      "type": "object",
+      "required": ["coverage_id", "country", "crop_ids"],
+      "properties": {
+        "coverage_id": {"type": "string", "minLength": 1},
+        "country": {"const": "IN"},
+        "crop_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}}
+      },
+      "additionalProperties": false
+    },
+    "models": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/model"}},
+    "upload_contract": {
+      "type": "object",
+      "required": ["required_files", "approval_required", "activation_rule"],
+      "properties": {
+        "required_files": {"type": "array", "items": {"type": "string"}, "minItems": 3},
+        "approval_required": {"const": true},
+        "activation_rule": {"const": "approved_entries_only"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"},
+    "hash": {"type": ["string", "null"], "pattern": "^[a-fA-F0-9]{64}$"},
+    "artifact": {
+      "type": "object",
+      "required": ["path", "sha256", "size_bytes"],
+      "properties": {
+        "path": {"type": ["string", "null"]},
+        "sha256": {"$ref": "#/$defs/hash"},
+        "size_bytes": {"type": ["integer", "null"], "minimum": 1}
+      },
+      "additionalProperties": false
+    },
+    "research": {
+      "type": "object",
+      "required": ["source_ids", "readiness", "field_evidence", "notes"],
+      "properties": {
+        "source_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+        "readiness": {"enum": ["backbone_only", "dataset_only", "research_checkpoint", "no_verified_source", "release_evidence"]},
+        "field_evidence": {"enum": ["absent", "limited", "passed"]},
+        "notes": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "model": {
+      "type": "object",
+      "required": ["model_id", "role", "crop", "task", "version", "status", "description", "architecture_candidate", "research", "artifacts", "runtime", "fallback"],
+      "properties": {
+        "model_id": {"$ref": "#/$defs/id"},
+        "role": {"enum": ["crop_identifier", "disease_specialist"]},
+        "crop": {"$ref": "#/$defs/id"},
+        "task": {"enum": ["crop_identification", "crop_disease_screening"]},
+        "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+        "status": {"enum": ["missing", "research_candidate", "pending_review", "approved", "revoked"]},
+        "description": {"type": "string", "minLength": 1},
+        "architecture_candidate": {"enum": ["mobilenet_v3_small", "mobilenet_v3_large", "efficientnet_v2_b0", "unselected"]},
+        "research": {"$ref": "#/$defs/research"},
+        "artifacts": {
+          "type": "object",
+          "required": ["release_manifest", "model", "labels"],
+          "properties": {
+            "release_manifest": {"type": ["string", "null"]},
+            "model": {"$ref": "#/$defs/artifact"},
+            "labels": {"$ref": "#/$defs/artifact"}
+          },
+          "additionalProperties": false
+        },
+        "runtime": {
+          "type": "object",
+          "required": ["server", "browser_backends", "preferred", "lazy_load", "target_max_size_mb"],
+          "properties": {
+            "server": {"const": true},
+            "browser_backends": {"type": "array", "uniqueItems": true, "items": {"enum": ["wasm", "webgpu"]}},
+            "preferred": {"enum": ["browser", "server", "hybrid"]},
+            "lazy_load": {"type": "boolean"},
+            "target_max_size_mb": {"type": "number", "exclusiveMinimum": 0}
+          },
+          "additionalProperties": false
+        },
+        "fallback": {
+          "type": "object",
+          "required": ["missing_artifact", "unsupported_runtime", "failed_gate"],
+          "properties": {
+            "missing_artifact": {"enum": ["server", "needs_crop_confirmation", "needs_expert_review"]},
+            "unsupported_runtime": {"enum": ["server", "needs_expert_review"]},
+            "failed_gate": {"const": "needs_expert_review"}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

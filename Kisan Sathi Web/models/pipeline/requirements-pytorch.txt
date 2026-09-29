@@ -1,0 +1,6 @@
+# Optional training/export adapter; not required by registry or runtime inspection.
+# PyTorch 2.13 and TorchVision 0.28 are the matching stable release pair.
+torch==2.13.0
+torchvision==0.28.0
+Pillow==12.3.0
+onnx==1.22.0

@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "models": [
+    {
+      "id": "mesabo_resnet50_onnx",
+      "name": "Mesabo Plant Disease ResNet50 ONNX prototype",
+      "status": "VERIFIED_DOWNLOADABLE",
+      "provider": "huggingface",
+      "framework": "onnxruntime",
+      "architecture": "resnet50",
+      "task": "image_classification",
+      "crops": ["maize", "potato", "tomato", "citrus", "grape", "soybean", "chilli"],
+      "source_url": "https://huggingface.co/mesabo/agri-plant-disease-resnet50",
+      "remote_id": "mesabo/agri-plant-disease-resnet50",
+      "local_path": "mesabo-agri-plant-disease-resnet50-61aa6c3",
+      "license": "Apache-2.0",
+      "training_domain": "controlled",
+      "priority": 100,
+      "enabled": true,
+      "revision": "61aa6c309c8e023f1cef5761254039254fddebed",
+      "input_size": 224,
+      "class_mapping": "labels.json",
+      "preprocessing": {
+        "type": "candidate_preprocess_json",
+        "artifact": "preprocess.json"
+      },
+      "notes": "Prototype-only ONNX export of a PlantVillage-derived research checkpoint. It is not field validated, production approved, or diagnostic."
+    }
+  ]
+}

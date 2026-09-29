@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0",
+  "model_id": "stub-disease-pigeon_pea",
+  "version": "structural-stub-v1",
+  "status": "structural_stub_untrained",
+  "enabled": false,
+  "diagnostic_capability": false,
+  "roles": [
+    "disease_specialist_integration_slot"
+  ],
+  "routing": {
+    "source_crop_ids": [
+      "pigeon_pea"
+    ],
+    "catalog_crop_ids": [
+      "pigeon_pea"
+    ],
+    "farmer_confirmation_required": true,
+    "unsupported_crop_action": "provider_unavailable"
+  },
+  "source": {
+    "kind": "locally_generated_structural_stub",
+    "generator": "scripts/generate_top15_placeholder_models.py",
+    "training_data": null,
+    "trained_weights": false
+  },
+  "artifacts": {
+    "model": {
+      "path": "model.onnx",
+      "size_bytes": 474,
+      "sha256": "e47ec1ecd5e56c0faee25386bad372ee3f22cf781c07e2a727b00f1f39fb2793"
+    },
+    "labels": {
+      "path": "labels.json",
+      "size_bytes": 1006,
+      "sha256": "2b05ea7b23f72ed89f0226730d406245bdb380903fb6138841d605e058c2c048"
+    },
+    "golden_fixture": {
+      "path": "golden/zero-input.json",
+      "size_bytes": 706,
+      "sha256": "5d7ac8eda397097dbce32332d10c05efd2bdc5fc49806789bfb872423e6765f3",
+      "purpose": "runtime_compatibility_only_not_accuracy_evidence"
+    }
+  },
+  "model_contract": {
+    "format": "onnx",
+    "ir_version": 8,
+    "opset": 17,
+    "input": {
+      "name": "input",
+      "dtype": "float32",
+      "shape": [
+        "batch",
+        3,
+        224,
+        224
+      ]
+    },
+    "output": {
+      "name": "logits",
+      "dtype": "float32",
+      "shape": [
+        "batch",
+        5
+      ],
+      "class_count": 5
+    },
+    "behavior": "constant_zero_logits_non_diagnostic"
+  },
+  "preprocessing": {
+    "color_space": "RGB",
+    "resize": [
+      224,
+      224
+    ],
+    "rescale": "uint8_to_float32_0_1",
+    "normalization": {
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ]
+    }
+  },
+  "runtime": {
+    "server_cpu": "compatibility_test_only",
+    "browser_wasm": "compatibility_test_only",
+    "browser_webgpu": "not_claimed",
+    "lazy_load": true
+  },
+  "license": {
+    "artifact_owner": "Kisan Sathi Web project",
+    "redistribution_status": "project_generated_code_artifact",
+    "training_data_terms": "not_applicable_no_training_data"
+  },
+  "evidence": {
+    "training": "absent",
+    "accuracy": "absent",
+    "independent_indian_farmer_phone_field_test": "missing",
+    "unknown_ood_test": "missing",
+    "agronomist_review": "missing",
+    "taxonomy_review": "missing"
+  },
+  "approval": {
+    "release_approved": false,
+    "activation_prohibited": true,
+    "reason": "Untrained constant-output graph for integration testing only.",
+    "missing_gates": [
+      "trained_weights",
+      "independent_indian_farmer_phone_field_test",
+      "unknown_ood_evaluation",
+      "agronomist_review",
+      "browser_server_parity",
+      "release_redistribution_review",
+      "rollback_release_identity"
+    ]
+  },
+  "rollback": {
+    "previous_approved_release": null
+  }
+}

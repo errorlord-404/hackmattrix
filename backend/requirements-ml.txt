@@ -1,0 +1,9 @@
+# Optional inference extras. Install only on a machine that runs local vision.
+-r requirements.txt
+torch
+torchvision
+Pillow
+tensorflow>=2.16,<2.22
+tf-keras>=2.16,<2.22
+transformers>=4.40,<5
+onnxruntime>=1.18,<2

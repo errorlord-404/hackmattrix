@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["schema_version", "started_at", "finished_at", "status", "results", "approval_record_digest"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "started_at": {"type": "string"},
+    "finished_at": {"type": "string"},
+    "status": {"enum": ["pass", "fail"]},
+    "release_ready": {"type": "boolean"},
+    "approval_record_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "results": {"type": "array", "items": {"$ref": "#/$defs/result"}},
+    "artifacts": {"type": "array", "items": {"type": "object"}}
+  },
+  "$defs": {
+    "result": {
+      "type": "object",
+      "required": ["id", "command", "exit_code", "status", "started_at", "finished_at"],
+      "properties": {
+        "id": {"type": "string"},
+        "command": {"type": "array", "items": {"type": "string"}},
+        "exit_code": {"type": "integer"},
+        "status": {"enum": ["pass", "fail"]},
+        "started_at": {"type": "string"},
+        "finished_at": {"type": "string"},
+        "stdout_path": {"type": ["string", "null"]},
+        "stderr_path": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

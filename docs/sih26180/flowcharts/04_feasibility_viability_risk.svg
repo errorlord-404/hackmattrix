@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1920 1080">
+  <defs><marker id="ar" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0 L12 6 L0 12 Z" fill="#607889"/></marker><style>.title{font:700 44px Arial;fill:#17324D}.sub{font:400 20px Arial;fill:#4B6072}.cap{font:700 18px Arial;fill:#fff}.head{font:700 20px Arial;fill:#17324D}.body{font:400 15px Arial;fill:#405568}.gate{font:700 16px Arial;fill:#fff}.small{font:400 13px Arial;fill:#50677A}</style></defs>
+  <rect width="1920" height="1080" fill="#F7F6F0"/><rect width="1920" height="14" fill="#0070C0"/>
+  <text x="90" y="76" class="title">Feasibility, viability and controlled scale</text>
+  <text x="90" y="110" class="sub">A narrow field pilot proves trust and economics before the system controls physical equipment or expands crop coverage</text>
+
+  <!-- three assessment lanes -->
+  <g>
+    <rect x="70" y="160" width="550" height="385" rx="16" fill="#EDF5F0" stroke="#6DA58A" stroke-width="2"/><rect x="70" y="160" width="550" height="58" rx="16" fill="#166B4B"/><text x="345" y="197" text-anchor="middle" class="cap">TECHNICAL FEASIBILITY</text>
+    <text x="100" y="258" class="head">Already demonstrable</text><text x="100" y="287" class="body">React app, FastAPI services, dual database, MCP tools,</text><text x="100" y="310" class="body">weather and market ingestion, crop-stage tasks.</text>
+    <text x="100" y="354" class="head">Next proof</text><text x="100" y="383" class="body">Export firmware, calibrate RS485 probes, validate stale data,</text><text x="100" y="406" class="body">benchmark the exact TFLite model on the target device.</text>
+    <rect x="100" y="447" width="490" height="66" rx="10" fill="#D2EBDD"/><text x="345" y="475" text-anchor="middle" class="head">Gate</text><text x="345" y="499" text-anchor="middle" class="body">Repeatable offline demo plus field-held-out evidence</text>
+
+    <rect x="685" y="160" width="550" height="385" rx="16" fill="#EEF5FA" stroke="#7F9CB2" stroke-width="2"/><rect x="685" y="160" width="550" height="58" rx="16" fill="#0070C0"/><text x="960" y="197" text-anchor="middle" class="cap">OPERATIONAL VIABILITY</text>
+    <text x="715" y="258" class="head">Farmer value</text><text x="715" y="287" class="body">One voice-led workflow reduces search effort and turns</text><text x="715" y="310" class="body">sensor, weather and price data into timely tasks.</text>
+    <text x="715" y="354" class="head">Adoption model</text><text x="715" y="383" class="body">Start through FPOs, cooperatives or extension partners that</text><text x="715" y="406" class="body">can support onboarding, calibration and agronomy review.</text>
+    <rect x="715" y="447" width="490" height="66" rx="10" fill="#DCEAF4"/><text x="960" y="475" text-anchor="middle" class="head">Gate</text><text x="960" y="499" text-anchor="middle" class="body">Farmers complete key tasks without operator rescue</text>
+
+    <rect x="1300" y="160" width="550" height="385" rx="16" fill="#FFF9E9" stroke="#D2B26E" stroke-width="2"/><rect x="1300" y="160" width="550" height="58" rx="16" fill="#B7791F"/><text x="1575" y="197" text-anchor="middle" class="cap">FINANCIAL VIABILITY</text>
+    <text x="1330" y="258" class="head">Cost structure</text><text x="1330" y="287" class="body">Hardware kit, maintenance, connectivity, agronomy review,</text><text x="1330" y="310" class="body">provider usage and field support drive recurring cost.</text>
+    <text x="1330" y="354" class="head">Sustainable route</text><text x="1330" y="383" class="body">Institution-paid deployment, service subscription or verified</text><text x="1330" y="406" class="body">transaction referral can fund a low farmer price.</text>
+    <rect x="1330" y="447" width="490" height="66" rx="10" fill="#FFF0C7"/><text x="1575" y="475" text-anchor="middle" class="head">Gate</text><text x="1575" y="499" text-anchor="middle" class="body">Measured savings or avoided loss exceed full service cost</text>
+  </g>
+
+  <!-- risk control flow -->
+  <text x="70" y="610" class="head" font-size="28">Major risks and the design control</text>
+  <g stroke="#607889" stroke-width="3" fill="none" marker-end="url(#ar)"><line x1="375" y1="690" x2="505" y2="690"/><line x1="960" y1="690" x2="1090" y2="690"/><line x1="1545" y1="690" x2="1580" y2="690"/></g>
+  <g>
+    <rect x="70" y="650" width="300" height="82" rx="12" fill="#8B4E2F"/><text x="220" y="683" text-anchor="middle" class="cap">Sensor drift or stale data</text><text x="220" y="710" text-anchor="middle" fill="#fff" font-family="Arial" font-size="14">Unsafe confidence in field state</text>
+    <rect x="510" y="650" width="440" height="82" rx="12" fill="#fff" stroke="#8B4E2F" stroke-width="2"/><text x="730" y="683" text-anchor="middle" class="head">Freshness + calibration + unknown</text><text x="730" y="710" text-anchor="middle" class="body">Never convert missing telemetry into “healthy”</text>
+    <rect x="1095" y="650" width="445" height="82" rx="12" fill="#8B4E2F"/><text x="1318" y="683" text-anchor="middle" class="cap">Model domain shift</text><text x="1318" y="710" text-anchor="middle" fill="#fff" font-family="Arial" font-size="14">Controlled leaf images fail in real fields</text>
+    <rect x="1590" y="650" width="260" height="82" rx="12" fill="#fff" stroke="#8B4E2F" stroke-width="2"/><text x="1720" y="683" text-anchor="middle" class="head">Abstain + expert review</text><text x="1720" y="710" text-anchor="middle" class="body">Field-held-out release gate</text>
+
+    <rect x="70" y="760" width="300" height="82" rx="12" fill="#8B4E2F"/><text x="220" y="793" text-anchor="middle" class="cap">Connectivity and API outage</text><text x="220" y="820" text-anchor="middle" fill="#fff" font-family="Arial" font-size="14">Rural service interruption</text>
+    <rect x="510" y="760" width="440" height="82" rx="12" fill="#fff" stroke="#8B4E2F" stroke-width="2"/><text x="730" y="793" text-anchor="middle" class="head">SQLite + queued telemetry</text><text x="730" y="820" text-anchor="middle" class="body">Preserve history and retry without duplicate records</text>
+    <rect x="1095" y="760" width="445" height="82" rx="12" fill="#8B4E2F"/><text x="1318" y="793" text-anchor="middle" class="cap">Unsafe autonomous action</text><text x="1318" y="820" text-anchor="middle" fill="#fff" font-family="Arial" font-size="14">Wrong irrigation or chemical use</text>
+    <rect x="1590" y="760" width="260" height="82" rx="12" fill="#fff" stroke="#8B4E2F" stroke-width="2"/><text x="1720" y="793" text-anchor="middle" class="head">Human confirmation</text><text x="1720" y="820" text-anchor="middle" class="body">Pump remains safety gated</text>
+  </g>
+  <g stroke="#607889" stroke-width="3" fill="none" marker-end="url(#ar)"><line x1="375" y1="800" x2="505" y2="800"/><line x1="960" y1="800" x2="1090" y2="800"/><line x1="1545" y1="800" x2="1580" y2="800"/></g>
+
+  <!-- phased scale -->
+  <text x="70" y="910" class="head" font-size="28">Scale sequence</text>
+  <rect x="245" y="878" width="315" height="80" rx="40" fill="#166B4B"/><text x="402" y="911" text-anchor="middle" class="gate">1  One crop · one district</text><text x="402" y="936" text-anchor="middle" fill="#fff" font-family="Arial" font-size="14">advice-only pilot</text>
+  <line x1="560" y1="918" x2="660" y2="918" stroke="#607889" stroke-width="4" marker-end="url(#ar)"/>
+  <rect x="665" y="878" width="315" height="80" rx="40" fill="#315A74"/><text x="822" y="911" text-anchor="middle" class="gate">2  Validate outcomes</text><text x="822" y="936" text-anchor="middle" fill="#fff" font-family="Arial" font-size="14">water, cost, task completion</text>
+  <line x1="980" y1="918" x2="1080" y2="918" stroke="#607889" stroke-width="4" marker-end="url(#ar)"/>
+  <rect x="1085" y="878" width="315" height="80" rx="40" fill="#B7791F"/><text x="1242" y="911" text-anchor="middle" class="gate">3  Expand coverage</text><text x="1242" y="936" text-anchor="middle" fill="#fff" font-family="Arial" font-size="14">new crops and trusted partners</text>
+  <line x1="1400" y1="918" x2="1500" y2="918" stroke="#607889" stroke-width="4" marker-end="url(#ar)"/>
+  <rect x="1505" y="878" width="315" height="80" rx="40" fill="#8B4E2F"/><text x="1662" y="911" text-anchor="middle" class="gate">4  Controlled actuation</text><text x="1662" y="936" text-anchor="middle" fill="#fff" font-family="Arial" font-size="14">flow feedback + manual override</text>
+  <text x="70" y="1028" class="small">Evidence basis: repository audit, FAO irrigation guidance, DFRobot sensor limits, AGMARKNET public data and Qualcomm AI Hub deployment workflow.</text>
+</svg>

@@ -1,0 +1,361 @@
+{
+  "counts": {
+    "frontend_used_path_shapes": 53,
+    "openapi_path_shapes": 84
+  },
+  "frontend_paths": [
+    "/crops",
+    "/gov-schemes",
+    "/gov-schemes/by-state/{}",
+    "/health",
+    "/machinery-rentals",
+    "/machinery-rentals/nearby",
+    "/market-prices/compare/{}",
+    "/market-prices/history",
+    "/market-prices/summary",
+    "/market-prices/trend",
+    "/marketplace/listings",
+    "/marketplace/nearby",
+    "/marketplace/status",
+    "/msp/compare-market",
+    "/v1/advisor/sessions",
+    "/v1/advisor/sessions/{}/messages",
+    "/v1/alerts",
+    "/v1/alerts/{}",
+    "/v1/audit",
+    "/v1/dashboard",
+    "/v1/demo/load",
+    "/v1/diagnoses",
+    "/v1/diagnoses/{}",
+    "/v1/diagnoses/{}/feedback",
+    "/v1/diagnostics",
+    "/v1/export",
+    "/v1/fields",
+    "/v1/fields/map",
+    "/v1/fields/{}",
+    "/v1/fields/{}/action-proposals",
+    "/v1/fields/{}/crop-options",
+    "/v1/fields/{}/irrigation-plan",
+    "/v1/fields/{}/observations/history",
+    "/v1/fields/{}/observations/latest",
+    "/v1/fields/{}/soil-health",
+    "/v1/fields/{}/timeline",
+    "/v1/irrigation-events",
+    "/v1/ledger/entries",
+    "/v1/ledger/entries/{}",
+    "/v1/ledger/summary",
+    "/v1/profile",
+    "/v1/reminders",
+    "/v1/reports",
+    "/v1/sarvam/runtime-config",
+    "/v1/storage-status",
+    "/v1/tasks",
+    "/v1/tasks/{}",
+    "/v1/translate",
+    "/v1/voice/synthesize",
+    "/v1/voice/transcribe",
+    "/v1/voice/turns",
+    "/v1/weather",
+    "/v1/weather/alerts"
+  ],
+  "paths": {
+    "/crops": [
+      "get",
+      "post"
+    ],
+    "/crops/{crop_id}": [
+      "delete",
+      "get",
+      "put"
+    ],
+    "/diseases": [
+      "get",
+      "post"
+    ],
+    "/diseases/{disease_id}": [
+      "delete",
+      "get",
+      "put"
+    ],
+    "/farmers": [
+      "get",
+      "post"
+    ],
+    "/farmers/{farmer_id}": [
+      "delete",
+      "get",
+      "put"
+    ],
+    "/fertilizer": [
+      "get",
+      "post"
+    ],
+    "/fertilizer/recommend": [
+      "post"
+    ],
+    "/fertilizer/{fertilizer_id}": [
+      "delete",
+      "get",
+      "put"
+    ],
+    "/gov-schemes": [
+      "get",
+      "post"
+    ],
+    "/gov-schemes/by-state/{state}": [
+      "get"
+    ],
+    "/gov-schemes/check-eligibility": [
+      "post"
+    ],
+    "/gov-schemes/{gov_scheme_id}": [
+      "delete",
+      "get",
+      "put"
+    ],
+    "/health": [
+      "get"
+    ],
+    "/internal/universal-data/runs": [
+      "get"
+    ],
+    "/internal/universal-data/sync": [
+      "post"
+    ],
+    "/machinery-rentals": [
+      "get",
+      "post"
+    ],
+    "/machinery-rentals/nearby": [
+      "get"
+    ],
+    "/machinery-rentals/{rental_id}": [
+      "delete",
+      "get",
+      "put"
+    ],
+    "/market-prices": [
+      "get",
+      "post"
+    ],
+    "/market-prices/by-crop/{crop_name}": [
+      "get"
+    ],
+    "/market-prices/compare/{crop_name}": [
+      "get"
+    ],
+    "/market-prices/history": [
+      "get"
+    ],
+    "/market-prices/summary": [
+      "get"
+    ],
+    "/market-prices/trend": [
+      "get"
+    ],
+    "/market-prices/{market_price_id}": [
+      "delete",
+      "get",
+      "put"
+    ],
+    "/marketplace/compare-quotes": [
+      "post"
+    ],
+    "/marketplace/listings": [
+      "get"
+    ],
+    "/marketplace/nearby": [
+      "get"
+    ],
+    "/marketplace/status": [
+      "get"
+    ],
+    "/msp": [
+      "get",
+      "post"
+    ],
+    "/msp/by-crop/{crop_name}": [
+      "get"
+    ],
+    "/msp/compare-market": [
+      "get"
+    ],
+    "/msp/{msp_id}": [
+      "delete",
+      "get",
+      "put"
+    ],
+    "/seeds": [
+      "get",
+      "post"
+    ],
+    "/seeds/recommend": [
+      "post"
+    ],
+    "/seeds/{seed_id}": [
+      "delete",
+      "get",
+      "put"
+    ],
+    "/v1/advisor/sessions": [
+      "post"
+    ],
+    "/v1/advisor/sessions/{session_id}/messages": [
+      "post"
+    ],
+    "/v1/advisor/sessions/{session_id}/stream": [
+      "get"
+    ],
+    "/v1/alerts": [
+      "get"
+    ],
+    "/v1/alerts/{alert_id}": [
+      "patch"
+    ],
+    "/v1/audit": [
+      "get"
+    ],
+    "/v1/crop-cycles/{cycle_id}/stage": [
+      "patch"
+    ],
+    "/v1/dashboard": [
+      "get"
+    ],
+    "/v1/demo/load": [
+      "post"
+    ],
+    "/v1/device-ingestion/devices": [
+      "get"
+    ],
+    "/v1/device-ingestion/observations": [
+      "post"
+    ],
+    "/v1/diagnoses": [
+      "post"
+    ],
+    "/v1/diagnoses/{diagnosis_id}": [
+      "get"
+    ],
+    "/v1/diagnoses/{diagnosis_id}/feedback": [
+      "post"
+    ],
+    "/v1/diagnostics": [
+      "get"
+    ],
+    "/v1/export": [
+      "get"
+    ],
+    "/v1/fields": [
+      "get",
+      "post"
+    ],
+    "/v1/fields/map": [
+      "get"
+    ],
+    "/v1/fields/{field_id}": [
+      "delete",
+      "get",
+      "patch"
+    ],
+    "/v1/fields/{field_id}/action-proposals": [
+      "get"
+    ],
+    "/v1/fields/{field_id}/crop-cycles": [
+      "post"
+    ],
+    "/v1/fields/{field_id}/crop-options": [
+      "get"
+    ],
+    "/v1/fields/{field_id}/irrigation-plan": [
+      "get"
+    ],
+    "/v1/fields/{field_id}/observations/history": [
+      "get"
+    ],
+    "/v1/fields/{field_id}/observations/latest": [
+      "get"
+    ],
+    "/v1/fields/{field_id}/soil-health": [
+      "get"
+    ],
+    "/v1/fields/{field_id}/soil-tests": [
+      "post"
+    ],
+    "/v1/fields/{field_id}/timeline": [
+      "get"
+    ],
+    "/v1/irrigation-events": [
+      "get",
+      "post"
+    ],
+    "/v1/ledger/entries": [
+      "get",
+      "post"
+    ],
+    "/v1/ledger/entries/{entry_id}": [
+      "patch"
+    ],
+    "/v1/ledger/summary": [
+      "get"
+    ],
+    "/v1/profile": [
+      "get",
+      "put"
+    ],
+    "/v1/reminders": [
+      "get",
+      "post"
+    ],
+    "/v1/reports": [
+      "get",
+      "post"
+    ],
+    "/v1/reports/{report_id}": [
+      "get"
+    ],
+    "/v1/sarvam/runtime-config": [
+      "get",
+      "put"
+    ],
+    "/v1/sensor-readings": [
+      "post"
+    ],
+    "/v1/storage-status": [
+      "get"
+    ],
+    "/v1/tasks": [
+      "get",
+      "post"
+    ],
+    "/v1/tasks/{task_id}": [
+      "patch"
+    ],
+    "/v1/translate": [
+      "post"
+    ],
+    "/v1/voice/synthesize": [
+      "post"
+    ],
+    "/v1/voice/transcribe": [
+      "post"
+    ],
+    "/v1/voice/turns": [
+      "post"
+    ],
+    "/v1/weather": [
+      "get"
+    ],
+    "/v1/weather/alerts": [
+      "get"
+    ]
+  },
+  "schema_version": 1,
+  "source_hashes": {
+    "agent/src/kisansathi_agent/server.py": "dc3bcfa624e980c0cc07a98fc541237536a6d7b47d4cccdb817cca471b2544d9",
+    "backend/app/main.py": "0f8e16974e49db0b0e59c8bdd97f307f78923f13fcebf3cd51741691fbadf39f",
+    "backend/app/routers/assistants.py": "869e2d8055a12be2e1da46b79cf41c4e9eba44a58292a5163de822cb1bdb97e8",
+    "backend/app/routers/farm_state.py": "0489c14d19e690d19c59a7459c64c554449f8940dc115305b5537792a427f08c",
+    "src/api/farmStateApi.js": "707ccd7e26cad1808e20fe2327fd897f386a729c634f61019c27b622bd30c5a9",
+    "src/api/referenceApi.js": "2bbd4db88707e9cec229b6ea0e8039f4f121d7cdbfea0cd4248eff30cd023bb3"
+  }
+}

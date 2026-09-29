@@ -1,0 +1,12 @@
+[mcp_servers.kisansathi]
+command = "python"
+args = ["-m", "kisansathi_agent"]
+cwd = "C:\\path\\to\\sih mvp\\agent"
+required = true
+startup_timeout_sec = 10
+tool_timeout_sec = 30
+default_tools_approval_mode = "writes"
+
+[mcp_servers.kisansathi.env]
+KISANSATHI_BACKEND_URL = "http://127.0.0.1:8000"
+KISANSATHI_FARMER_ID = "replace-with-trusted-farmer-id"

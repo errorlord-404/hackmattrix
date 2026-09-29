@@ -1,0 +1,22 @@
+{
+  "name": "kisansathi",
+  "version": "0.1.0",
+  "description": "Farmer-scoped KisanSathi tools backed by the local farm API.",
+  "author": {
+    "name": "KisanSathi team"
+  },
+  "interface": {
+    "displayName": "Kisansathi",
+      "shortDescription": "Use KisanSathi farm tools in Codex.",
+      "longDescription": "KisanSathi exposes farmer-scoped farm state, reference data, market, advisory, diagnosis, voice, and safe record-keeping tools through MCP.",
+    "developerName": "Local developer",
+    "category": "Productivity",
+      "capabilities": ["Farmer-scoped data", "MCP tools", "Explicit write approval"],
+      "defaultPrompt": [
+        "Show my current farm overview.",
+        "Compare mandi prices for my crop.",
+        "Check my irrigation advice without controlling equipment."
+      ]
+  },
+  "mcpServers": "./mcp.json"
+}

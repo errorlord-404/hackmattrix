@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "model_id": "placeholder-ktt-mobilenetv3-int8",
+  "classes": [
+    {
+      "index": 0,
+      "label": "bean_spot",
+      "crop_id": "common_bean",
+      "disease_id": "angular_leaf_spot",
+      "catalog_crop_id": null
+    },
+    {
+      "index": 1,
+      "label": "cassava_mosaic",
+      "crop_id": "cassava",
+      "disease_id": "cassava_mosaic_disease",
+      "catalog_crop_id": null
+    },
+    {
+      "index": 2,
+      "label": "healthy",
+      "crop_id": "maize",
+      "disease_id": "healthy",
+      "catalog_crop_id": "maize"
+    },
+    {
+      "index": 3,
+      "label": "maize_blight",
+      "crop_id": "maize",
+      "disease_id": "northern_leaf_blight",
+      "catalog_crop_id": "maize"
+    },
+    {
+      "index": 4,
+      "label": "maize_rust",
+      "crop_id": "maize",
+      "disease_id": "common_rust",
+      "catalog_crop_id": "maize"
+    }
+  ]
+}
+

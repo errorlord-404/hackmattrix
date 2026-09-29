@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0",
+  "model_id": "placeholder-ktt-mobilenetv3-int8",
+  "version": "hf-0bc90b39028bd57124e1cbd51bf4a41ae36b7de8",
+  "status": "research_placeholder_unapproved",
+  "enabled": false,
+  "roles": [
+    "limited_crop_identifier_candidate",
+    "maize_disease_specialist_candidate"
+  ],
+  "routing": {
+    "source_crop_ids": [
+      "common_bean",
+      "cassava",
+      "maize"
+    ],
+    "catalog_crop_ids": [
+      "maize"
+    ],
+    "farmer_confirmation_required": true,
+    "unsupported_crop_action": "provider_unavailable"
+  },
+  "source": {
+    "repository": "https://huggingface.co/DrUkachi/ktt-crop-disease-classifier",
+    "revision": "0bc90b39028bd57124e1cbd51bf4a41ae36b7de8",
+    "model_url": "https://huggingface.co/DrUkachi/ktt-crop-disease-classifier/resolve/0bc90b39028bd57124e1cbd51bf4a41ae36b7de8/model.onnx",
+    "model_card": "https://huggingface.co/DrUkachi/ktt-crop-disease-classifier/blob/0bc90b39028bd57124e1cbd51bf4a41ae36b7de8/README.md"
+  },
+  "artifacts": {
+    "model": {
+      "path": "model.onnx",
+      "size_bytes": 4335078,
+      "sha256": "d00355a27089622d486d6de379474f7b99b424928be5c7ac96bf8f7953ff74c8"
+    },
+    "labels": {
+      "path": "labels.json",
+      "size_bytes": 896,
+      "sha256": "223358c9ed3cea49f5d8406a8e181b05394537bd2e33620e9bea7fc76ea8afc4"
+    },
+    "golden_fixture": {
+      "path": "golden/zero-input.json",
+      "purpose": "runtime_compatibility_only_not_accuracy_evidence",
+      "size_bytes": 784,
+      "sha256": "aa0a76019f09bf0d73817ee56b60262e1ac42ab935030106e551600450c5edb8"
+    }
+  },
+  "model_contract": {
+    "format": "onnx",
+    "ir_version": 8,
+    "opset": 17,
+    "input": {
+      "name": "input",
+      "dtype": "float32",
+      "shape": [
+        "batch",
+        3,
+        224,
+        224
+      ]
+    },
+    "output": {
+      "name": "logits",
+      "dtype": "float32",
+      "shape": [
+        "batch",
+        5
+      ],
+      "class_count": 5
+    }
+  },
+  "preprocessing": {
+    "color_space": "RGB",
+    "resize": [
+      224,
+      224
+    ],
+    "rescale": "uint8_to_float32_0_1",
+    "normalization": {
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ]
+    }
+  },
+  "runtime": {
+    "server_cpu": "verified_onnxruntime_1.30.0",
+    "browser_wasm": "pending_phase_07_dependency_gate",
+    "browser_webgpu": "not_claimed",
+    "lazy_load": true,
+    "target_max_size_mb": 6
+  },
+  "license": {
+    "model_card_declaration": "MIT",
+    "license_url": "https://github.com/DrUkachi/ktt-crop-disease-classifier/blob/master/LICENSE",
+    "redistribution_status": "publisher_declared_mit_project_review_pending",
+    "training_data_terms": "upstream_dataset_terms_require_separate_review"
+  },
+  "evidence": {
+    "training_scope": "five classes from public PlantVillage, cassava, and iBeans-derived sources",
+    "reported_clean_macro_f1": 1.0,
+    "reported_synthetic_field_noisy_macro_f1": 0.9867,
+    "independent_indian_farmer_phone_field_test": "missing",
+    "unknown_ood_test": "missing",
+    "agronomist_review": "missing",
+    "calibrated_acceptance_policy": "missing"
+  },
+  "approval": {
+    "release_approved": false,
+    "reason": "Real model placeholder only; field, OOD, agronomy, browser parity, and release evidence are incomplete.",
+    "missing_gates": [
+      "independent_indian_farmer_phone_field_test",
+      "unknown_ood_evaluation",
+      "agronomist_review",
+      "browser_wasm_golden_parity",
+      "release_redistribution_review",
+      "rollback_release_identity"
+    ]
+  },
+  "rollback": {
+    "previous_approved_release": null
+  }
+}

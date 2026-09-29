@@ -1,0 +1,100 @@
+name: kisansathi
+
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.api
+    restart: unless-stopped
+    env_file:
+      - path: ${API_ENV_FILE:-.env}
+        required: false
+    environment:
+      FARM_STATE_DB_DIR: /app/data/farm_state
+      FARM_STATE_UPLOAD_DIR: /app/data/farm_uploads
+    ports:
+      - "127.0.0.1:${API_PORT:-8000}:8000"
+    volumes:
+      - farm_state:/app/data/farm_state
+      - farm_uploads:/app/data/farm_uploads
+      - model_releases:/app/models/releases:ro
+      # Source artifacts are installed only by an explicit operator action;
+      # keeping this mount separate prevents accidental release promotion.
+      - crop_disease_models:/app/models/crop_disease/downloaded:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      start_period: 15s
+      retries: 6
+
+  harness:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.harness
+    restart: unless-stopped
+    env_file:
+      - path: ${HARNESS_ENV_FILE:-.env}
+        required: false
+    environment:
+      KISANSATHI_ENV: ${KISANSATHI_ENV:-development}
+      KISANSATHI_SESSION_SECRET: ${KISANSATHI_SESSION_SECRET:-development-session-secret-change-me-32}
+      KISANSATHI_CSRF_SECRET: ${KISANSATHI_CSRF_SECRET:-development-csrf-secret-change-me-32}
+    expose:
+      - "8001"
+    volumes:
+      - harness_state:/app/data/harness
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8001/healthz', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      start_period: 10s
+      retries: 6
+
+  web:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.web
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-/api}
+    restart: unless-stopped
+    depends_on:
+      api:
+        # The API healthcheck is liveness-only so the web UI can start while
+        # the provider is intentionally degraded; /readyz remains the honest
+        # full-service readiness signal.
+        condition: service_healthy
+      harness:
+        condition: service_healthy
+    ports:
+      - "${WEB_BIND:-127.0.0.1}:${WEB_PORT:-8080}:80"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1/healthz"]
+      interval: 10s
+      timeout: 3s
+      start_period: 5s
+      retries: 3
+
+  browser-tests:
+    profiles: ["test", "webgpu-test"]
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.e2e
+    depends_on:
+      web:
+        condition: service_healthy
+    environment:
+      PLAYWRIGHT_BASE_URL: http://web
+    command: ["npm", "test", "--", "--project=chromium", "--project=firefox", "--project=webkit"]
+
+volumes:
+  farm_state:
+    name: kisansathi_farm_state
+  farm_uploads:
+    name: kisansathi_farm_uploads
+  model_releases:
+    name: kisansathi_model_releases
+  crop_disease_models:
+    name: kisansathi_crop_disease_models
+  harness_state:
+    name: kisansathi_harness_state

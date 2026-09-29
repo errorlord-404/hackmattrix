@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "source": "preprocessor_config.json",
+  "color_space": "RGB",
+  "input_size": [224, 224],
+  "tensor_layout": "NCHW",
+  "dtype": "float32",
+  "resize_policy": "shortest_edge_224_then_center_crop_224",
+  "rescale_factor": 0.00392156862745098,
+  "normalization": {
+    "mean": [0.485, 0.456, 0.406],
+    "std": [0.229, 0.224, 0.225]
+  },
+  "review_status": "source_reproduced_for_research_candidate"
+}

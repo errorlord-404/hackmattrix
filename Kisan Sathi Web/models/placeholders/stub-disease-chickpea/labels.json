@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "model_id": "stub-disease-chickpea",
+  "taxonomy_status": "draft_requires_agronomist_review",
+  "classes": [
+    {
+      "index": 0,
+      "label": "healthy",
+      "crop_id": "chickpea",
+      "disease_id": "healthy",
+      "catalog_crop_id": "chickpea"
+    },
+    {
+      "index": 1,
+      "label": "fusarium wilt",
+      "crop_id": "chickpea",
+      "disease_id": "fusarium_wilt",
+      "catalog_crop_id": "chickpea"
+    },
+    {
+      "index": 2,
+      "label": "ascochyta blight",
+      "crop_id": "chickpea",
+      "disease_id": "ascochyta_blight",
+      "catalog_crop_id": "chickpea"
+    },
+    {
+      "index": 3,
+      "label": "dry root rot",
+      "crop_id": "chickpea",
+      "disease_id": "dry_root_rot",
+      "catalog_crop_id": "chickpea"
+    },
+    {
+      "index": 4,
+      "label": "collar rot",
+      "crop_id": "chickpea",
+      "disease_id": "collar_rot",
+      "catalog_crop_id": "chickpea"
+    },
+    {
+      "index": 5,
+      "label": "botrytis gray mold",
+      "crop_id": "chickpea",
+      "disease_id": "botrytis_gray_mold",
+      "catalog_crop_id": "chickpea"
+    }
+  ]
+}

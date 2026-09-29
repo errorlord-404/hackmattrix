@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kisansathi.local/models/dataset-manifest/v1",
+  "title": "KisanSathi traceable grouped dataset manifest",
+  "type": "object",
+  "required": ["schema_version", "dataset_id", "purpose", "provenance", "license", "consent", "group_split", "classes", "records"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "dataset_id": {"$ref": "#/$defs/id"},
+    "purpose": {"enum": ["training", "calibration", "internal_test", "external_holdout", "ood_challenge", "parity_golden"]},
+    "created_at": {"type": "string", "format": "date-time"},
+    "provenance": {
+      "type": "object",
+      "required": ["source_id", "source_uri", "immutable_revision", "rights_holder", "collector", "acquired_at"],
+      "properties": {
+        "source_id": {"type": "string", "minLength": 1},
+        "source_uri": {"type": "string", "minLength": 1},
+        "immutable_revision": {"type": "string", "minLength": 1},
+        "rights_holder": {"type": "string", "minLength": 1},
+        "collector": {"type": "string", "minLength": 1},
+        "acquired_at": {"type": "string", "format": "date-time"},
+        "collection_protocol": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
+    "license": {
+      "type": "object",
+      "required": ["identifier", "name", "rights_holder", "training_allowed", "evaluation_allowed", "redistribution_allowed", "verified_by", "verified_at"],
+      "properties": {
+        "identifier": {"type": "string", "minLength": 1},
+        "name": {"type": "string", "minLength": 1},
+        "uri": {"type": ["string", "null"]},
+        "rights_holder": {"type": "string", "minLength": 1},
+        "training_allowed": {"type": "boolean"},
+        "evaluation_allowed": {"type": "boolean"},
+        "redistribution_allowed": {"type": "boolean"},
+        "verified_by": {"type": "string", "minLength": 1},
+        "verified_at": {"type": "string", "format": "date-time"}
+      },
+      "additionalProperties": true
+    },
+    "consent": {
+      "type": "object",
+      "required": ["required", "lawful_basis", "scope", "retention_policy", "deletion_process", "direct_identifiers_removed", "precise_location_removed", "verified_by"],
+      "properties": {
+        "required": {"type": "boolean"},
+        "lawful_basis": {"type": "string", "minLength": 1},
+        "scope": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["training", "evaluation", "deployment", "redistribution"]}},
+        "retention_policy": {"type": "string", "minLength": 1},
+        "deletion_process": {"type": "string", "minLength": 1},
+        "direct_identifiers_removed": {"type": "boolean"},
+        "precise_location_removed": {"type": "boolean"},
+        "verified_by": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
+    "group_split": {
+      "type": "object",
+      "required": ["strategy", "group_keys", "split_names", "duplicate_scan", "overlap_count"],
+      "properties": {
+        "strategy": {"const": "grouped"},
+        "group_keys": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"enum": ["source_image_id", "burst_id", "plant_id", "plot_id", "field_id", "farm_id", "collector_id", "collection_date", "near_duplicate_cluster_id", "synthetic_parent_id", "device_family"]}
+        },
+        "split_names": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"enum": ["train", "validation", "calibration", "internal_test", "external_holdout", "ood_challenge", "golden"]}
+        },
+        "duplicate_scan": {
+          "type": "object",
+          "required": ["exact", "perceptual", "human_disposition_complete"],
+          "properties": {
+            "exact": {"const": true},
+            "perceptual": {"const": true},
+            "human_disposition_complete": {"type": "boolean"}
+          },
+          "additionalProperties": false
+        },
+        "overlap_count": {"const": 0}
+      },
+      "additionalProperties": true
+    },
+    "classes": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/record"}
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"},
+    "hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "safePath": {"type": "string", "minLength": 1, "pattern": "^(?!/)(?![A-Za-z]:)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"},
+    "record": {
+      "type": "object",
+      "required": ["record_id", "path", "sha256", "label", "split", "groups", "crop_id", "organ", "growth_stage", "disease_status", "severity", "district_or_agro_climatic_context", "device_family", "capture_conditions", "reviewer_ids"],
+      "properties": {
+        "record_id": {"$ref": "#/$defs/id"},
+        "path": {"$ref": "#/$defs/safePath"},
+        "sha256": {"$ref": "#/$defs/hash"},
+        "label": {"type": "string", "minLength": 1},
+        "split": {"enum": ["train", "validation", "calibration", "internal_test", "external_holdout", "ood_challenge", "golden"]},
+        "groups": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {"type": ["string", "null"]}
+        },
+        "source_record_id": {"type": ["string", "null"]},
+        "crop_id": {"type": "string", "minLength": 1},
+        "organ": {"type": "string", "minLength": 1},
+        "growth_stage": {"type": "string", "minLength": 1},
+        "variety": {"type": ["string", "null"]},
+        "disease_status": {"type": "string", "minLength": 1},
+        "severity": {"type": "string", "minLength": 1},
+        "district_or_agro_climatic_context": {"type": "string", "minLength": 1},
+        "device_family": {"type": "string", "minLength": 1},
+        "capture_conditions": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "reviewer_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "adjudicator_id": {"type": ["string", "null"]},
+        "consent_record_id": {"type": ["string", "null"]},
+        "license_record_id": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    }
+  }
+}

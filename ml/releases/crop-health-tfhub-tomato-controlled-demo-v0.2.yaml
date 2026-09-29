@@ -1,0 +1,61 @@
+# Controlled-demo manifest. This is deliberately not a field-release manifest.
+release_id: crop-health-tfhub-tomato-controlled-demo-v0.2
+status: demo_only_rejected_for_field_release
+supported_crop: tomato
+scope:
+  labels: [early_blight, healthy, late_blight, leaf_mold]
+  crop_confirmation_required: true
+  unsupported_crop_action: unsupported_crop
+  field_region: not_evaluated
+runtime:
+  name: TensorFlow Lite dynamic-range
+  source_backbone: tfhub/google/imagenet/mobilenet_v3_small_100_224/feature_vector/5
+  inference_location: local_server_tflite_demo
+artifact:
+  path: ml/private-artifacts/tomato-mobilenetv3-tfhub-large-demo-tflite/model-dynamic.tflite
+  sha256: b16a6c0966cd0c2c0c61a7ba85ac77b7e736ded451fe9f2c391c77150cfdd69b
+  size_bytes: 1756896
+  versioned_in_git: false
+labels:
+  path: ml/private-artifacts/tomato-mobilenetv3-tfhub-large-demo-tflite/labels.json
+  sha256: 9250ed3c6db2219237dc307a11deccdeb7fffd6bfffd421e1e4ce363f98e55ab
+  actionable: []
+  fallback_statuses: [needs_expert_review, unsupported_crop, provider_unavailable]
+preprocessing:
+  input_size: 224
+  color_space: RGB
+  input: uint8_0_to_255
+acceptance_policy:
+  minimum_top1_score: 0.70
+  minimum_top1_top2_margin: 0.15
+  poor_capture_action: needs_expert_review
+  treatment_action: none
+evaluation:
+  source_data: Kaggle_PlantVillage_mirror_controlled_images
+  train_images: 1600
+  validation_images: 400
+  keras_validation_accuracy: 0.9575
+  dynamic_tflite_accuracy: 0.9550
+  dynamic_tflite_recall:
+    early_blight: 0.93
+    healthy: 1.00
+    late_blight: 0.90
+    leaf_mold: 0.99
+  full_int8_accuracy: 0.9075
+  full_int8_status: rejected_quantization_loss_and_late_blight_recall
+  independent_field_test: missing
+  unknown_ood_test: missing
+release_blockers:
+  - Farmer-phone and Indian field data are absent.
+  - Unknown/non-target challenge set is absent.
+  - Independent field-held-out evaluation is absent.
+  - Agronomist approval and reviewed treatment content are absent.
+  - Device latency, thermal, and battery evidence are absent.
+release_gates:
+  independent_field_test: missing
+  unknown_ood_test: missing
+  agronomist_review: missing
+license:
+  model_backbone: TensorFlow_Hub_terms_to_verify_before_distribution
+  training_data: PlantVillage_mirror_license_to_verify_before_distribution
+  artifact_distribution: prohibited_until_release_gate_passes

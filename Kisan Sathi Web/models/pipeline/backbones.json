@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "status": "template",
+  "backbones": [
+    {
+      "backbone_id": "torchvision-mobilenet-v3-small",
+      "provider": "torchvision",
+      "framework": "torchvision",
+      "builder": "mobilenet_v3_small",
+      "source": {"immutable_id": "torchvision://MobileNet_V3_Small_Weights/IMAGENET1K_V1", "locator": "torchvision.models.MobileNet_V3_Small_Weights.IMAGENET1K_V1", "revision": "weight-enum-v1"},
+      "input": {"height": 224, "width": 224, "channels": 3},
+      "license": {"name": "BSD 3-Clause", "identifier": "BSD-3-Clause", "url": "https://github.com/pytorch/vision/blob/main/LICENSE", "applies_to": "implementation", "redistribution_review": "required", "notes": "Pretrained-weight provenance and redistribution require release review."},
+      "capabilities": {"train": true, "fine_tune": true, "export_onnx": true, "export_tflite": false},
+      "status": "template"
+    },
+    {
+      "backbone_id": "torchvision-mobilenet-v3-large",
+      "provider": "torchvision",
+      "framework": "torchvision",
+      "builder": "mobilenet_v3_large",
+      "source": {"immutable_id": "torchvision://MobileNet_V3_Large_Weights/IMAGENET1K_V2", "locator": "torchvision.models.MobileNet_V3_Large_Weights.IMAGENET1K_V2", "revision": "weight-enum-v2"},
+      "input": {"height": 224, "width": 224, "channels": 3},
+      "license": {"name": "BSD 3-Clause", "identifier": "BSD-3-Clause", "url": "https://github.com/pytorch/vision/blob/main/LICENSE", "applies_to": "implementation", "redistribution_review": "required", "notes": "Pretrained-weight provenance and redistribution require release review."},
+      "capabilities": {"train": true, "fine_tune": true, "export_onnx": true, "export_tflite": false},
+      "status": "template"
+    },
+    {
+      "backbone_id": "torchvision-efficientnet-b0",
+      "provider": "torchvision",
+      "framework": "torchvision",
+      "builder": "efficientnet_b0",
+      "source": {"immutable_id": "torchvision://EfficientNet_B0_Weights/IMAGENET1K_V1", "locator": "torchvision.models.EfficientNet_B0_Weights.IMAGENET1K_V1", "revision": "weight-enum-v1"},
+      "input": {"height": 224, "width": 224, "channels": 3},
+      "license": {"name": "BSD 3-Clause", "identifier": "BSD-3-Clause", "url": "https://github.com/pytorch/vision/blob/main/LICENSE", "applies_to": "implementation", "redistribution_review": "required", "notes": "Pretrained-weight provenance and redistribution require release review."},
+      "capabilities": {"train": true, "fine_tune": true, "export_onnx": true, "export_tflite": false},
+      "status": "template"
+    },
+    {
+      "backbone_id": "torchvision-shufflenet-v2-x1",
+      "provider": "torchvision",
+      "framework": "torchvision",
+      "builder": "shufflenet_v2_x1_0",
+      "source": {"immutable_id": "torchvision://ShuffleNet_V2_X1_0_Weights/IMAGENET1K_V1", "locator": "torchvision.models.ShuffleNet_V2_X1_0_Weights.IMAGENET1K_V1", "revision": "weight-enum-v1"},
+      "input": {"height": 224, "width": 224, "channels": 3},
+      "license": {"name": "BSD 3-Clause", "identifier": "BSD-3-Clause", "url": "https://github.com/pytorch/vision/blob/main/LICENSE", "applies_to": "implementation", "redistribution_review": "required", "notes": "Pretrained-weight provenance and redistribution require release review."},
+      "capabilities": {"train": true, "fine_tune": true, "export_onnx": true, "export_tflite": false},
+      "status": "template"
+    },
+    {
+      "backbone_id": "keras-mobilenet-v3-small",
+      "provider": "keras_applications",
+      "framework": "keras",
+      "builder": "tf.keras.applications.MobileNetV3Small",
+      "source": {"immutable_id": "keras-applications://MobileNetV3Small/imagenet", "locator": "keras.applications.MobileNetV3Small(weights=imagenet)", "revision": "MobileNetV3Small"},
+      "input": {"height": 224, "width": 224, "channels": 3},
+      "license": {"name": "Apache License 2.0", "identifier": "Apache-2.0", "url": "https://github.com/keras-team/keras/blob/master/LICENSE", "applies_to": "implementation", "redistribution_review": "required", "notes": "ImageNet weight provenance and redistribution require release review."},
+      "capabilities": {"train": true, "fine_tune": true, "export_onnx": true, "export_tflite": true},
+      "status": "template"
+    },
+    {
+      "backbone_id": "keras-efficientnet-b0",
+      "provider": "keras_applications",
+      "framework": "keras",
+      "builder": "tf.keras.applications.EfficientNetB0",
+      "source": {"immutable_id": "keras-applications://EfficientNetB0/imagenet", "locator": "keras.applications.EfficientNetB0(weights=imagenet)", "revision": "EfficientNetB0"},
+      "input": {"height": 224, "width": 224, "channels": 3},
+      "license": {"name": "Apache License 2.0", "identifier": "Apache-2.0", "url": "https://github.com/keras-team/keras/blob/master/LICENSE", "applies_to": "implementation", "redistribution_review": "required", "notes": "ImageNet weight provenance and redistribution require release review."},
+      "capabilities": {"train": true, "fine_tune": true, "export_onnx": true, "export_tflite": true},
+      "status": "template"
+    },
+    {
+      "backbone_id": "tfhub-mobilenet-v3-small",
+      "provider": "tensorflow_hub",
+      "framework": "tensorflow_hub",
+      "builder": "hub.KerasLayer",
+      "source": {"immutable_id": "tfhub://google/imagenet/mobilenet_v3_small_100_224/feature_vector/5", "locator": "https://tfhub.dev/google/imagenet/mobilenet_v3_small_100_224/feature_vector/5", "revision": "5"},
+      "input": {"height": 224, "width": 224, "channels": 3},
+      "license": {"name": "Apache License 2.0", "identifier": "Apache-2.0", "url": "https://www.apache.org/licenses/LICENSE-2.0", "applies_to": "weights", "redistribution_review": "required", "notes": "The versioned Hub handle is fixed; retain artifact hash and license evidence for any candidate release."},
+      "capabilities": {"train": true, "fine_tune": true, "export_onnx": true, "export_tflite": true},
+      "status": "template"
+    },
+    {
+      "backbone_id": "import-onnx",
+      "provider": "import_onnx",
+      "framework": "onnx",
+      "builder": "existing_artifact",
+      "source": {"immutable_id": "import_onnx://artifact/sha256-required", "locator": "user-supplied-sha256", "revision": "manifest-bound-v1"},
+      "input": {"height": 224, "width": 224, "channels": 3},
+      "license": {"name": "Declared by artifact supplier", "identifier": "LicenseRef-User-Supplied", "url": "about:blank", "applies_to": "imported_artifact", "redistribution_review": "required", "notes": "Import requires an artifact SHA-256 plus source and redistribution evidence."},
+      "capabilities": {"train": false, "fine_tune": false, "export_onnx": true, "export_tflite": false},
+      "status": "template"
+    },
+    {
+      "backbone_id": "import-tflite",
+      "provider": "import_tflite",
+      "framework": "tflite",
+      "builder": "existing_artifact",
+      "source": {"immutable_id": "import_tflite://artifact/sha256-required", "locator": "user-supplied-sha256", "revision": "manifest-bound-v1"},
+      "input": {"height": 224, "width": 224, "channels": 3},
+      "license": {"name": "Declared by artifact supplier", "identifier": "LicenseRef-User-Supplied", "url": "about:blank", "applies_to": "imported_artifact", "redistribution_review": "required", "notes": "Import requires an artifact SHA-256 plus source and redistribution evidence."},
+      "capabilities": {"train": false, "fine_tune": false, "export_onnx": false, "export_tflite": true},
+      "status": "template"
+    }
+  ]
+}

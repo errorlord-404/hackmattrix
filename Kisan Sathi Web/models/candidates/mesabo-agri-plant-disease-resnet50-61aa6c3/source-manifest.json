@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "candidate_id": "mesabo-agri-plant-disease-resnet50-61aa6c3",
+  "status": "research_candidate_not_approved",
+  "source": {
+    "repository": "https://huggingface.co/mesabo/agri-plant-disease-resnet50",
+    "revision": "61aa6c309c8e023f1cef5761254039254fddebed",
+    "license": "Apache-2.0",
+    "framework": "transformers-pytorch",
+    "architecture": "ResNetForImageClassification",
+    "dataset_claimed_by_source": "PlantVillage"
+  },
+  "artifacts": {
+    "model.safetensors": {
+      "size_bytes": 94598072,
+      "sha256": "dae1b37f3095cf6446bbaaaee58e524ab755944ffa22da9954e90d0b7af3be33"
+    },
+    "config.json": {
+      "size_bytes": 3544,
+      "sha256": "8dfecef99de38c9e38de87cb757407211aaa52d7c95fdbea1f9908e42cada9dc"
+    },
+    "preprocessor_config.json": {
+      "size_bytes": 354,
+      "sha256": "07c027b5352e4ef493cc7e02bb7667f4422a7e1785f60561a6caf9d2e743180e"
+    },
+    "labels.json": {
+      "size_bytes": 1334,
+      "sha256": "7d5c480fe9d2f74f536799da78356d9c0ee1ad6006a1c84a82582b56d766db6b"
+    },
+    "preprocess.json": {
+      "size_bytes": 430,
+      "sha256": "b97e40b93dd69f4f976b71cdc35d8eb0fd4ff2061bbaeb49ba860edf5d842940"
+    },
+    "model-fp32.onnx": {
+      "size_bytes": 94273366,
+      "sha256": "0d6b37214498e91bdf48dc829f91545886a6eb50969f042e34697774332be088"
+    },
+    "model-dynamic-int8.onnx": {
+      "size_bytes": 23806752,
+      "sha256": "2583a2d87502dc871840d03a0be1eadc87a286b3f47c9cdfbe7c4d85ad3f073e",
+      "release_default": false,
+      "evaluation_required": true,
+      "runtime_validation": "rejected: ONNX Runtime CPU has no ConvInteger implementation for this graph"
+    },
+    "golden-zero-input.json": {
+      "size_bytes": 778,
+      "sha256": "eb3ba6bf9b65572902dbf7436f40260516191d0c45c92abd2490d09dca2fc189",
+      "purpose": "runtime-parity-smoke-only"
+    }
+  },
+  "coverage": {
+    "verified_source_label_crops": ["maize", "tomato", "potato", "citrus", "grape", "soybean", "chilli"],
+    "training_domain": "controlled",
+    "india_field_validated": false
+  },
+  "gates": {
+    "onnx_export": "pending",
+    "static_int8_quantization": "pending",
+    "field_evaluation": "missing",
+    "unknown_ood_evaluation": "missing",
+    "agronomist_review": "missing",
+    "redistribution_review": "source-license-only-not-project-approval",
+    "rollback_identity": "missing"
+  },
+  "activation_allowed": false,
+  "diagnostic_use_allowed": false
+}

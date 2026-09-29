@@ -1,0 +1,86 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment Variables (keeps your passwords/URLs safe)
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# IDEs (VS Code, PyCharm, etc.)
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs
+*.pid
+*.seed
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node / Vite
+node_modules/
+dist/
+dist-ssr/
+.vite/
+.turbo/
+.cache/
+*.local
+coverage/
+test-results/
+playwright-report/
+.playwright-cli/
+
+# Electron build artifacts
+out/
+release/
+*.asar
+*.asar.unpacked/
+
+# Local application data
+backend/data/
+*.sqlite
+*.sqlite3
+*.db
+
+# Local service runtimes and downloaded database binaries
+.runtime/
+backend/.runtime/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+# Local, non-release ML weights and downloaded datasets are reproducible via manifests.
+ml/demo_artifacts/*.pt
+ml/private-data/
+ml/private-artifacts/

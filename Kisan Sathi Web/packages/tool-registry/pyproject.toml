@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kisansathi-tool-registry"
+version = "1.0.0"
+description = "Provider-neutral KisanSathi tool registry and actor-scoped executor"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "httpx==0.28.1",
+  "PyYAML==6.0.3",
+]
+
+[project.optional-dependencies]
+test = ["pytest==8.3.5"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

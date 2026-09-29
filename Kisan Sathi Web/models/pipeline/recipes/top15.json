@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "status": "template",
+  "coverage": {
+    "coverage_id": "india-top-15-integration-v1",
+    "crop_ids": ["rice", "wheat", "maize", "sorghum", "pearl_millet", "chickpea", "pigeon_pea", "groundnut", "soybean", "rapeseed_mustard", "cotton", "sugarcane", "potato", "tomato", "onion"]
+  },
+  "defaults": {
+    "status": "template",
+    "backbone_id": "torchvision-mobilenet-v3-small",
+    "split": {
+      "strategy": "explicit_group_disjoint",
+      "group_keys": ["farm_id", "capture_date", "season", "cultivar", "device_id", "region"],
+      "partitions": ["train", "validation", "test", "field", "ood", "calibration"]
+    },
+    "seed": 42,
+    "preprocessing": {"height": 224, "width": 224, "channels": 3, "color_space": "RGB", "layout": "NCHW", "resize": "resize-shorter-center-crop", "interpolation": "bilinear", "normalization": "imagenet"},
+    "training": {"epochs_frozen": 5, "epochs_finetune": 20, "learning_rate_head": 0.001, "learning_rate_finetune": 0.0001, "batch_size": 32, "optimizer": "adamw", "class_weighting": "balanced", "augmentation": ["random_resized_crop", "horizontal_flip", "color_jitter", "random_rotation", "random_erasing"], "deterministic": true},
+    "export": {"canonical": "onnx", "opset": 17, "input_name": "input", "output_name": "logits", "dynamic_batch_only": true, "optional": ["tflite-fp32", "tflite-float16", "tflite-int8"]},
+    "quantization": {"default": "static-int8", "calibration_partition": "calibration", "allow_dynamic_for_cnn_release": false},
+    "evaluation": {"require_per_class": true, "require_field": true, "require_ood": true, "require_calibration": true, "threshold_profile": "candidate-template-needs-agronomist-approval", "thresholds": {"min_macro_f1": 0.85, "min_per_class_recall": 0.75, "min_ood_auroc": 0.9, "max_expected_calibration_error": 0.08, "max_unknown_false_acceptance": 0.05, "max_quantized_macro_f1_drop": 0.02, "max_runtime_parity_abs_error": 0.0001}}
+  },
+  "recipes": [
+    {"recipe_id": "router-india-top15", "role": "crop_identifier", "crop_id": "multi_crop", "task": "crop_identification", "dataset_manifest": "datasets/manifests/router-india-top15.json", "labels": ["rice", "wheat", "maize", "sorghum", "pearl_millet", "chickpea", "pigeon_pea", "groundnut", "soybean", "rapeseed_mustard", "cotton", "sugarcane", "potato", "tomato", "onion", "unknown"]},
+    {"recipe_id": "specialist-rice", "role": "disease_specialist", "crop_id": "rice", "task": "crop_disease_screening", "dataset_manifest": "datasets/manifests/rice.json", "labels": ["healthy", "bacterial_leaf_blight", "blast", "brown_spot", "sheath_blight", "false_smut", "tungro", "unknown"]},
+    {"recipe_id": "specialist-wheat", "role": "disease_specialist", "crop_id": "wheat", "task": "crop_disease_screening", "dataset_manifest": "datasets/manifests/wheat.json", "labels": ["healthy", "leaf_rust", "stripe_rust", "stem_rust", "loose_smut", "powdery_mildew", "spot_blotch", "unknown"]},
+    {"recipe_id": "specialist-maize", "role": "disease_specialist", "crop_id": "maize", "task": "crop_disease_screening", "dataset_manifest": "datasets/manifests/maize.json", "labels": ["healthy", "northern_leaf_blight", "common_rust", "gray_leaf_spot", "downy_mildew", "banded_leaf_sheath_blight", "maydis_leaf_blight", "unknown"]},
+    {"recipe_id": "specialist-sorghum", "role": "disease_specialist", "crop_id": "sorghum", "task": "crop_disease_screening", "dataset_manifest": "datasets/manifests/sorghum.json", "labels": ["healthy", "anthracnose", "grain_mold", "downy_mildew", "ergot", "rust", "charcoal_rot", "unknown"]},
+    {"recipe_id": "specialist-pearl-millet", "role": "disease_specialist", "crop_id": "pearl_millet", "task": "crop_disease_screening", "dataset_manifest": "datasets/manifests/pearl_millet.json", "labels": ["healthy", "downy_mildew", "ergot", "smut", "rust", "blast", "unknown"]},
+    {"recipe_id": "specialist-chickpea", "role": "disease_specialist", "crop_id": "chickpea", "task": "crop_disease_screening", "dataset_manifest": "datasets/manifests/chickpea.json", "labels": ["healthy", "fusarium_wilt", "ascochyta_blight", "dry_root_rot", "collar_rot", "botrytis_gray_mold", "unknown"]},
+    {"recipe_id": "specialist-pigeon-pea", "role": "disease_specialist", "crop_id": "pigeon_pea", "task": "crop_disease_screening", "dataset_manifest": "datasets/manifests/pigeon_pea.json", "labels": ["healthy", "fusarium_wilt", "sterility_mosaic", "phytophthora_blight", "alternaria_blight", "unknown"]},
+    {"recipe_id": "specialist-groundnut", "role": "disease_specialist", "crop_id": "groundnut", "task": "crop_disease_screening", "dataset_manifest": "datasets/manifests/groundnut.json", "labels": ["healthy", "early_leaf_spot", "late_leaf_spot", "rust", "collar_rot", "stem_rot", "bud_necrosis", "unknown"]},
+    {"recipe_id": "specialist-soybean", "role": "disease_specialist", "crop_id": "soybean", "task": "crop_disease_screening", "dataset_manifest": "datasets/manifests/soybean.json", "labels": ["healthy", "soybean_rust", "charcoal_rot", "bacterial_pustule", "yellow_mosaic", "anthracnose", "rhizoctonia_aerial_blight", "unknown"]},
+    {"recipe_id": "specialist-rapeseed-mustard", "role": "disease_specialist", "crop_id": "rapeseed_mustard", "task": "crop_disease_screening", "dataset_manifest": "datasets/manifests/rapeseed_mustard.json", "labels": ["healthy", "alternaria_blight", "white_rust", "downy_mildew", "powdery_mildew", "sclerotinia_stem_rot", "unknown"]},
+    {"recipe_id": "specialist-cotton", "role": "disease_specialist", "crop_id": "cotton", "task": "crop_disease_screening", "dataset_manifest": "datasets/manifests/cotton.json", "labels": ["healthy", "bacterial_blight", "alternaria_leaf_spot", "gray_mildew", "cotton_leaf_curl_disease", "fusarium_wilt", "verticillium_wilt", "unknown"]},
+    {"recipe_id": "specialist-sugarcane", "role": "disease_specialist", "crop_id": "sugarcane", "task": "crop_disease_screening", "dataset_manifest": "datasets/manifests/sugarcane.json", "labels": ["healthy", "red_rot", "smut", "wilt", "grassy_shoot_disease", "pokkah_boeng", "mosaic", "unknown"]},
+    {"recipe_id": "specialist-potato", "role": "disease_specialist", "crop_id": "potato", "task": "crop_disease_screening", "dataset_manifest": "datasets/manifests/potato.json", "labels": ["healthy", "late_blight", "early_blight", "black_scurf", "bacterial_wilt", "leaf_roll_virus", "mosaic_virus", "unknown"]},
+    {"recipe_id": "specialist-tomato", "role": "disease_specialist", "crop_id": "tomato", "task": "crop_disease_screening", "dataset_manifest": "datasets/manifests/tomato.json", "labels": ["healthy", "early_blight", "late_blight", "bacterial_spot", "septoria_leaf_spot", "leaf_mold", "yellow_leaf_curl_virus", "mosaic_virus", "target_spot", "unknown"]},
+    {"recipe_id": "specialist-onion", "role": "disease_specialist", "crop_id": "onion", "task": "crop_disease_screening", "dataset_manifest": "datasets/manifests/onion.json", "labels": ["healthy", "purple_blotch", "stemphylium_blight", "downy_mildew", "basal_rot", "anthracnose_twister", "iris_yellow_spot", "unknown"]}
+  ]
+}

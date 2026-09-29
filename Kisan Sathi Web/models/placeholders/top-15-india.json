@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "coverage_id": "india-top-15-integration-v1",
+  "purpose": "Define modular disease-specialist integration slots; this is not a clinical or agronomic approval artifact.",
+  "selection_basis": {
+    "primary_source": "https://desagri.gov.in/document-report-category/agriculture-statistics-at-a-glance/",
+    "supporting_source": "https://icar.gov.in/sites/default/files/2022-12/Indian-Agriculture-after-Independence.pdf",
+    "method": "Major cereals, pulses, oilseeds, commercial crops, and TOP vegetables with broad Indian cultivation and application relevance; this is a product coverage set, not a strict single-metric production ranking."
+  },
+  "crops": [
+    {
+      "crop_id": "rice",
+      "display_name": "Rice",
+      "classes": ["healthy", "bacterial_leaf_blight", "blast", "brown_spot", "sheath_blight", "false_smut", "tungro"]
+    },
+    {
+      "crop_id": "wheat",
+      "display_name": "Wheat",
+      "classes": ["healthy", "leaf_rust", "stripe_rust", "stem_rust", "loose_smut", "powdery_mildew", "spot_blotch"]
+    },
+    {
+      "crop_id": "maize",
+      "display_name": "Maize",
+      "classes": ["healthy", "northern_leaf_blight", "common_rust", "gray_leaf_spot", "downy_mildew", "banded_leaf_sheath_blight", "maydis_leaf_blight"]
+    },
+    {
+      "crop_id": "sorghum",
+      "display_name": "Sorghum",
+      "classes": ["healthy", "anthracnose", "grain_mold", "downy_mildew", "ergot", "rust", "charcoal_rot"]
+    },
+    {
+      "crop_id": "pearl_millet",
+      "display_name": "Pearl millet",
+      "classes": ["healthy", "downy_mildew", "ergot", "smut", "rust", "blast"]
+    },
+    {
+      "crop_id": "chickpea",
+      "display_name": "Chickpea",
+      "classes": ["healthy", "fusarium_wilt", "ascochyta_blight", "dry_root_rot", "collar_rot", "botrytis_gray_mold"]
+    },
+    {
+      "crop_id": "pigeon_pea",
+      "display_name": "Pigeon pea",
+      "classes": ["healthy", "fusarium_wilt", "sterility_mosaic", "phytophthora_blight", "alternaria_blight"]
+    },
+    {
+      "crop_id": "groundnut",
+      "display_name": "Groundnut",
+      "classes": ["healthy", "early_leaf_spot", "late_leaf_spot", "rust", "collar_rot", "stem_rot", "bud_necrosis"]
+    },
+    {
+      "crop_id": "soybean",
+      "display_name": "Soybean",
+      "classes": ["healthy", "soybean_rust", "charcoal_rot", "bacterial_pustule", "yellow_mosaic", "anthracnose", "rhizoctonia_aerial_blight"]
+    },
+    {
+      "crop_id": "rapeseed_mustard",
+      "display_name": "Rapeseed and mustard",
+      "classes": ["healthy", "alternaria_blight", "white_rust", "downy_mildew", "powdery_mildew", "sclerotinia_stem_rot"]
+    },
+    {
+      "crop_id": "cotton",
+      "display_name": "Cotton",
+      "classes": ["healthy", "bacterial_blight", "alternaria_leaf_spot", "gray_mildew", "cotton_leaf_curl_disease", "fusarium_wilt", "verticillium_wilt"]
+    },
+    {
+      "crop_id": "sugarcane",
+      "display_name": "Sugarcane",
+      "classes": ["healthy", "red_rot", "smut", "wilt", "grassy_shoot_disease", "pokkah_boeng", "mosaic"]
+    },
+    {
+      "crop_id": "potato",
+      "display_name": "Potato",
+      "classes": ["healthy", "late_blight", "early_blight", "black_scurf", "bacterial_wilt", "leaf_roll_virus", "mosaic_virus"]
+    },
+    {
+      "crop_id": "tomato",
+      "display_name": "Tomato",
+      "classes": ["healthy", "early_blight", "late_blight", "bacterial_spot", "septoria_leaf_spot", "leaf_mold", "yellow_leaf_curl_virus", "mosaic_virus", "target_spot"]
+    },
+    {
+      "crop_id": "onion",
+      "display_name": "Onion",
+      "classes": ["healthy", "purple_blotch", "stemphylium_blight", "downy_mildew", "basal_rot", "anthracnose_twister", "iris_yellow_spot"]
+    }
+  ]
+}

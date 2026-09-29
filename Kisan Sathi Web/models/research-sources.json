@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "source_id": "torchvision-mobilenet-v3-small",
+      "kind": "backbone",
+      "publisher": "PyTorch",
+      "url": "https://docs.pytorch.org/vision/main/models/generated/torchvision.models.mobilenet_v3_small.html",
+      "license_status": "review_required",
+      "license": "BSD-3-Clause code; weight and training-data terms require release review",
+      "deployable_artifact": false,
+      "assessment": "Compact 2.54M-parameter ImageNet backbone (about 9.8 MB before crop fine-tuning); it is not a crop or disease classifier."
+    },
+    {
+      "source_id": "tfhub-mobilenet-v3-small",
+      "kind": "backbone",
+      "publisher": "Google TensorFlow Hub",
+      "url": "https://tfhub.dev/google/imagenet/mobilenet_v3_small_100_224/feature_vector/5",
+      "license_status": "review_required",
+      "license": null,
+      "deployable_artifact": false,
+      "assessment": "Feature-vector backbone suitable for a compact router or specialist after crop-specific training and ONNX export."
+    },
+    {
+      "source_id": "tfhub-efficientnet-v2-b0",
+      "kind": "backbone",
+      "publisher": "Google TensorFlow Hub",
+      "url": "https://tfhub.dev/google/imagenet/efficientnet_v2_imagenet1k_b0/feature_vector/2",
+      "license_status": "review_required",
+      "license": null,
+      "deployable_artifact": false,
+      "assessment": "Accuracy-oriented comparison candidate; it still needs crop-specific training, ONNX export, and field evaluation."
+    },
+    {
+      "source_id": "plantvillage",
+      "kind": "dataset",
+      "publisher": "PlantVillage / EPFL",
+      "url": "https://github.com/spMohanty/PlantVillage-Dataset",
+      "license_status": "review_required",
+      "license": null,
+      "deployable_artifact": false,
+      "assessment": "54,306 controlled leaf images across 14 species and 38 health/disease classes; useful for warm-start training, not field certification."
+    },
+    {
+      "source_id": "plantdoc",
+      "kind": "dataset",
+      "publisher": "PlantDoc authors",
+      "url": "https://github.com/pratikkayal/PlantDoc-Dataset",
+      "license_status": "attribution_required",
+      "license": "CC-BY-4.0",
+      "deployable_artifact": false,
+      "assessment": "2,598 less-controlled images across 13 plant species; useful only as auxiliary external-domain evidence."
+    },
+    {
+      "source_id": "rice-leaf-disease-classification",
+      "kind": "dataset",
+      "publisher": "AI Agriculture Circuits and Systems",
+      "url": "https://github.com/ai-agriculture-circuits-and-systems/rice_leaf_disease_classification",
+      "license_status": "review_required",
+      "license": "Repository states CC-BY-4.0; original-source terms must also be checked",
+      "deployable_artifact": false,
+      "assessment": "Six rice leaf states with variable resolution; a training candidate, not a released lightweight model."
+    },
+    {
+      "source_id": "fomo4wheat",
+      "kind": "research_checkpoint",
+      "publisher": "PheniX Lab",
+      "url": "https://github.com/PheniX-Lab/FoMo4Wheat",
+      "license_status": "permissive_verified",
+      "license": "MIT",
+      "deployable_artifact": false,
+      "assessment": "Wheat foundation checkpoints start at 86M parameters and need a disease head; useful as a benchmark, not the lightweight web runtime."
+    },
+    {
+      "source_id": "ktt-mobilenetv3-int8",
+      "kind": "research_checkpoint",
+      "publisher": "DrUkachi / Hugging Face",
+      "url": "https://huggingface.co/DrUkachi/ktt-crop-disease-classifier",
+      "license_status": "review_required",
+      "license": "Publisher declares MIT; upstream training-dataset terms require separate review",
+      "deployable_artifact": true,
+      "assessment": "A pinned 4.34 MB INT8 ONNX checkpoint with five bean, cassava, and maize labels. It is useful for runtime and modular-routing integration, but its noisy test is synthetic and it has no Indian farmer-phone, OOD, calibration, or agronomist release evidence."
+    },
+    {
+      "source_id": "onnx-runtime-web",
+      "kind": "runtime",
+      "publisher": "Microsoft ONNX Runtime",
+      "url": "https://onnxruntime.ai/docs/tutorials/web/",
+      "license_status": "permissive_verified",
+      "license": "MIT",
+      "deployable_artifact": false,
+      "assessment": "Selected runtime boundary: WASM baseline, optional WebGPU, and the same ONNX artifact on server CPU when compatible."
+    }
+  ]
+}

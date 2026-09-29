@@ -1,0 +1,159 @@
+{
+  "schema_version": "2.0",
+  "catalog_id": "kisansathi-hierarchical-crop-models",
+  "status": "scaffold",
+  "coverage": {
+    "coverage_id": "india-common-crops-v1",
+    "country": "IN",
+    "crop_ids": [
+      "rice", "wheat", "maize", "sorghum", "pearl_millet", "finger_millet",
+      "chickpea", "pigeon_pea", "mung_bean", "black_gram", "groundnut", "soybean",
+      "rapeseed_mustard", "cotton", "jute", "sugarcane", "potato", "tomato",
+      "onion", "chilli", "banana", "mango", "citrus", "grape", "tea", "coconut"
+    ]
+  },
+  "models": [
+    {
+      "model_id": "crop-identifier-india-common",
+      "role": "crop_identifier",
+      "crop": "multi_crop",
+      "task": "crop_identification",
+      "version": "0.0.0",
+      "status": "research_candidate",
+      "description": "Compact first-stage crop router slot for the India common-crop coverage set; no executable weights are shipped.",
+      "architecture_candidate": "mobilenet_v3_small",
+      "research": {
+        "source_ids": ["torchvision-mobilenet-v3-small", "tfhub-mobilenet-v3-small", "plantvillage", "plantdoc", "ktt-mobilenetv3-int8"],
+        "readiness": "research_checkpoint",
+        "field_evidence": "limited",
+        "notes": "A disabled three-crop ONNX placeholder now proves runtime integration, while PlantVillage and PlantDoc remain research inputs. A 26-crop farmer-phone India dataset is still required for an approved router."
+      },
+      "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}},
+      "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "hybrid", "lazy_load": false, "target_max_size_mb": 6},
+      "fallback": {"missing_artifact": "needs_crop_confirmation", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-rice", "role": "disease_specialist", "crop": "rice", "task": "crop_disease_screening", "version": "0.0.0", "status": "research_candidate",
+      "description": "Rice specialist slot; the researched six-class source is training data, not a deployable release.", "architecture_candidate": "mobilenet_v3_small",
+      "research": {"source_ids": ["tfhub-mobilenet-v3-small", "rice-leaf-disease-classification"], "readiness": "dataset_only", "field_evidence": "absent", "notes": "Train and validate by field, season, variety, and device before release."},
+      "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}},
+      "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6},
+      "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-wheat", "role": "disease_specialist", "crop": "wheat", "task": "crop_disease_screening", "version": "0.0.0", "status": "research_candidate",
+      "description": "Wheat specialist slot; FoMo4Wheat is retained as a research benchmark, not shipped to web clients.", "architecture_candidate": "mobilenet_v3_small",
+      "research": {"source_ids": ["tfhub-mobilenet-v3-small", "fomo4wheat"], "readiness": "research_checkpoint", "field_evidence": "limited", "notes": "Distill or train a compact disease head; the published 86M+ parameter foundation checkpoints exceed the client target."},
+      "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}},
+      "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6},
+      "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-maize", "role": "disease_specialist", "crop": "maize", "task": "crop_disease_screening", "version": "0.0.0", "status": "research_candidate",
+      "description": "Maize specialist training slot backed by controlled and auxiliary external-domain datasets.", "architecture_candidate": "mobilenet_v3_small",
+      "research": {"source_ids": ["tfhub-mobilenet-v3-small", "plantvillage", "plantdoc", "ktt-mobilenetv3-int8"], "readiness": "research_checkpoint", "field_evidence": "limited", "notes": "A disabled MIT-declared INT8 ONNX checkpoint covers healthy maize, northern leaf blight, and common rust. India field/OOD evidence, class calibration, and agronomist review remain release blockers."},
+      "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}},
+      "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6},
+      "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-soybean", "role": "disease_specialist", "crop": "soybean", "task": "crop_disease_screening", "version": "0.0.0", "status": "research_candidate",
+      "description": "Soybean specialist training slot using public warm-start data only.", "architecture_candidate": "mobilenet_v3_small",
+      "research": {"source_ids": ["tfhub-mobilenet-v3-small", "plantvillage", "plantdoc"], "readiness": "dataset_only", "field_evidence": "limited", "notes": "PlantVillage has limited soybean health coverage and cannot define an India disease release by itself."},
+      "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}},
+      "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6},
+      "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-potato", "role": "disease_specialist", "crop": "potato", "task": "crop_disease_screening", "version": "0.0.0", "status": "research_candidate",
+      "description": "Potato specialist training slot using public warm-start and external-domain data.", "architecture_candidate": "mobilenet_v3_small",
+      "research": {"source_ids": ["tfhub-mobilenet-v3-small", "plantvillage", "plantdoc"], "readiness": "dataset_only", "field_evidence": "limited", "notes": "Public data supports experiments but not field approval."},
+      "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}},
+      "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6},
+      "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-tomato", "role": "disease_specialist", "crop": "tomato", "task": "crop_disease_screening", "version": "0.0.0", "status": "research_candidate",
+      "description": "Tomato specialist training slot; prior controlled demonstrations are intentionally not copied as releases.", "architecture_candidate": "efficientnet_v2_b0",
+      "research": {"source_ids": ["tfhub-efficientnet-v2-b0", "plantvillage", "plantdoc"], "readiness": "dataset_only", "field_evidence": "limited", "notes": "Controlled-data scores do not transfer reliably to field imagery; fresh field/OOD gates are mandatory."},
+      "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}},
+      "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "hybrid", "lazy_load": true, "target_max_size_mb": 12},
+      "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-citrus", "role": "disease_specialist", "crop": "citrus", "task": "crop_disease_screening", "version": "0.0.0", "status": "research_candidate",
+      "description": "Citrus specialist training slot; public orange imagery is only a partial proxy for Indian citrus varieties.", "architecture_candidate": "mobilenet_v3_small",
+      "research": {"source_ids": ["tfhub-mobilenet-v3-small", "plantvillage"], "readiness": "dataset_only", "field_evidence": "absent", "notes": "Variety and disease taxonomy must be reviewed locally."},
+      "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}},
+      "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6},
+      "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-grape", "role": "disease_specialist", "crop": "grape", "task": "crop_disease_screening", "version": "0.0.0", "status": "research_candidate",
+      "description": "Grape specialist training slot using controlled and auxiliary external-domain data.", "architecture_candidate": "mobilenet_v3_small",
+      "research": {"source_ids": ["tfhub-mobilenet-v3-small", "plantvillage", "plantdoc"], "readiness": "dataset_only", "field_evidence": "limited", "notes": "India field and cultivar coverage remain missing."},
+      "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}},
+      "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6},
+      "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-sorghum", "role": "disease_specialist", "crop": "sorghum", "task": "crop_disease_screening", "version": "0.0.0", "status": "missing", "description": "Reserved modular specialist slot; no sufficiently verified source was selected.", "architecture_candidate": "mobilenet_v3_small", "research": {"source_ids": ["tfhub-mobilenet-v3-small"], "readiness": "backbone_only", "field_evidence": "absent", "notes": "Requires licensed India field data and agronomist-reviewed labels."}, "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}}, "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6}, "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-pearl-millet", "role": "disease_specialist", "crop": "pearl_millet", "task": "crop_disease_screening", "version": "0.0.0", "status": "missing", "description": "Reserved modular specialist slot; no sufficiently verified source was selected.", "architecture_candidate": "mobilenet_v3_small", "research": {"source_ids": ["tfhub-mobilenet-v3-small"], "readiness": "backbone_only", "field_evidence": "absent", "notes": "Requires licensed India field data and agronomist-reviewed labels."}, "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}}, "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6}, "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-finger-millet", "role": "disease_specialist", "crop": "finger_millet", "task": "crop_disease_screening", "version": "0.0.0", "status": "missing", "description": "Reserved modular specialist slot; no sufficiently verified source was selected.", "architecture_candidate": "mobilenet_v3_small", "research": {"source_ids": ["tfhub-mobilenet-v3-small"], "readiness": "backbone_only", "field_evidence": "absent", "notes": "Requires licensed India field data and agronomist-reviewed labels."}, "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}}, "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6}, "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-chickpea", "role": "disease_specialist", "crop": "chickpea", "task": "crop_disease_screening", "version": "0.0.0", "status": "missing", "description": "Reserved modular specialist slot; no sufficiently verified source was selected.", "architecture_candidate": "mobilenet_v3_small", "research": {"source_ids": ["tfhub-mobilenet-v3-small"], "readiness": "backbone_only", "field_evidence": "absent", "notes": "Requires licensed India field data and agronomist-reviewed labels."}, "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}}, "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6}, "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-pigeon-pea", "role": "disease_specialist", "crop": "pigeon_pea", "task": "crop_disease_screening", "version": "0.0.0", "status": "missing", "description": "Reserved modular specialist slot; no sufficiently verified source was selected.", "architecture_candidate": "mobilenet_v3_small", "research": {"source_ids": ["tfhub-mobilenet-v3-small"], "readiness": "backbone_only", "field_evidence": "absent", "notes": "Requires licensed India field data and agronomist-reviewed labels."}, "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}}, "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6}, "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-mung-bean", "role": "disease_specialist", "crop": "mung_bean", "task": "crop_disease_screening", "version": "0.0.0", "status": "missing", "description": "Reserved modular specialist slot; no sufficiently verified source was selected.", "architecture_candidate": "mobilenet_v3_small", "research": {"source_ids": ["tfhub-mobilenet-v3-small"], "readiness": "backbone_only", "field_evidence": "absent", "notes": "Requires licensed India field data and agronomist-reviewed labels."}, "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}}, "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6}, "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-black-gram", "role": "disease_specialist", "crop": "black_gram", "task": "crop_disease_screening", "version": "0.0.0", "status": "missing", "description": "Reserved modular specialist slot; no sufficiently verified source was selected.", "architecture_candidate": "mobilenet_v3_small", "research": {"source_ids": ["tfhub-mobilenet-v3-small"], "readiness": "backbone_only", "field_evidence": "absent", "notes": "Requires licensed India field data and agronomist-reviewed labels."}, "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}}, "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6}, "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-groundnut", "role": "disease_specialist", "crop": "groundnut", "task": "crop_disease_screening", "version": "0.0.0", "status": "missing", "description": "Reserved modular specialist slot; no sufficiently verified source was selected.", "architecture_candidate": "mobilenet_v3_small", "research": {"source_ids": ["tfhub-mobilenet-v3-small"], "readiness": "backbone_only", "field_evidence": "absent", "notes": "Requires licensed India field data and agronomist-reviewed labels."}, "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}}, "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6}, "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-rapeseed-mustard", "role": "disease_specialist", "crop": "rapeseed_mustard", "task": "crop_disease_screening", "version": "0.0.0", "status": "missing", "description": "Reserved modular specialist slot; no sufficiently verified source was selected.", "architecture_candidate": "mobilenet_v3_small", "research": {"source_ids": ["tfhub-mobilenet-v3-small"], "readiness": "backbone_only", "field_evidence": "absent", "notes": "Requires licensed India field data and agronomist-reviewed labels."}, "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}}, "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6}, "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-cotton", "role": "disease_specialist", "crop": "cotton", "task": "crop_disease_screening", "version": "0.0.0", "status": "missing", "description": "Reserved modular specialist slot; public tutorial checkpoints found in research lack adequate provenance and field evidence.", "architecture_candidate": "mobilenet_v3_small", "research": {"source_ids": ["tfhub-mobilenet-v3-small"], "readiness": "backbone_only", "field_evidence": "absent", "notes": "Do not import arbitrary H5 checkpoints; collect licensed local data and train the compact shared architecture."}, "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}}, "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6}, "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-jute", "role": "disease_specialist", "crop": "jute", "task": "crop_disease_screening", "version": "0.0.0", "status": "missing", "description": "Reserved modular specialist slot; no sufficiently verified source was selected.", "architecture_candidate": "mobilenet_v3_small", "research": {"source_ids": ["tfhub-mobilenet-v3-small"], "readiness": "backbone_only", "field_evidence": "absent", "notes": "Requires licensed India field data and agronomist-reviewed labels."}, "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}}, "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6}, "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-sugarcane", "role": "disease_specialist", "crop": "sugarcane", "task": "crop_disease_screening", "version": "0.0.0", "status": "missing", "description": "Reserved modular specialist slot; no sufficiently verified lightweight checkpoint was selected.", "architecture_candidate": "mobilenet_v3_small", "research": {"source_ids": ["tfhub-mobilenet-v3-small"], "readiness": "backbone_only", "field_evidence": "absent", "notes": "Requires India field data for red rot, smut, wilt and healthy look-alikes with agronomist review."}, "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}}, "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6}, "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-onion", "role": "disease_specialist", "crop": "onion", "task": "crop_disease_screening", "version": "0.0.0", "status": "missing", "description": "Reserved modular specialist slot; no sufficiently verified source was selected.", "architecture_candidate": "mobilenet_v3_small", "research": {"source_ids": ["tfhub-mobilenet-v3-small"], "readiness": "backbone_only", "field_evidence": "absent", "notes": "Requires licensed India field data and agronomist-reviewed labels."}, "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}}, "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6}, "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-chilli", "role": "disease_specialist", "crop": "chilli", "task": "crop_disease_screening", "version": "0.0.0", "status": "missing", "description": "Reserved modular specialist slot; bell-pepper datasets are not silently treated as chilli disease evidence.", "architecture_candidate": "mobilenet_v3_small", "research": {"source_ids": ["tfhub-mobilenet-v3-small"], "readiness": "backbone_only", "field_evidence": "absent", "notes": "Requires chilli-specific labels, India field images, and OOD challenge data."}, "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}}, "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6}, "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-banana", "role": "disease_specialist", "crop": "banana", "task": "crop_disease_screening", "version": "0.0.0", "status": "missing", "description": "Reserved modular specialist slot; no sufficiently verified source was selected.", "architecture_candidate": "mobilenet_v3_small", "research": {"source_ids": ["tfhub-mobilenet-v3-small"], "readiness": "backbone_only", "field_evidence": "absent", "notes": "Requires licensed India field data and agronomist-reviewed labels."}, "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}}, "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6}, "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-mango", "role": "disease_specialist", "crop": "mango", "task": "crop_disease_screening", "version": "0.0.0", "status": "missing", "description": "Reserved modular specialist slot; no sufficiently verified source was selected.", "architecture_candidate": "mobilenet_v3_small", "research": {"source_ids": ["tfhub-mobilenet-v3-small"], "readiness": "backbone_only", "field_evidence": "absent", "notes": "Requires licensed India field data and agronomist-reviewed labels."}, "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}}, "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6}, "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-tea", "role": "disease_specialist", "crop": "tea", "task": "crop_disease_screening", "version": "0.0.0", "status": "missing", "description": "Reserved modular specialist slot; no sufficiently verified source was selected.", "architecture_candidate": "mobilenet_v3_small", "research": {"source_ids": ["tfhub-mobilenet-v3-small"], "readiness": "backbone_only", "field_evidence": "absent", "notes": "Requires licensed India field data and agronomist-reviewed labels."}, "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}}, "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6}, "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    },
+    {
+      "model_id": "disease-coconut", "role": "disease_specialist", "crop": "coconut", "task": "crop_disease_screening", "version": "0.0.0", "status": "missing", "description": "Reserved modular specialist slot; no sufficiently verified source was selected.", "architecture_candidate": "mobilenet_v3_small", "research": {"source_ids": ["tfhub-mobilenet-v3-small"], "readiness": "backbone_only", "field_evidence": "absent", "notes": "Requires licensed India field data and agronomist-reviewed labels."}, "artifacts": {"release_manifest": null, "model": {"path": null, "sha256": null, "size_bytes": null}, "labels": {"path": null, "sha256": null, "size_bytes": null}}, "runtime": {"server": true, "browser_backends": ["wasm", "webgpu"], "preferred": "browser", "lazy_load": true, "target_max_size_mb": 6}, "fallback": {"missing_artifact": "server", "unsupported_runtime": "server", "failed_gate": "needs_expert_review"}
+    }
+  ],
+  "upload_contract": {
+    "required_files": ["approved release manifest", "ONNX model", "labels JSON", "preprocessing metadata", "evaluation report"],
+    "approval_required": true,
+    "activation_rule": "approved_entries_only"
+  }
+}

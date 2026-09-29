@@ -1,0 +1,667 @@
+{
+  "schema_version": "1.0",
+  "record_id": "kisansathi-standalone-release-approvals-v1",
+  "review": {
+    "reviewer": "user-approved-development-scope",
+    "reviewer_evidence": [
+      "User-approved exact development identities: PyJWT 2.14.0, onnxruntime-web 1.30.0, @playwright/test 1.63.0, and the pinned Microsoft Playwright image digest.",
+      "https://pypi.org/project/PyJWT/2.14.0/",
+      "https://www.npmjs.com/package/onnxruntime-web/v/1.30.0",
+      "https://www.npmjs.com/package/@playwright/test/v/1.63.0",
+      "https://github.com/microsoft/playwright"
+    ],
+    "approved_at": "2026-09-18T03:05:11Z",
+    "expires_at": "2026-10-18T03:05:11Z",
+    "evidence_scope": "development-dependencies-only"
+  },
+  "policy": {
+    "development_dependencies_may_be_used": true,
+    "release_cv_may_be_used": false,
+    "placeholders_may_be_approved": false,
+    "placeholders_may_be_activated": false,
+    "placeholders_may_support_release_readiness": false,
+    "production_requires_scopes": [
+      "development-dependencies",
+      "release-cv"
+    ]
+  },
+  "scopes": {
+    "development-dependencies": {
+      "scope": "development-dependencies",
+      "status": "approved_for_development",
+      "approved": true,
+      "approved_for": [
+        "development",
+        "contract-tests",
+        "browser-verification"
+      ],
+      "production_release_approved": false,
+      "packages": [
+        {
+          "name": "PyJWT",
+          "ecosystem": "pypi",
+          "version": "2.14.0",
+          "registry_url": "https://pypi.org/project/PyJWT/2.14.0/",
+          "source_url": "https://github.com/jpadilla/pyjwt",
+          "license_review": {
+            "status": "passed",
+            "reviewed": true,
+            "license": "MIT",
+            "evidence_url": "https://pypi.org/project/PyJWT/2.14.0/"
+          },
+          "install_script_review": {
+            "status": "passed",
+            "reviewed": true,
+            "evidence_url": "https://pypi.org/project/PyJWT/2.14.0/",
+            "notes": "Registry metadata and source packaging reviewed; no unapproved install hook is accepted by this record."
+          },
+          "artifacts": [
+            {
+              "filename": "pyjwt-2.14.0-py3-none-any.whl",
+              "url": "https://files.pythonhosted.org/packages/9c/97/672cb32ce0dfea44b740cb7b4f97038463b9cf7c0ead1aacf595572851d6/pyjwt-2.14.0-py3-none-any.whl",
+              "sha256": "ad0cef71c756a56e74863c2919cf0985f72decbcfcb550ee2f422e7c62b5eedc",
+              "size_bytes": 32896
+            },
+            {
+              "filename": "pyjwt-2.14.0.tar.gz",
+              "url": "https://files.pythonhosted.org/packages/af/c3/8a3b59c25070cc61dc517fbdfa5dc0904670c96f605cc69759dc09166b99/pyjwt-2.14.0.tar.gz",
+              "sha256": "77283c83fb56ecf566a886c757a714bc83668e38156de2cce8263302f42e0b86",
+              "size_bytes": 113177
+            }
+          ]
+        },
+        {
+          "name": "onnxruntime-web",
+          "ecosystem": "npm",
+          "version": "1.30.0",
+          "registry_url": "https://www.npmjs.com/package/onnxruntime-web/v/1.30.0",
+          "source_url": "https://github.com/microsoft/onnxruntime",
+          "license_review": {
+            "status": "passed",
+            "reviewed": true,
+            "license": "MIT",
+            "evidence_url": "https://www.npmjs.com/package/onnxruntime-web/v/1.30.0"
+          },
+          "install_script_review": {
+            "status": "passed",
+            "reviewed": true,
+            "evidence_url": "https://www.npmjs.com/package/onnxruntime-web/v/1.30.0",
+            "notes": "NPM manifest and lifecycle-script metadata reviewed before development-only use."
+          },
+          "artifacts": [
+            {
+              "filename": "onnxruntime-web-1.30.0.tgz",
+              "url": "https://registry.npmjs.org/onnxruntime-web/-/onnxruntime-web-1.30.0.tgz",
+              "integrity": "sha512-q0y+JrrtukXSzsBWEMccVfqX25LRmosXHF+CaRJmg8pZClzcV7svNc4rKY3jL02Vb7QmRMDs1SigqR4CXAfKYQ==",
+              "shasum": "b88b09117992e6f486321e931a826fd2f7775377"
+            }
+          ]
+        },
+        {
+          "name": "@playwright/test",
+          "ecosystem": "npm",
+          "version": "1.63.0",
+          "registry_url": "https://www.npmjs.com/package/@playwright/test/v/1.63.0",
+          "source_url": "https://github.com/microsoft/playwright",
+          "license_review": {
+            "status": "passed",
+            "reviewed": true,
+            "license": "Apache-2.0",
+            "evidence_url": "https://www.npmjs.com/package/@playwright/test/v/1.63.0"
+          },
+          "install_script_review": {
+            "status": "passed",
+            "reviewed": true,
+            "evidence_url": "https://www.npmjs.com/package/@playwright/test/v/1.63.0",
+            "notes": "NPM manifest and lifecycle-script metadata reviewed before development-only use."
+          },
+          "artifacts": [
+            {
+              "filename": "test-1.63.0.tgz",
+              "url": "https://registry.npmjs.org/@playwright/test/-/test-1.63.0.tgz",
+              "integrity": "sha512-oxMK4vllB9RK5NQ2l1pq1IfOf2AvnEuj/vYGDj0H2nMtmtZpKtCwt/l00GEO6xjGfpBNAvjovvYdCm50dRQkpQ==",
+              "shasum": "808020c46e8b6b91f9d628cd0ebcbb32bdfd8b6c"
+            }
+          ]
+        }
+      ],
+      "browser_image": {
+        "repository": "mcr.microsoft.com/playwright",
+        "tag": "v1.63.0",
+        "version": "1.63.0",
+        "reference": "mcr.microsoft.com/playwright:v1.63.0@sha256:eff16c30e6f3f4af0a03fa4b706120d5e9b0891c344a27d64559aff5900a4a27",
+        "digest": "sha256:eff16c30e6f3f4af0a03fa4b706120d5e9b0891c344a27d64559aff5900a4a27",
+        "immutable": true,
+        "review_status": "passed",
+        "registry_url": "https://mcr.microsoft.com/v2/playwright/manifests/v1.63.0",
+        "source_url": "https://github.com/microsoft/playwright"
+      },
+      "matching": {
+        "onnxruntime-web": "1.30.0",
+        "@playwright/test": "1.63.0",
+        "playwright_image": "mcr.microsoft.com/playwright:v1.63.0@sha256:eff16c30e6f3f4af0a03fa4b706120d5e9b0891c344a27d64559aff5900a4a27"
+      }
+    },
+    "release-cv": {
+      "scope": "release-cv",
+      "status": "deferred_unapproved",
+      "approved": false,
+      "release_ready": false,
+      "activation_allowed": false,
+      "diagnostic_use_allowed": false,
+      "reason": "Available CV artifacts are research-only or structural ONNX placeholders; no trained distributable release, field evidence, agronomist approval, or release approval was supplied.",
+      "approved_artifacts": null,
+      "required_release_gates": {
+        "trained_weights": "missing",
+        "release_manifest": "not_approved",
+        "model_sha256": "not_approved",
+        "labels_sha256": "not_approved",
+        "redistribution_license": "not_approved",
+        "server_golden_fixture": "deferred",
+        "independent_field_evidence": "missing",
+        "unknown_ood_evaluation": "missing",
+        "agronomist_review": "missing",
+        "rollback_release": "missing"
+      },
+      "quarantined_compatibility_assets": [
+        {
+          "model_id": "placeholder-ktt-mobilenetv3-int8",
+          "kind": "research_placeholder_unapproved",
+          "crop_id": "maize",
+          "approved": false,
+          "activation_allowed": false,
+          "diagnostic_capability": false,
+          "compatibility_only": true,
+          "artifacts": {
+            "model": {
+              "path": "models/placeholders/ktt-mobilenetv3-int8/model.onnx",
+              "size_bytes": 4335078,
+              "sha256": "d00355a27089622d486d6de379474f7b99b424928be5c7ac96bf8f7953ff74c8"
+            },
+            "golden_fixture": {
+              "path": "models/placeholders/ktt-mobilenetv3-int8/golden/zero-input.json",
+              "size_bytes": 784,
+              "sha256": "aa0a76019f09bf0d73817ee56b60262e1ac42ab935030106e551600450c5edb8"
+            },
+            "manifest": {
+              "path": "models/placeholders/ktt-mobilenetv3-int8/manifest.json",
+              "size_bytes": 3658,
+              "sha256": "6b8f9b78df3cf6173b6ad8d96e732e67e96f2db98ac7abc4713797d4a43c41e6"
+            },
+            "labels": {
+              "path": "models/placeholders/ktt-mobilenetv3-int8/labels.json",
+              "size_bytes": 896,
+              "sha256": "223358c9ed3cea49f5d8406a8e181b05394537bd2e33620e9bea7fc76ea8afc4"
+            }
+          }
+        },
+        {
+          "model_id": "stub-disease-chickpea",
+          "kind": "structural_stub_untrained",
+          "crop_id": "chickpea",
+          "approved": false,
+          "activation_allowed": false,
+          "diagnostic_capability": false,
+          "compatibility_only": true,
+          "artifacts": {
+            "model": {
+              "path": "models/placeholders/stub-disease-chickpea/model.onnx",
+              "size_bytes": 476,
+              "sha256": "1d689b4821346b5c791c5e5741dbd664714f9eaa1e30ad197b62e15f2e872b29"
+            },
+            "golden_fixture": {
+              "path": "models/placeholders/stub-disease-chickpea/golden/zero-input.json",
+              "size_bytes": 719,
+              "sha256": "d2d3015a9fffcf9f05ac25fac8a7f3c6fd3175ed7c53339399055e28e5afda4f"
+            },
+            "manifest": {
+              "path": "models/placeholders/stub-disease-chickpea/manifest.json",
+              "size_bytes": 3087,
+              "sha256": "ebc63e4c984e4e8554047cccd07f9c8fac07fdda9a45191d4b12468c183c4d41"
+            },
+            "labels": {
+              "path": "models/placeholders/stub-disease-chickpea/labels.json",
+              "size_bytes": 1131,
+              "sha256": "137fe7dc3ada93bca95f00bae4a0e7355472075f129552d9a245621c6b4a1ec4"
+            }
+          }
+        },
+        {
+          "model_id": "stub-disease-cotton",
+          "kind": "structural_stub_untrained",
+          "crop_id": "cotton",
+          "approved": false,
+          "activation_allowed": false,
+          "diagnostic_capability": false,
+          "compatibility_only": true,
+          "artifacts": {
+            "model": {
+              "path": "models/placeholders/stub-disease-cotton/model.onnx",
+              "size_bytes": 478,
+              "sha256": "e541f3bc47948c23d616e0f3f44aef6dcb068c983a5e98d5d6580a30fc31df17"
+            },
+            "golden_fixture": {
+              "path": "models/placeholders/stub-disease-cotton/golden/zero-input.json",
+              "size_bytes": 732,
+              "sha256": "a92a93966c778c14179a86cc426c4b2556ba87f79f3776cf69db893f0308a9d0"
+            },
+            "manifest": {
+              "path": "models/placeholders/stub-disease-cotton/manifest.json",
+              "size_bytes": 3081,
+              "sha256": "7dfe6317f6ef40e770a2ba09bd303afd21bba837c6d87ef8f6fe24142ba4d406"
+            },
+            "labels": {
+              "path": "models/placeholders/stub-disease-cotton/labels.json",
+              "size_bytes": 1304,
+              "sha256": "96676161c3ea43d2aae18594a3525ef70642e66ae43e867ffcd33e2dca464ed0"
+            }
+          }
+        },
+        {
+          "model_id": "stub-disease-groundnut",
+          "kind": "structural_stub_untrained",
+          "crop_id": "groundnut",
+          "approved": false,
+          "activation_allowed": false,
+          "diagnostic_capability": false,
+          "compatibility_only": true,
+          "artifacts": {
+            "model": {
+              "path": "models/placeholders/stub-disease-groundnut/model.onnx",
+              "size_bytes": 481,
+              "sha256": "866618f7af4e4c0b6562dc526e81a3ec5e1216fd3bcae14bf19015e7b0474ee0"
+            },
+            "golden_fixture": {
+              "path": "models/placeholders/stub-disease-groundnut/golden/zero-input.json",
+              "size_bytes": 732,
+              "sha256": "a92a93966c778c14179a86cc426c4b2556ba87f79f3776cf69db893f0308a9d0"
+            },
+            "manifest": {
+              "path": "models/placeholders/stub-disease-groundnut/manifest.json",
+              "size_bytes": 3090,
+              "sha256": "96c6450e5634ae07e7d9d99c3da7c74c2e64fd5e3620ca6cd3f01c8838921683"
+            },
+            "labels": {
+              "path": "models/placeholders/stub-disease-groundnut/labels.json",
+              "size_bytes": 1273,
+              "sha256": "7a687bd5bc81db28a46f4ff8a3637b6fd033e91bc8a583eb2552fcecc178f01e"
+            }
+          }
+        },
+        {
+          "model_id": "stub-disease-maize",
+          "kind": "structural_stub_untrained",
+          "crop_id": "maize",
+          "approved": false,
+          "activation_allowed": false,
+          "diagnostic_capability": false,
+          "compatibility_only": true,
+          "artifacts": {
+            "model": {
+              "path": "models/placeholders/stub-disease-maize/model.onnx",
+              "size_bytes": 477,
+              "sha256": "35d6442b79c5b3c20367460da25757fbc7078d1874bc58f20def618a34003782"
+            },
+            "golden_fixture": {
+              "path": "models/placeholders/stub-disease-maize/golden/zero-input.json",
+              "size_bytes": 732,
+              "sha256": "a92a93966c778c14179a86cc426c4b2556ba87f79f3776cf69db893f0308a9d0"
+            },
+            "manifest": {
+              "path": "models/placeholders/stub-disease-maize/manifest.json",
+              "size_bytes": 3078,
+              "sha256": "1d46c033624f2c2136b9ef8a760c1ebdc4fb472e8527eb09295db8ac3371c3e0"
+            },
+            "labels": {
+              "path": "models/placeholders/stub-disease-maize/labels.json",
+              "size_bytes": 1287,
+              "sha256": "d111b815b2a0e77473855549f06b3409e3eca32b0df99026da9366d13436a6af"
+            }
+          }
+        },
+        {
+          "model_id": "stub-disease-onion",
+          "kind": "structural_stub_untrained",
+          "crop_id": "onion",
+          "approved": false,
+          "activation_allowed": false,
+          "diagnostic_capability": false,
+          "compatibility_only": true,
+          "artifacts": {
+            "model": {
+              "path": "models/placeholders/stub-disease-onion/model.onnx",
+              "size_bytes": 477,
+              "sha256": "6d3ac334fd2ac14a29acd395f0cc30990527d87f4cf1a3a2d3ee342ca4f25685"
+            },
+            "golden_fixture": {
+              "path": "models/placeholders/stub-disease-onion/golden/zero-input.json",
+              "size_bytes": 732,
+              "sha256": "a92a93966c778c14179a86cc426c4b2556ba87f79f3776cf69db893f0308a9d0"
+            },
+            "manifest": {
+              "path": "models/placeholders/stub-disease-onion/manifest.json",
+              "size_bytes": 3078,
+              "sha256": "6eaea6d241d104999738f012b3e80408185b4170b058abb2f44ca0999a5e6124"
+            },
+            "labels": {
+              "path": "models/placeholders/stub-disease-onion/labels.json",
+              "size_bytes": 1261,
+              "sha256": "7e3e90a003eaaa49566f815495f61f28323adb1822aa193cbcfd702c5c90ba3e"
+            }
+          }
+        },
+        {
+          "model_id": "stub-disease-pearl_millet",
+          "kind": "structural_stub_untrained",
+          "crop_id": "pearl_millet",
+          "approved": false,
+          "activation_allowed": false,
+          "diagnostic_capability": false,
+          "compatibility_only": true,
+          "artifacts": {
+            "model": {
+              "path": "models/placeholders/stub-disease-pearl_millet/model.onnx",
+              "size_bytes": 480,
+              "sha256": "472fc5952093ef3ae41f7dbc63597f6442e406dddcf3ba73ca069374e7222318"
+            },
+            "golden_fixture": {
+              "path": "models/placeholders/stub-disease-pearl_millet/golden/zero-input.json",
+              "size_bytes": 719,
+              "sha256": "d2d3015a9fffcf9f05ac25fac8a7f3c6fd3175ed7c53339399055e28e5afda4f"
+            },
+            "manifest": {
+              "path": "models/placeholders/stub-disease-pearl_millet/manifest.json",
+              "size_bytes": 3099,
+              "sha256": "531e2324fdd681e3d8c969f1850d5c4d1c55c35d885a8ed54a0c1c85cb47c000"
+            },
+            "labels": {
+              "path": "models/placeholders/stub-disease-pearl_millet/labels.json",
+              "size_bytes": 1105,
+              "sha256": "635d1844d0d077020b066099271617ff9d7093d912cac2a1d641bf58c62766f4"
+            }
+          }
+        },
+        {
+          "model_id": "stub-disease-pigeon_pea",
+          "kind": "structural_stub_untrained",
+          "crop_id": "pigeon_pea",
+          "approved": false,
+          "activation_allowed": false,
+          "diagnostic_capability": false,
+          "compatibility_only": true,
+          "artifacts": {
+            "model": {
+              "path": "models/placeholders/stub-disease-pigeon_pea/model.onnx",
+              "size_bytes": 474,
+              "sha256": "e47ec1ecd5e56c0faee25386bad372ee3f22cf781c07e2a727b00f1f39fb2793"
+            },
+            "golden_fixture": {
+              "path": "models/placeholders/stub-disease-pigeon_pea/golden/zero-input.json",
+              "size_bytes": 706,
+              "sha256": "5d7ac8eda397097dbce32332d10c05efd2bdc5fc49806789bfb872423e6765f3"
+            },
+            "manifest": {
+              "path": "models/placeholders/stub-disease-pigeon_pea/manifest.json",
+              "size_bytes": 3093,
+              "sha256": "96856a2f88dfc086b87d1262cddce5a6f5cf22f791b565a4685a6f12744989d0"
+            },
+            "labels": {
+              "path": "models/placeholders/stub-disease-pigeon_pea/labels.json",
+              "size_bytes": 1006,
+              "sha256": "2b05ea7b23f72ed89f0226730d406245bdb380903fb6138841d605e058c2c048"
+            }
+          }
+        },
+        {
+          "model_id": "stub-disease-potato",
+          "kind": "structural_stub_untrained",
+          "crop_id": "potato",
+          "approved": false,
+          "activation_allowed": false,
+          "diagnostic_capability": false,
+          "compatibility_only": true,
+          "artifacts": {
+            "model": {
+              "path": "models/placeholders/stub-disease-potato/model.onnx",
+              "size_bytes": 478,
+              "sha256": "e835cbe8cf8d8eba5eee361cb802398229c75e922fa4b310f89c154c680b7aed"
+            },
+            "golden_fixture": {
+              "path": "models/placeholders/stub-disease-potato/golden/zero-input.json",
+              "size_bytes": 732,
+              "sha256": "a92a93966c778c14179a86cc426c4b2556ba87f79f3776cf69db893f0308a9d0"
+            },
+            "manifest": {
+              "path": "models/placeholders/stub-disease-potato/manifest.json",
+              "size_bytes": 3081,
+              "sha256": "42dd59a5bd5dd2dab1d40207757056d024272c050176efb118b5406a20464020"
+            },
+            "labels": {
+              "path": "models/placeholders/stub-disease-potato/labels.json",
+              "size_bytes": 1252,
+              "sha256": "de1bc7a5c093d0c114ed4bbacc60f7fffe6a0506f4e65e7d0f8a9c734a8c7c2f"
+            }
+          }
+        },
+        {
+          "model_id": "stub-disease-rapeseed_mustard",
+          "kind": "structural_stub_untrained",
+          "crop_id": "rapeseed_mustard",
+          "approved": false,
+          "activation_allowed": false,
+          "diagnostic_capability": false,
+          "compatibility_only": true,
+          "artifacts": {
+            "model": {
+              "path": "models/placeholders/stub-disease-rapeseed_mustard/model.onnx",
+              "size_bytes": 484,
+              "sha256": "deca007a82dfa6fb44388387c3a84608e9bd405a442e366ae10ad2b1454e5fde"
+            },
+            "golden_fixture": {
+              "path": "models/placeholders/stub-disease-rapeseed_mustard/golden/zero-input.json",
+              "size_bytes": 719,
+              "sha256": "d2d3015a9fffcf9f05ac25fac8a7f3c6fd3175ed7c53339399055e28e5afda4f"
+            },
+            "manifest": {
+              "path": "models/placeholders/stub-disease-rapeseed_mustard/manifest.json",
+              "size_bytes": 3111,
+              "sha256": "44b3ff5b4f090d70f65f2647c8480e235ec07e56a6fdbe6b07205c0f523cae9f"
+            },
+            "labels": {
+              "path": "models/placeholders/stub-disease-rapeseed_mustard/labels.json",
+              "size_bytes": 1243,
+              "sha256": "0777d427700520319e889c6083bb03bb31e96e3aff6147a56b6f93f9af9acc32"
+            }
+          }
+        },
+        {
+          "model_id": "stub-disease-rice",
+          "kind": "structural_stub_untrained",
+          "crop_id": "rice",
+          "approved": false,
+          "activation_allowed": false,
+          "diagnostic_capability": false,
+          "compatibility_only": true,
+          "artifacts": {
+            "model": {
+              "path": "models/placeholders/stub-disease-rice/model.onnx",
+              "size_bytes": 476,
+              "sha256": "a993dccf196878955ff65b3b803d516f99456adbc5e601fb53e07d95862af57e"
+            },
+            "golden_fixture": {
+              "path": "models/placeholders/stub-disease-rice/golden/zero-input.json",
+              "size_bytes": 732,
+              "sha256": "a92a93966c778c14179a86cc426c4b2556ba87f79f3776cf69db893f0308a9d0"
+            },
+            "manifest": {
+              "path": "models/placeholders/stub-disease-rice/manifest.json",
+              "size_bytes": 3075,
+              "sha256": "7ba19658d4882a5666c052be135b1660b2c6b5e38d8d9164c5f67b475696fddf"
+            },
+            "labels": {
+              "path": "models/placeholders/stub-disease-rice/labels.json",
+              "size_bytes": 1202,
+              "sha256": "bfe52f21d32b37828a39088a6edc73e0470642cbdfd3caf0ee6e67e617c0058f"
+            }
+          }
+        },
+        {
+          "model_id": "stub-disease-sorghum",
+          "kind": "structural_stub_untrained",
+          "crop_id": "sorghum",
+          "approved": false,
+          "activation_allowed": false,
+          "diagnostic_capability": false,
+          "compatibility_only": true,
+          "artifacts": {
+            "model": {
+              "path": "models/placeholders/stub-disease-sorghum/model.onnx",
+              "size_bytes": 479,
+              "sha256": "de31e4161d149c80134ab8246a7563733b472d55d107b1a78bb00910306c2360"
+            },
+            "golden_fixture": {
+              "path": "models/placeholders/stub-disease-sorghum/golden/zero-input.json",
+              "size_bytes": 732,
+              "sha256": "a92a93966c778c14179a86cc426c4b2556ba87f79f3776cf69db893f0308a9d0"
+            },
+            "manifest": {
+              "path": "models/placeholders/stub-disease-sorghum/manifest.json",
+              "size_bytes": 3084,
+              "sha256": "6b3e1085e2c602563452ea493d9eb3b83ccdf3162dd4cabf67049b24bc6f4e66"
+            },
+            "labels": {
+              "path": "models/placeholders/stub-disease-sorghum/labels.json",
+              "size_bytes": 1225,
+              "sha256": "131ae55d7f536082e668adab6bf075b808e3650a607fb2d0dd17e952f4867957"
+            }
+          }
+        },
+        {
+          "model_id": "stub-disease-soybean",
+          "kind": "structural_stub_untrained",
+          "crop_id": "soybean",
+          "approved": false,
+          "activation_allowed": false,
+          "diagnostic_capability": false,
+          "compatibility_only": true,
+          "artifacts": {
+            "model": {
+              "path": "models/placeholders/stub-disease-soybean/model.onnx",
+              "size_bytes": 479,
+              "sha256": "d216a1583238124ed9fc996f561fc819dd0f7852f84cd5f60c512273d2b4a0ba"
+            },
+            "golden_fixture": {
+              "path": "models/placeholders/stub-disease-soybean/golden/zero-input.json",
+              "size_bytes": 732,
+              "sha256": "a92a93966c778c14179a86cc426c4b2556ba87f79f3776cf69db893f0308a9d0"
+            },
+            "manifest": {
+              "path": "models/placeholders/stub-disease-soybean/manifest.json",
+              "size_bytes": 3084,
+              "sha256": "30ecb5c4b07cd2239bd3c63d4178383df90b49458c3200f7a86f449a4d1872a7"
+            },
+            "labels": {
+              "path": "models/placeholders/stub-disease-soybean/labels.json",
+              "size_bytes": 1297,
+              "sha256": "3bad53f7d455513fded2434bba5e514edc9ceb522cf77de16d8d3e0703e4d60a"
+            }
+          }
+        },
+        {
+          "model_id": "stub-disease-sugarcane",
+          "kind": "structural_stub_untrained",
+          "crop_id": "sugarcane",
+          "approved": false,
+          "activation_allowed": false,
+          "diagnostic_capability": false,
+          "compatibility_only": true,
+          "artifacts": {
+            "model": {
+              "path": "models/placeholders/stub-disease-sugarcane/model.onnx",
+              "size_bytes": 481,
+              "sha256": "215b21643e62e3b215047b7a0a13e561aa73018fba4198cb44dcd4c593380b1b"
+            },
+            "golden_fixture": {
+              "path": "models/placeholders/stub-disease-sugarcane/golden/zero-input.json",
+              "size_bytes": 732,
+              "sha256": "a92a93966c778c14179a86cc426c4b2556ba87f79f3776cf69db893f0308a9d0"
+            },
+            "manifest": {
+              "path": "models/placeholders/stub-disease-sugarcane/manifest.json",
+              "size_bytes": 3090,
+              "sha256": "d66df30b54e0b7186f298713881140e7612ea259b6fecb2005b19454df588322"
+            },
+            "labels": {
+              "path": "models/placeholders/stub-disease-sugarcane/labels.json",
+              "size_bytes": 1253,
+              "sha256": "415139a3fab820688ac14c372b202944765ada525c3ceecf35081d278ec06022"
+            }
+          }
+        },
+        {
+          "model_id": "stub-disease-tomato",
+          "kind": "structural_stub_untrained",
+          "crop_id": "tomato",
+          "approved": false,
+          "activation_allowed": false,
+          "diagnostic_capability": false,
+          "compatibility_only": true,
+          "artifacts": {
+            "model": {
+              "path": "models/placeholders/stub-disease-tomato/model.onnx",
+              "size_bytes": 486,
+              "sha256": "035eaba9e35945b143fed416924a4c62dcec209a6470123229aa053720087ef4"
+            },
+            "golden_fixture": {
+              "path": "models/placeholders/stub-disease-tomato/golden/zero-input.json",
+              "size_bytes": 758,
+              "sha256": "a7ee7ad91c833a60ed566e51ad53ff2e35c33b33c15d2afaab81c18455ce7b46"
+            },
+            "manifest": {
+              "path": "models/placeholders/stub-disease-tomato/manifest.json",
+              "size_bytes": 3081,
+              "sha256": "c558ea862edf249cfb9b445df7f0b976154ab98b74d0e00cf170df79bd5b8d82"
+            },
+            "labels": {
+              "path": "models/placeholders/stub-disease-tomato/labels.json",
+              "size_bytes": 1590,
+              "sha256": "e1540bf3dfe409f457e90cc530302bc491d5bd2c7426420dc5d0b3dd42f82c5d"
+            }
+          }
+        },
+        {
+          "model_id": "stub-disease-wheat",
+          "kind": "structural_stub_untrained",
+          "crop_id": "wheat",
+          "approved": false,
+          "activation_allowed": false,
+          "diagnostic_capability": false,
+          "compatibility_only": true,
+          "artifacts": {
+            "model": {
+              "path": "models/placeholders/stub-disease-wheat/model.onnx",
+              "size_bytes": 477,
+              "sha256": "7e2786c0a781f9319b91c8495ef081e86ac21c9ca4edace478a81ddbdfaea847"
+            },
+            "golden_fixture": {
+              "path": "models/placeholders/stub-disease-wheat/golden/zero-input.json",
+              "size_bytes": 732,
+              "sha256": "a92a93966c778c14179a86cc426c4b2556ba87f79f3776cf69db893f0308a9d0"
+            },
+            "manifest": {
+              "path": "models/placeholders/stub-disease-wheat/manifest.json",
+              "size_bytes": 3078,
+              "sha256": "73251a40c50c5bfd911e044ba1c2de9bb49015844dbfc2f1803d2d4bca120d2f"
+            },
+            "labels": {
+              "path": "models/placeholders/stub-disease-wheat/labels.json",
+              "size_bytes": 1215,
+              "sha256": "ce6083c1223fbfbe55c75af6fe89757d47f1dc97261f3f0a63205b449bc4a1da"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+

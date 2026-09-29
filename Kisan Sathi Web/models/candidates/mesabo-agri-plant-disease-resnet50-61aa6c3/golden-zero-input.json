@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "purpose": "runtime-parity-smoke-only",
+  "input": {
+    "shape": [1, 3, 224, 224],
+    "dtype": "float32",
+    "fill": 0,
+    "sha256": "ad8c5f4d30e45b2a50f7f4d1f347f64d613c6fbcd92c54ca746ab077f402d8cc"
+  },
+  "output": {
+    "name": "logits",
+    "top5": [
+      {"index": 36, "label": "Tomato___Tomato_mosaic_virus", "logit": 3.8443682193756104},
+      {"index": 4, "label": "Blueberry___healthy", "logit": 1.9585013389587402},
+      {"index": 37, "label": "Tomato___healthy", "logit": 1.918222427368164},
+      {"index": 19, "label": "Pepper,_bell___healthy", "logit": 1.5849453210830688},
+      {"index": 2, "label": "Apple___Cedar_apple_rust", "logit": 1.1662373542785645}
+    ]
+  },
+  "release_evidence": false,
+  "field_evidence": false
+}

@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "model_id": "mesabo_resnet50",
+  "remote_id": "mesabo/agri-plant-disease-resnet50",
+  "revision": "61aa6c309c8e023f1cef5761254039254fddebed",
+  "source_url": "https://huggingface.co/mesabo/agri-plant-disease-resnet50",
+  "license": "Apache-2.0",
+  "downloaded_at": "2026-09-19T04:26:00.157079+00:00",
+  "files": [
+    {
+      "path": ".cache/huggingface/.gitignore",
+      "size_bytes": 1,
+      "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+    },
+    {
+      "path": ".cache/huggingface/download/.gitattributes.metadata",
+      "size_bytes": 104,
+      "sha256": "dfbea02ef0aaf2ca44e79e90481d25bf57066ce5d0591031e6ace33192c4b0f2"
+    },
+    {
+      "path": ".cache/huggingface/download/config.json.metadata",
+      "size_bytes": 104,
+      "sha256": "069579b27a4749ea8db739751ea37453305b1553dbcbf8da4104174c27def115"
+    },
+    {
+      "path": ".cache/huggingface/download/model.safetensors.metadata",
+      "size_bytes": 128,
+      "sha256": "9883346b798b9f272ed9fe38ac793b4e1a40855951211569be39a07f698f809f"
+    },
+    {
+      "path": ".cache/huggingface/download/preprocessor_config.json.metadata",
+      "size_bytes": 103,
+      "sha256": "111e248a9606c03d4feba2e67382bedccf85ee615ffc5404b588a94ee4308230"
+    },
+    {
+      "path": ".cache/huggingface/download/README.md.metadata",
+      "size_bytes": 104,
+      "sha256": "1a5e94705153c8d21ee169a1b9bf6ec27fab1f506ef07d3c2fd124691c2045dd"
+    },
+    {
+      "path": ".gitattributes",
+      "size_bytes": 1519,
+      "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361"
+    },
+    {
+      "path": "config.json",
+      "size_bytes": 3544,
+      "sha256": "8dfecef99de38c9e38de87cb757407211aaa52d7c95fdbea1f9908e42cada9dc"
+    },
+    {
+      "path": "model.safetensors",
+      "size_bytes": 94598072,
+      "sha256": "dae1b37f3095cf6446bbaaaee58e524ab755944ffa22da9954e90d0b7af3be33"
+    },
+    {
+      "path": "preprocessor_config.json",
+      "size_bytes": 354,
+      "sha256": "07c027b5352e4ef493cc7e02bb7667f4422a7e1785f60561a6caf9d2e743180e"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 4238,
+      "sha256": "9b5627984183fa550c047ea186f88ef187d674a034d64be84f5fad65614074c9"
+    }
+  ]
+}

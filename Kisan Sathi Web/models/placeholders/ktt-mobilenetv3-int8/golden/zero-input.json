@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "fixture_id": "zero-input-cpu-smoke-v1",
+  "purpose": "runtime_compatibility_only_not_accuracy_evidence",
+  "runtime": {
+    "name": "onnxruntime",
+    "version": "1.30.0",
+    "provider": "CPUExecutionProvider"
+  },
+  "input": {
+    "name": "input",
+    "dtype": "float32",
+    "shape": [
+      1,
+      3,
+      224,
+      224
+    ],
+    "generator": "constant_zero"
+  },
+  "output": {
+    "name": "logits",
+    "dtype": "float32",
+    "shape": [
+      1,
+      5
+    ],
+    "values": [
+      [
+        -2.8546223640441895,
+        -1.4720739126205444,
+        6.000164985656738,
+        -1.9488701820373535,
+        -2.0380141735076904
+      ]
+    ],
+    "raw_float32_sha256": "39acca66f45203b6f6bd903bc1e8bd8389690974166eb519724c6033b9bcf076"
+  }
+}

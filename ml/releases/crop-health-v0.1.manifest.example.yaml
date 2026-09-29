@@ -1,0 +1,50 @@
+# Example only. Do not rename to a release manifest until every TODO is filled.
+release_id: crop-health-v0.1
+status: blocked_pending_scope_and_evaluation
+supported_crop: TODO
+pilot_region: TODO
+target_device:
+  manufacturer_model: TODO
+  soc: TODO
+  android_version: TODO
+runtime:
+  name: TensorFlow Lite
+  version: TODO
+artifact:
+  path: artifacts/crop-health-v0.1-int8.tflite
+  sha256: TODO
+  size_bytes: TODO
+labels:
+  path: labels/crop-health-v0.1.json
+  sha256: TODO
+  actionable: []
+  fallback_statuses: [unknown, unsupported_crop, needs_expert_review]
+preprocessing:
+  input_size: TODO
+  color_space: RGB
+  normalization: TODO
+acceptance_policy:
+  minimum_top1_score: TODO
+  minimum_top1_top2_margin: TODO
+  poor_capture_action: needs_expert_review
+  unsupported_crop_action: unsupported_crop
+evaluation:
+  dataset_manifest: TODO
+  independent_field_test_report: TODO
+  unknown_challenge_report: TODO
+  int8_delta_report: TODO
+release_gates:
+  # Completed local output is impossible unless all three are explicitly passed.
+  # Attach report IDs/links alongside the status in a real reviewed release.
+  independent_field_test: TODO
+  unknown_ood_test: TODO
+  agronomist_review: TODO
+content_pack:
+  version: TODO
+  agronomist_reviewer: TODO
+rollback:
+  previous_verified_release: TODO
+license:
+  model_code: TODO
+  training_data: TODO
+  artifact_distribution: TODO

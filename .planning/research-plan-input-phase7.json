@@ -1,0 +1,49 @@
+{
+  "ecosystem": "pypi",
+  "config": {
+    "exa_search": false,
+    "brave_search": false,
+    "firecrawl": false,
+    "tavily_search": false
+  },
+  "questions": [
+    {
+      "text": "What are the current official FastAPI and Starlette patterns for authenticated streaming responses, WebSockets, disconnect detection, and testing streaming endpoints?",
+      "kind": "docs",
+      "library": "fastapi",
+      "version": "0.141.1"
+    },
+    {
+      "text": "What does the HTML Server-Sent Events standard require for event IDs, Last-Event-ID reconnect, retry behavior, keepalive comments, and browser EventSource credentials?",
+      "kind": "web"
+    },
+    {
+      "text": "What are the official OpenAI, Anthropic, and Google Gemini APIs for streaming text, tool calls, structured output, vision inputs, and cancellation, and which differences must a provider-neutral adapter normalize?",
+      "kind": "web"
+    },
+    {
+      "text": "What are current official OAuth 2.0/OIDC web application security practices for authorization code with PKCE, secure cookie sessions, CSRF protection, token audience and issuer validation, and tenant isolation?",
+      "kind": "web"
+    },
+    {
+      "text": "What are the official ONNX Runtime Web requirements and APIs for Web Worker execution, WASM baseline, WebGPU execution provider, model loading, and cross-origin isolation or threading constraints?",
+      "kind": "docs",
+      "library": "onnxruntime-web",
+      "version": "current"
+    },
+    {
+      "text": "What are current official Docker Compose, FastAPI deployment, and container healthcheck practices for reproducible multi-service deployment, secrets, non-root execution, and persistent volumes?",
+      "kind": "web"
+    },
+    {
+      "text": "What OWASP ASVS controls apply to authenticated multi-tenant AI web services with file uploads, streaming, tool execution, provider secrets, audit logs, and server-side authorization?",
+      "kind": "web"
+    },
+    {
+      "text": "What are the official Playwright capabilities for browser matrix testing of Web Workers, WebGPU feature detection, media permissions, uploads, streaming reconnect, and multi-context tenant isolation?",
+      "kind": "docs",
+      "library": "playwright",
+      "version": "current"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "model_id": "plantvillage_efficientnet",
+  "remote_id": "Nefflymicn/PlantVillage-plant-disease-detection",
+  "revision": "8308d6251f602e561edc45606299de90599d9ca4",
+  "source_url": "https://huggingface.co/Nefflymicn/PlantVillage-plant-disease-detection",
+  "license": "Apache-2.0",
+  "downloaded_at": "2026-09-19T04:26:42.368153+00:00",
+  "files": [
+    {
+      "path": ".cache/huggingface/.gitignore",
+      "size_bytes": 1,
+      "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+    },
+    {
+      "path": ".cache/huggingface/download/.gitattributes.metadata",
+      "size_bytes": 104,
+      "sha256": "ab8c761379ac64cd0820dcc58478954b9bf72eabbda527c64d31ce9450fb0ec7"
+    },
+    {
+      "path": ".cache/huggingface/download/class_names.txt.metadata",
+      "size_bytes": 104,
+      "sha256": "e59713f134707e60718410b711c2bce539a7061abab276e3fa374b79fc60cea0"
+    },
+    {
+      "path": ".cache/huggingface/download/inference.py.metadata",
+      "size_bytes": 104,
+      "sha256": "e8470c923d889a27e00241a379f151744385e7ac65ea9420c5efdfb7fed9f323"
+    },
+    {
+      "path": ".cache/huggingface/download/plant_disease_efficientnet.keras.metadata",
+      "size_bytes": 128,
+      "sha256": "1039cf2d7ba3a3adb2809121e67112fcf1aa8229d688dd390ede7f0556c174cc"
+    },
+    {
+      "path": ".cache/huggingface/download/README.md.metadata",
+      "size_bytes": 104,
+      "sha256": "d69aedae8bfd410face951540ab31ddbbc6eab11b78bf126b807f5aa9e3b1eea"
+    },
+    {
+      "path": ".gitattributes",
+      "size_bytes": 1588,
+      "sha256": "6a441e8c911dc78e0b8bc84f20a3ac655960fdbfdb77d019006e429174039b41"
+    },
+    {
+      "path": "class_names.txt",
+      "size_bytes": 1126,
+      "sha256": "dfa74c0ab335bdf811bda9dedfc22bc3362977d5188293676971717ab9466c2a"
+    },
+    {
+      "path": "inference.py",
+      "size_bytes": 11777,
+      "sha256": "7e256ecf6d855a439ab978102fcaa80dfd8866431d8c001c098614a47d191291"
+    },
+    {
+      "path": "labels.json",
+      "size_bytes": 1359,
+      "sha256": "b2c7b802f220b3a4bf74701c548f9d3919181babf2ec85f6307790b9eb52bc4f"
+    },
+    {
+      "path": "plant_disease_efficientnet.keras",
+      "size_bytes": 38655526,
+      "sha256": "24573478ea38cfbc1aa2e0d5495f746062a9c94e49adc4677d1a8a3d52d88f49"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 1550,
+      "sha256": "8c5a8e76c77960884fc7686de79dc1e9ced2dfa97d10b1619912ebc51145bc90"
+    }
+  ]
+}

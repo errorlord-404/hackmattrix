@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kisansathi.local/contracts/tool-result/v1",
+  "title": "KisanSathi bounded tool result v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status", "summary", "data", "source", "warnings", "request_id", "freshness", "bounds", "action"],
+  "properties": {
+    "status": {"type":"string","enum":["ok","degraded","error","needs_approval","needs_clarification","cancelled"]},
+    "summary": {"type":"string","minLength":1,"maxLength":2000},
+    "data": {},
+    "source": {"type":"string","minLength":1,"maxLength":256},
+    "warnings": {"type":"array","items":{"type":"string","maxLength":500}},
+    "request_id": {"type":"string","minLength":1,"maxLength":128},
+    "freshness": {"anyOf":[{"type":"null"},{"type":"object","additionalProperties":false,"required":["observed_at","fetched_at","age_seconds"],"properties":{"observed_at":{"type":"string","format":"date-time"},"fetched_at":{"type":"string","format":"date-time"},"age_seconds":{"type":"number","minimum":0}}}]},
+    "bounds": {"type":"object","additionalProperties":false,"required":["max_bytes","truncated"],"properties":{"max_bytes":{"type":"integer","minimum":1,"maximum":1048576},"truncated":{"type":"boolean"}}},
+    "action": {"anyOf":[{"type":"null"},{"type":"object","additionalProperties":false,"required":["method","path","resource_type","affected_ids","timestamp","source","warnings","refresh"],"properties":{"method":{"type":"string","enum":["POST","PUT","PATCH","DELETE"]},"path":{"type":"string","pattern":"^/"},"resource_type":{"type":"string","minLength":1},"affected_ids":{"type":"object","additionalProperties":{"type":"string"}},"timestamp":{"type":"string","format":"date-time"},"source":{"type":"string","minLength":1},"warnings":{"type":"array","items":{"type":"string"}},"refresh":{"type":"array","items":{"type":"string","minLength":1},"maxItems":20}}}]}
+  },
+  "examples": [
+    {"status":"ok","summary":"Profile loaded","data":{"name":"Asha"},"source":"kisansathi_backend","warnings":[],"request_id":"req-001","freshness":null,"bounds":{"max_bytes":32768,"truncated":false},"action":null}
+  ]
+}
